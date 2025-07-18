@@ -1,3 +1,22 @@
+# Mold Inventory App
+
+[https://mold-inventory-app.epicpatka.workers.dev/](https://mold-inventory-app.epicpatka.workers.dev/)
+
+## Setup
+
+```bash
+npm install
+npm run dev
+```
+
+## Deploy to Cloudflare
+```bash
+npm run deploy
+```
+
+
+# Next.js README
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
