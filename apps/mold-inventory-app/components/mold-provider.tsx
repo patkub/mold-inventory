@@ -49,16 +49,16 @@ export function MoldProvider({ children }: { children: React.ReactNode }) {
     setMolds((prev) => [...prev, newMold])
   }
 
-  const updateMold = (id: string, updatedMold: Partial<Mold>) => {
-    setMolds((prev) => prev.map((mold) => (mold.id === id ? { ...mold, ...updatedMold } : mold)))
+  const updateMold = (number: string, updatedMold: Partial<Mold>) => {
+    setMolds((prev) => prev.map((mold) => (mold.number === number ? { ...mold, ...updatedMold } : mold)))
   }
 
-  const deleteMold = (id: string) => {
-    setMolds((prev) => prev.filter((mold) => mold.id !== id))
+  const deleteMold = (number: string) => {
+    setMolds((prev) => prev.filter((mold) => mold.number !== number))
   }
 
-  const getMold = (id: string) => {
-    return molds.find((mold) => mold.id === id)
+  const getMold = (number: string) => {
+    return molds.find((mold) => mold.number === number)
   }
 
   return (

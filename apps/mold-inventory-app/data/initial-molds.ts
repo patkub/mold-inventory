@@ -2,89 +2,15 @@ import type { Mold } from "@/types/mold"
 
 export const initialMolds: Mold[] = [
   {
-    id: "mold-001",
-    name: "Bottle Cap Mold",
-    number: "BC-2023-01",
-    material: "Steel",
-    dimensions: "15cm x 15cm x 10cm",
-    weight: "5 kg",
-    cavities: "4",
-    location: "Shelf A3",
-    manufacturer: "MoldTech Inc.",
-    purchaseDate: "2023-01-15",
-    lastUsed: "2023-06-20",
-    status: "Active",
-    notes: "High-performance mold for standard bottle caps. Requires cooling system.",
-    maintenanceHistory: [
-      {
-        date: "2023-03-10",
-        description: "Regular cleaning and lubrication",
-        performedBy: "John Smith",
-      },
-      {
-        date: "2023-05-22",
-        description: "Replaced worn ejector pins",
-        performedBy: "Maria Rodriguez",
-      },
-    ],
+    number: "16QT-MOLD C",
+    description: "16 QT MILKCASE MOLD C",
+    cycleTime: 55.00,
+    status: "Active"
   },
   {
-    id: "mold-002",
-    name: "Container Base Mold",
-    number: "CB-2022-05",
-    material: "Aluminum",
-    dimensions: "30cm x 30cm x 20cm",
-    weight: "12 kg",
-    cavities: "2",
-    location: "Shelf B2",
-    manufacturer: "Premier Molds",
-    purchaseDate: "2022-05-10",
-    lastUsed: "2023-07-05",
-    status: "Maintenance",
-    notes: "Used for food container bases. Currently undergoing maintenance for gate wear.",
-    maintenanceHistory: [
-      {
-        date: "2022-08-15",
-        description: "Polished cavity surfaces",
-        performedBy: "John Smith",
-      },
-      {
-        date: "2023-07-05",
-        description: "Identified gate wear, scheduled for repair",
-        performedBy: "Alex Johnson",
-      },
-    ],
-  },
-  {
-    id: "mold-003",
-    name: "Toy Figure Mold",
-    number: "TF-2021-12",
-    material: "Steel",
-    dimensions: "25cm x 20cm x 15cm",
-    weight: "8 kg",
-    cavities: "1",
-    location: "Shelf C4",
-    manufacturer: "ToyMold Specialists",
-    purchaseDate: "2021-12-03",
-    lastUsed: "2022-11-30",
-    status: "Retired",
-    notes: "Complex mold for detailed action figures. Retired due to design update.",
-    maintenanceHistory: [
-      {
-        date: "2022-02-20",
-        description: "Fixed minor vent blockage",
-        performedBy: "Maria Rodriguez",
-      },
-      {
-        date: "2022-06-15",
-        description: "Deep cleaning and surface treatment",
-        performedBy: "John Smith",
-      },
-      {
-        date: "2022-11-30",
-        description: "Final inspection before retirement",
-        performedBy: "Alex Johnson",
-      },
-    ],
-  },
+    number: "16QT-MOLD D",
+    description: "16 QT MILKCASE MOLD D",
+    cycleTime: 42.00,
+    status: "Active"
+  }
 ]

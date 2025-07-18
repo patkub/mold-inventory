@@ -16,14 +16,14 @@ export function MoldDashboard() {
   const { molds } = useMolds()
   const { user } = useAuth0()
   const [searchTerm, setSearchTerm] = useState("")
-  const [selectedMoldId, setSelectedMoldId] = useState<string | null>(null)
+  const [selectedMoldNumber, setSelectedMoldNumber] = useState<string | null>(null)
   const [isAddingMold, setIsAddingMold] = useState(false)
   const [activeTab, setActiveTab] = useState("all")
 
   const filteredMolds = molds.filter((mold) => {
     const matchesSearch =
-      mold.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      mold.number.toLowerCase().includes(searchTerm.toLowerCase())
+      mold.number.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      mold.description.toLowerCase().includes(searchTerm.toLowerCase())
 
     if (activeTab === "all") return matchesSearch
     if (activeTab === "active") return matchesSearch && mold.status === "Active"
@@ -48,7 +48,7 @@ export function MoldDashboard() {
           <Button
             onClick={() => {
               setIsAddingMold(true)
-              setSelectedMoldId(null)
+              setSelectedMoldNumber(null)
             }}
           >
             <Plus className="mr-2 h-4 w-4" /> Add New Mold
@@ -82,11 +82,11 @@ export function MoldDashboard() {
 
             <MoldList
               molds={filteredMolds}
-              onSelect={(id) => {
-                setSelectedMoldId(id)
+              onSelect={(number) => {
+                setSelectedMoldNumber(number)
                 setIsAddingMold(false)
               }}
-              selectedMoldId={selectedMoldId}
+              selectedMoldNumber={selectedMoldNumber}
             />
           </div>
         </div>
@@ -95,8 +95,8 @@ export function MoldDashboard() {
           <div className="bg-white rounded-lg shadow p-4">
             {isAddingMold ? (
               <MoldForm onCancel={() => setIsAddingMold(false)} />
-            ) : selectedMoldId ? (
-              <MoldDetail moldId={selectedMoldId} onClose={() => setSelectedMoldId(null)} />
+            ) : selectedMoldNumber ? (
+              <MoldDetail moldNumber={selectedMoldNumber} onClose={() => setSelectedMoldNumber(null)} />
             ) : (
               <div className="flex flex-col items-center justify-center py-12 text-center">
                 <Package2 className="h-12 w-12 text-muted-foreground mb-4" />

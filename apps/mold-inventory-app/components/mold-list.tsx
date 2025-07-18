@@ -8,10 +8,10 @@ import type { Mold } from "@/types/mold"
 interface MoldListProps {
   molds: Mold[]
   onSelect: (id: string) => void
-  selectedMoldId: string | null
+  selectedMoldNumber: string | null
 }
 
-export function MoldList({ molds, onSelect, selectedMoldId }: MoldListProps) {
+export function MoldList({ molds, onSelect, selectedMoldNumber }: MoldListProps) {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "Active":
@@ -32,22 +32,21 @@ export function MoldList({ molds, onSelect, selectedMoldId }: MoldListProps) {
       ) : (
         <ul className="space-y-2">
           {molds.map((mold) => (
-            <li key={mold.id}>
+            <li key={mold.number}>
               <button
-                onClick={() => onSelect(mold.id)}
+                onClick={() => onSelect(mold.number)}
                 className={cn(
                   "w-full text-left p-3 rounded-md transition-colors",
-                  selectedMoldId === mold.id ? "bg-gray-100 border-l-4 border-gray-900" : "hover:bg-gray-50",
+                  selectedMoldNumber === mold.number ? "bg-gray-100 border-l-4 border-gray-900" : "hover:bg-gray-50",
                 )}
               >
                 <div className="flex justify-between items-start">
                   <div>
-                    <p className="font-medium">{mold.name}</p>
-                    <p className="text-sm text-muted-foreground">#{mold.number}</p>
+                    <p className="font-medium">{mold.number}</p>
+                    <p className="text-sm text-muted-foreground">{mold.description}</p>
                   </div>
                   <Badge className={getStatusColor(mold.status)}>{mold.status}</Badge>
                 </div>
-                <div className="mt-1 text-xs text-muted-foreground">Last used: {mold.lastUsed}</div>
               </button>
             </li>
           ))}
