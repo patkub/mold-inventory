@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useMolds } from "@/components/mold-provider"
 import { MoldList } from "@/components/mold-list"
 import { MoldDetail } from "@/components/mold-detail"
@@ -14,7 +14,7 @@ import { useAuth0 } from "@auth0/auth0-react"
 
 export function MoldDashboard() {
   const { molds, addMold } = useMolds()
-  const { user, getAccessTokenWithPopup } = useAuth0()
+  const { user, getAccessTokenSilently } = useAuth0()
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedMoldNumber, setSelectedMoldNumber] = useState<string | null>(null)
   const [isAddingMold, setIsAddingMold] = useState(false)
@@ -40,7 +40,7 @@ export function MoldDashboard() {
       const domain = "dev-5gm1mr1z8nbmuhv7.us.auth0.com";
 
       try {
-        const accessToken = await getAccessTokenWithPopup({
+        const accessToken = await getAccessTokenSilently({
           authorizationParams: {
             audience: `https://${domain}/api/v2/`,
             scope: "read:current_user",
@@ -70,7 +70,12 @@ export function MoldDashboard() {
 
     getMoldsAuth();
 
-  }
+  };
+
+  // load molds once on start
+  useEffect(() => {
+    loadMolds()
+  }, [])
 
   return (
     <div className="container mx-auto py-6 px-4">
@@ -91,13 +96,6 @@ export function MoldDashboard() {
             }}
           >
             <Plus className="mr-2 h-4 w-4" /> Add New Mold
-          </Button>
-          <Button
-            onClick={() => {
-              loadMolds()
-            }}
-          >
-            <Plus className="mr-2 h-4 w-4" /> Load Molds
           </Button>
           <UserMenu />
         </div>
