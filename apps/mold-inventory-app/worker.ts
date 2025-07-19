@@ -66,6 +66,32 @@ const verifyAccessToken = async (headers: any) => {
   return true
 }
 
+// Returns true if authorized, false otherwise
+function isAuthorized(request: any) {
+  // Custom Auth logic
+  const token = request.headers.get('Authorization')?.split(' ')[1];
+  if (!token) {
+    // Unauthorized
+    return false;
+  }
+  try {
+
+    const accessTokenIsValid = verifyAccessToken(request.headers)
+
+    if (!accessTokenIsValid) {
+      // Unauthorized
+      return false;
+    }
+
+    // Authorized
+    return true;
+
+  } catch (error) {
+    console.error(error);
+    // Unauthorized
+    return false;
+  }
+}
 
 export default {
   async fetch(request: any, env: any, ctx: any) {
@@ -76,24 +102,8 @@ export default {
 
     if (pathname === "/api/molds") {
 
-      /// Custom Auth logic
-      const token = request.headers.get('Authorization')?.split(' ')[1];
-      if (!token) {
-        return new Response('Unauthorized', { status: 401 });
-      }
-      try {
-
-        const accessTokenIsValid = verifyAccessToken(request.headers)
-
-        if (!accessTokenIsValid) {
-          return new Response('Unauthorized', { status: 401 });
-        }
-
-
-        // Token is valid, proceed with the request
-
-      } catch (error) {
-        console.error(error);
+      // Custom Auth logic
+      if (!isAuthorized(request)) {
         return new Response('Unauthorized', { status: 401 });
       }
 
