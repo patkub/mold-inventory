@@ -2,6 +2,11 @@
 
 [https://mold-inventory-app.epicpatka.workers.dev/](https://mold-inventory-app.epicpatka.workers.dev/)
 
+Tech Stack
+- [Auth0](https://auth0.com/)
+- [Cloudflare D1](https://developers.cloudflare.com/d1/)
+- [Cloudflare Workers](https://developers.cloudflare.com/workers/)
+
 ## Setup
 
 ```bash
