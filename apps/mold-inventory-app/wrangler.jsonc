@@ -16,6 +16,10 @@
       "database_id": "a216b859-a5d7-455b-899c-941ce1f55175"
     }
   ],
+  "dev": {
+    "host": "localhost",
+    "port": 3000
+  },
   // TODO: disable logs for prod
   "observability": {
     "enabled": true
