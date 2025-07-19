@@ -98,7 +98,7 @@ export function MoldDetail({ moldNumber, onClose }: MoldDetailProps) {
               <dt className="text-muted-foreground">Description:</dt>
               <dd>{mold.description}</dd>
               <dt className="text-muted-foreground">Cycle Time:</dt>
-              <dd>{mold.cycleTime}</dd>
+              <dd>{mold.cycle_time}</dd>
             </dl>
           </CardContent>
         </Card>

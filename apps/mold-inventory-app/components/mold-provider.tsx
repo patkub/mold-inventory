@@ -2,10 +2,8 @@
 
 import type React from "react"
 
-import { createContext, useContext, useState, useEffect } from "react"
-import { useAuth0 } from "@auth0/auth0-react"
+import { createContext, useContext, useState } from "react"
 import type { Mold } from "@/types/mold"
-import { initialMolds } from "@/data/initial-molds"
 
 type MoldContextType = {
   molds: Mold[]
@@ -19,27 +17,6 @@ const MoldContext = createContext<MoldContextType | undefined>(undefined)
 
 export function MoldProvider({ children }: { children: React.ReactNode }) {
   const [molds, setMolds] = useState<Mold[]>([])
-  const { user } = useAuth0()
-
-  // Use user ID as part of the storage key to separate data between users
-  const storageKey = user?.sub ? `molds-${user.sub}` : "molds"
-
-  useEffect(() => {
-    // Load initial data or from localStorage if available
-    const savedMolds = localStorage.getItem(storageKey)
-    if (savedMolds) {
-      setMolds(JSON.parse(savedMolds))
-    } else {
-      setMolds(initialMolds)
-    }
-  }, [storageKey])
-
-  useEffect(() => {
-    // Save to localStorage whenever molds change
-    if (molds.length > 0) {
-      localStorage.setItem(storageKey, JSON.stringify(molds))
-    }
-  }, [molds, storageKey])
 
   const addMold = (mold: Omit<Mold, "id">) => {
     const newMold = {
@@ -62,7 +39,7 @@ export function MoldProvider({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <MoldContext.Provider value={{ molds, addMold, updateMold, deleteMold, getMold }}>{children}</MoldContext.Provider>
+    <MoldContext.Provider value={{molds, addMold, updateMold, deleteMold, getMold }}>{children}</MoldContext.Provider>
   )
 }
 

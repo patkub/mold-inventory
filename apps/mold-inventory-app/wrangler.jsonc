@@ -1,5 +1,5 @@
 {
-  "main": ".open-next/worker.js",
+  "main": "worker.ts",
   "name": "mold-inventory-app",
   "compatibility_date": "2025-03-25",
   "compatibility_flags": [
@@ -8,5 +8,16 @@
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
+  },
+  "d1_databases": [
+    {
+      "binding": "MOLD_DB",
+      "database_name": "mold-inventory-app-db1",
+      "database_id": "a216b859-a5d7-455b-899c-941ce1f55175"
+    }
+  ],
+  // TODO: disable logs for prod
+  "observability": {
+    "enabled": true
   }
 }

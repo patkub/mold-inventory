@@ -13,8 +13,8 @@ import { Package2, Plus, Search } from "lucide-react"
 import { useAuth0 } from "@auth0/auth0-react"
 
 export function MoldDashboard() {
-  const { molds } = useMolds()
-  const { user } = useAuth0()
+  const { molds, addMold } = useMolds()
+  const { user, getAccessTokenWithPopup } = useAuth0()
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedMoldNumber, setSelectedMoldNumber] = useState<string | null>(null)
   const [isAddingMold, setIsAddingMold] = useState(false)
@@ -32,6 +32,45 @@ export function MoldDashboard() {
 
     return matchesSearch
   })
+
+  const loadMolds = () => {
+    console.log("Loading molds....")
+
+     const getMoldsAuth = async () => {
+      const domain = "dev-5gm1mr1z8nbmuhv7.us.auth0.com";
+
+      try {
+        const accessToken = await getAccessTokenWithPopup({
+          authorizationParams: {
+            audience: `https://${domain}/api/v2/`,
+            scope: "read:current_user",
+          },
+        });
+
+        const apiMoldsResponse = await fetch("/api/molds", {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+
+        const jsonData = await apiMoldsResponse.json();
+
+        console.log(jsonData)
+
+        // Update molds
+        for (const mold of jsonData) {
+          addMold(mold)
+        }
+
+      } catch (e) {
+        //
+        console.log(e)
+      }
+    };
+
+    getMoldsAuth();
+
+  }
 
   return (
     <div className="container mx-auto py-6 px-4">
@@ -52,6 +91,13 @@ export function MoldDashboard() {
             }}
           >
             <Plus className="mr-2 h-4 w-4" /> Add New Mold
+          </Button>
+          <Button
+            onClick={() => {
+              loadMolds()
+            }}
+          >
+            <Plus className="mr-2 h-4 w-4" /> Load Molds
           </Button>
           <UserMenu />
         </div>

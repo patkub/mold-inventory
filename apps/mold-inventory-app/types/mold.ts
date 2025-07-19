@@ -7,6 +7,6 @@ export interface MaintenanceRecord {
 export interface Mold {
   number: string,
   description: string,
-  cycleTime: number,
+  cycle_time: string,
   status: "Active" | "Maintenance" | "Retired"
 }

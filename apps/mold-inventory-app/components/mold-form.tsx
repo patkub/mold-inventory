@@ -23,7 +23,7 @@ export function MoldForm({ mold, onCancel }: MoldFormProps) {
   const [formData, setFormData] = useState<Omit<Mold, "id">>({
     number: mold?.number || "",
     description: mold?.description || "",
-    cycleTime: mold?.cycleTime || 0,
+    cycle_time: mold?.cycle_time || "",
     status: mold?.status || "Active"
   })
 
@@ -70,8 +70,8 @@ export function MoldForm({ mold, onCancel }: MoldFormProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="cycleTime">Cycle Time</Label>
-            <Input id="cycleTime" name="cycleTime" value={formData.cycleTime} onChange={handleChange} />
+            <Label htmlFor="cycle_time">Cycle Time</Label>
+            <Input id="cycle_time" name="cycle_time" value={formData.cycle_time} onChange={handleChange} />
           </div>
         </div>
 
