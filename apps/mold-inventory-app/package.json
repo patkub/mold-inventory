@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "cf-dev": "wrangler dev",
+    "cf-dev": "wrangler dev -e=dev",
     "cf-typegen": "wrangler types worker-configuration.d.ts",
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -13,9 +13,9 @@
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy --env production",
     "db:create": "wrangler d1 create mold-inventory-app",
     "db:migrate": "wrangler d1 execute mold-inventory-app --remote -e production --file=./scripts/setup-database.sql",
-    "db:migrate:local": "wrangler d1 execute mold-inventory-app -e production --file=./scripts/setup-database.sql",
+    "db:migrate:local": "wrangler d1 execute mold-inventory-app -e dev --file=./scripts/setup-database.sql",
     "db:seed": "wrangler d1 execute mold-inventory-app --remote -e production --file=./scripts/seed-data.sql",
-    "db:seed:local": "wrangler d1 execute mold-inventory-app -e production --file=./scripts/seed-data.sql",
+    "db:seed:local": "wrangler d1 execute mold-inventory-app -e dev --file=./scripts/seed-data.sql",
     "prisma:generate": "prisma generate"
   },
   "dependencies": {

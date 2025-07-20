@@ -11,7 +11,6 @@
   },
   "env": {
     "production": {
-      "name": "mold-inventory-app",
       "d1_databases": [
         {
           "binding": "MOLD_DB",
@@ -20,6 +19,20 @@
         }
       ],
       "vars": {
+        "AUTH0_AUDIENCE": "mold-inventory-api",
+        "AUTH0_DOMAIN": "dev-5gm1mr1z8nbmuhv7.us.auth0.com"
+      }
+    },
+    "dev": {
+      "d1_databases": [
+        {
+          "binding": "MOLD_DB",
+          "database_id": "3ae8c9bd-ea18-4d9f-af11-24b97ed4c05a",
+          "database_name": "mold-inventory-app"
+        }
+      ],
+      "vars": {
+        "IS_LOCAL_MODE": true,
         "AUTH0_AUDIENCE": "mold-inventory-api",
         "AUTH0_DOMAIN": "dev-5gm1mr1z8nbmuhv7.us.auth0.com"
       }

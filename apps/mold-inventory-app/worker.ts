@@ -51,6 +51,12 @@ app.use("/", async (c) => {
 
 // Require authentication for /api endpoints
 const checkAuth = createMiddleware(async (c, next) => {
+  // Skip auth locally
+  if (c.env.IS_LOCAL_MODE) {
+    await next();
+    return;
+  }
+
   // Get raw request in Cloudflare Worker
   const raw = c.req.raw;
 

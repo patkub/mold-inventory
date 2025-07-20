@@ -37,9 +37,18 @@ NEXT_PUBLIC_AUTH0_CLIENT_ID=
 
 Run locally.
 ```bash
+# install Node.js dependencies
 npm install
-npm run dev
+
+# setup local Cloudflare D1 database
+npm run db:migrate:local
+npm run db:seed:local
+
+# run Cloudflare Worker locally
+npm run cf-dev
 ```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Deploy to Cloudflare
 ```bash
