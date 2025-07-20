@@ -15,6 +15,10 @@ type MoldContextType = {
   getMold: (id: string) => Mold | undefined
 }
 
+type MoldsType = {
+  molds: Mold[]
+}
+
 const MoldContext = createContext<MoldContextType | undefined>(undefined)
 
 export function MoldProviderDB({ children }: { children: React.ReactNode }) {
@@ -29,7 +33,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
    * Call GET /api/molds with access token
    * Return molds JSON response
    */
-  const getMoldsAuth = async () => {
+  const getMoldsAuth = async (): Promise<MoldsType | undefined> => {
     const domain = "dev-5gm1mr1z8nbmuhv7.us.auth0.com";
 
     try {
@@ -46,7 +50,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
         },
       });
 
-      const molds = await apiMoldsResponse.json();
+      const molds = await apiMoldsResponse.json() as MoldsType;
       // console.log(molds)
 
       return molds;
@@ -56,7 +60,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const createMoldAuth = async (newMold: Omit<Mold, "id">) => {
+  const createMoldAuth = async (newMold: Omit<Mold, "id">): Promise<Mold | undefined> => {
     const domain = "dev-5gm1mr1z8nbmuhv7.us.auth0.com";
 
     try {
@@ -76,7 +80,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
         body: JSON.stringify(newMold),
       });
 
-      const mold = await apiMoldsResponse.json();
+      const mold = await apiMoldsResponse.json() as Mold;
       // console.log(mold)
 
       return mold;
@@ -86,7 +90,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const deleteMoldAuth = async (number: string) => {
+  const deleteMoldAuth = async (number: string): Promise<Mold | undefined> => {
     const domain = "dev-5gm1mr1z8nbmuhv7.us.auth0.com";
 
     try {
@@ -106,7 +110,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
         body: JSON.stringify({ number: number }),
       });
 
-      const response = await apiMoldsResponse.json();
+      const response = await apiMoldsResponse.json() as Mold;
       // console.log(response)
 
       return response;
@@ -116,7 +120,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const updateMoldAuth = async (existingMold: Partial<Mold>) => {
+  const updateMoldAuth = async (existingMold: Partial<Mold>): Promise<Mold | undefined> => {
     const domain = "dev-5gm1mr1z8nbmuhv7.us.auth0.com";
 
     try {
@@ -136,7 +140,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
         body: JSON.stringify(existingMold),
       });
 
-      const updatedMold = await apiMoldsResponse.json();
+      const updatedMold = await apiMoldsResponse.json() as Mold;
       // console.log(updatedMold)
 
       return updatedMold;
@@ -156,8 +160,10 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
   const getMolds = async () => {
     // Get molds from API
     const molds = await getMoldsAuth();
-    // update molds
-    setMolds([...molds.molds]);
+    if (molds) {
+      // update molds
+      setMolds([...molds.molds]);
+    }
   };
 
   const addMold = async (mold: Omit<Mold, "id">) => {
@@ -166,7 +172,10 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
 
     // Update molds from API
     const molds = await getMoldsAuth();
-    setMolds([...molds.molds]);
+    if (molds) {
+      // update molds
+      setMolds([...molds.molds]);
+    }
   }
 
   const updateMold = async (number: string, updatedMold: Partial<Mold>) => {
@@ -175,7 +184,10 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
     
     // Get molds from API
     const molds = await getMoldsAuth();
-    setMolds([...molds.molds]);
+    if (molds) {
+      // update molds
+      setMolds([...molds.molds]);
+    }
   }
 
   const deleteMold = async (number: string) => {
@@ -184,7 +196,10 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
 
     // Get molds from API
     const molds = await getMoldsAuth();
-    setMolds([...molds.molds]);
+    if (molds) {
+      // update molds
+      setMolds([...molds.molds]);
+    }
   }
 
   const getMold = (number: string) => {

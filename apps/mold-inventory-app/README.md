@@ -53,6 +53,7 @@ npm run deploy
 - `npm run db:seed` - seed initial mold-inventory-app data in Cloudflare
 - `npm run db:seed:local` - seed initial mold-inventory-app data locally
 - `npm run prisma:generate` - regenerate prisma database schema
+- `npm run cf-typegen` - update type definitions after adding new bindings to your Wrangler configuration
 
 
 # Next.js README

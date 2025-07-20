@@ -14,10 +14,6 @@ import { D1Database } from '@cloudflare/workers-types';
 
 import { setupAuth } from './worker/auth'
 
-export interface Env {
-  MOLD_DB: D1Database;
-}
-
 // Initialize JWKS client with the URL to fetch keys
 const domain = "dev-5gm1mr1z8nbmuhv7.us.auth0.com";
 const client = jwksClient({ jwksUri: `https://${domain}/.well-known/jwks.json` })
@@ -30,12 +26,8 @@ type Bindings = {
   AUTH0_AUDIENCE: string
 }
 
-type Variables = {
-  user: any
-}
-
 // Hono
-const app = new Hono<{ Bindings: Bindings; Variables: Variables }>()
+const app = new Hono<{ Bindings: Bindings }>()
 
 // CORS middleware
 app.use(
