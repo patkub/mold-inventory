@@ -1,4 +1,6 @@
 // worker.ts
+
+// @ts-ignore: Will be resolved by wrangler build
 import openNextWorker from './.open-next/worker.js'; // Adjust path as needed
 
 import { Hono } from "hono"

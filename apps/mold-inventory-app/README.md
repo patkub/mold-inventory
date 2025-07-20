@@ -45,7 +45,7 @@ npm run db:migrate:local
 npm run db:seed:local
 
 # run Cloudflare Worker locally
-npm run cf-dev
+npm run preview
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
