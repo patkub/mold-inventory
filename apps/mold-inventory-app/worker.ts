@@ -1,6 +1,11 @@
 // worker.ts
 import openNextWorker from './.open-next/worker.js'; // Adjust path as needed
 
+import { Hono } from "hono"
+import { createMiddleware } from "hono/factory";
+import { cors } from "hono/cors"
+import { HTTPException } from "hono/http-exception"
+
 import jwksClient from 'jwks-rsa'
 
 import { PrismaClient } from './.generated/prisma/';
@@ -19,34 +24,73 @@ const client = jwksClient({ jwksUri: `https://${domain}/.well-known/jwks.json` }
 const authProvider = setupAuth(client);
 const { isAuthorized } = authProvider;
 
-export default {
-  async fetch(request: any, env: Env, ctx: any) {
-    // Add custom logic before or after the Next.js handler
-    console.log("Custom worker logic before fetch");
+type Bindings = {
+  MOLD_DB: D1Database
+  AUTH0_DOMAIN: string
+  AUTH0_AUDIENCE: string
+}
 
-    const { pathname } = new URL(request.url);
+type Variables = {
+  user: any
+}
 
-    if (pathname === "/api/molds") {
+// Hono
+const app = new Hono<{ Bindings: Bindings; Variables: Variables }>()
 
-      // Custom Auth logic
-      if (!isAuthorized(request)) {
-        return new Response('Unauthorized', { status: 401 });
-      }
+// CORS middleware
+app.use(
+  "*",
+  cors({
+    origin: ["http://localhost:3000", "https://mold-inventory-app.epicpatka.workers.dev"],
+    allowHeaders: ["Content-Type", "Authorization"],
+    allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  }),
+)
 
-      // Prisma adapter
-      const adapter = new PrismaD1(env.MOLD_DB);
-      const prisma = new PrismaClient({ adapter });
+// For Cloudflare Workers
+app.use("/", async (c) => {
+  // Next.js handler
+  // https://github.com/honojs/hono/issues/1677
+  const response = await openNextWorker.fetch(c.req.raw, c.env, c.executionCtx);
 
-      const molds = await prisma.mold.findMany();
-      const result = JSON.stringify(molds);
-      return new Response(result);
-    }
+  console.log("Custom worker logic after fetch");
+  return response;
+})
 
-    // Next.js handler
-    const response = await openNextWorker.fetch(request, env, ctx);
+// Require authentication for /api endpoints
+const checkAuth = createMiddleware(async (c, next) => {
+  // Get raw request in Cloudflare Worker
+  const raw = c.req.raw;
 
-    console.log("Custom worker logic after fetch");
-    return response;
-  },
-  // Add other handlers like scheduled, or Durable Objects here
-};
+  // Custom Auth logic
+  if (!isAuthorized(raw)) {
+    c.status(401);
+    return c.text("Unauthorized");
+  }
+
+  // Proceed with request
+  await next();
+});
+
+// First, register the middleware
+app.use("/api/*", checkAuth);
+
+
+// Get all molds
+app.get("/api/molds", async (c) => {
+  try {
+    // Prisma adapter
+    const adapter = new PrismaD1(c.env.MOLD_DB);
+    const prisma = new PrismaClient({ adapter });
+
+    const molds = await prisma.mold.findMany();
+
+    // return molds as json
+    return c.json({ molds })
+
+  } catch (error) {
+    throw new HTTPException(500, { message: "Failed to fetch molds" })
+  }
+})
+
+export default app

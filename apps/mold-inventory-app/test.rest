@@ -1,0 +1,9 @@
+# Test Requests
+
+### Replace [access_token here] with access token from auth0
+GET https://mold-inventory-app.epicpatka.workers.dev/api/molds
+Authorization: Bearer [access_token here]
+
+### Expect Unauthorized
+GET https://mold-inventory-app.epicpatka.workers.dev/api/molds
+

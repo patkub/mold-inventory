@@ -58,7 +58,7 @@ export function MoldDashboard() {
         console.log(jsonData)
 
         // Update molds
-        for (const mold of jsonData) {
+        for (const mold of jsonData.molds) {
           addMold(mold)
         }
 
