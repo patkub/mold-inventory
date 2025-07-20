@@ -93,4 +93,28 @@ app.get("/api/molds", async (c) => {
   }
 })
 
+
+// Create new mold
+app.post("/api/molds", async (c) => {
+  try {
+    // Prisma adapter
+    const adapter = new PrismaD1(c.env.MOLD_DB);
+    const prisma = new PrismaClient({ adapter });
+
+    // request data
+    const data = await c.req.json();
+
+    // create new mold in database
+    const mold = await prisma.molds.create({
+      data: data
+    })
+
+    // return the new mold as json
+    return c.json({ mold })
+
+  } catch (error) {
+    throw new HTTPException(500, { message: "Failed to create new mold" })
+  }
+})
+
 export default app

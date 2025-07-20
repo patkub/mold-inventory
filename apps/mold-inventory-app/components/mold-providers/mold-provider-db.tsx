@@ -22,6 +22,64 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
 
   const [molds, setMolds] = useState<Mold[]>([])
 
+  const getMoldsAuth = async () => {
+    const domain = "dev-5gm1mr1z8nbmuhv7.us.auth0.com";
+
+    try {
+      const accessToken = await getAccessTokenSilently({
+        authorizationParams: {
+          audience: `https://${domain}/api/v2/`,
+          scope: "read:current_user",
+        },
+      });
+
+      const apiMoldsResponse = await fetch("/api/molds", {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
+
+      const molds = await apiMoldsResponse.json();
+      // console.log(molds)
+
+      return molds;
+    } catch (e) {
+      // Error occurred getting molds
+      console.log(e)
+    }
+  };
+
+  const createMoldAuth = async (newMold: Omit<Mold, "id">) => {
+    const domain = "dev-5gm1mr1z8nbmuhv7.us.auth0.com";
+
+    try {
+      const accessToken = await getAccessTokenSilently({
+        authorizationParams: {
+          audience: `https://${domain}/api/v2/`,
+          scope: "read:current_user",
+        },
+      });
+
+      const apiMoldsResponse = await fetch("/api/molds", {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newMold),
+      });
+      
+
+      const molds = await apiMoldsResponse.json();
+      // console.log(molds)
+
+      return molds;
+    } catch (e) {
+      // Error occurred getting molds
+      console.log(e)
+    }
+  };
+
   /**
    * Get molds from database
    * 
@@ -30,32 +88,6 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
    * Return molds JSON response
    */
   const getMolds = async () => {
-    const getMoldsAuth = async () => {
-      const domain = "dev-5gm1mr1z8nbmuhv7.us.auth0.com";
-
-      try {
-        const accessToken = await getAccessTokenSilently({
-          authorizationParams: {
-            audience: `https://${domain}/api/v2/`,
-            scope: "read:current_user",
-          },
-        });
-
-        const apiMoldsResponse = await fetch("/api/molds", {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
-
-        const molds = await apiMoldsResponse.json();
-        // console.log(molds)
-
-        return molds;
-      } catch (e) {
-        // Error occurred getting molds
-        console.log(e)
-      }
-    };
 
     // Get molds from API
     const molds = await getMoldsAuth();
@@ -64,12 +96,15 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
   };
 
 
-  const addMold = (mold: Omit<Mold, "id">) => {
-    const newMold = {
-      ...mold,
-      id: Math.random().toString(36).substring(2, 9),
-    }
-    setMolds((prev) => [...prev, newMold])
+  const addMold = async (mold: Omit<Mold, "id">) => {
+    // const newMold = await createMoldAuth(mold);
+    await createMoldAuth(mold);
+
+    // Get molds from API
+    const molds = await getMoldsAuth();
+    // update molds
+    setMolds([...molds.molds]);
+
   }
 
   const updateMold = (number: string, updatedMold: Partial<Mold>) => {

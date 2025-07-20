@@ -1,9 +1,22 @@
 # Test Requests
+#
+# Replace [access_token here] with access token from auth0
 
-### Replace [access_token here] with access token from auth0
+### Get molds
 GET https://mold-inventory-app.epicpatka.workers.dev/api/molds
 Authorization: Bearer [access_token here]
 
 ### Expect Unauthorized
 GET https://mold-inventory-app.epicpatka.workers.dev/api/molds
 
+### Add a new mold
+POST https://mold-inventory-app.epicpatka.workers.dev/api/molds
+Authorization: Bearer [access_token here]
+Content-Type: application/json
+
+{
+  "number": "16QT-MOLD C",
+  "description": "16 QT MILKCASE MOLD C",
+  "cycle_time": 44,
+  "status": "Maintenance"
+}

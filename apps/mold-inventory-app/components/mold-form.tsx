@@ -23,13 +23,19 @@ export function MoldForm({ mold, onCancel }: MoldFormProps) {
   const [formData, setFormData] = useState<Omit<Mold, "id">>({
     number: mold?.number || "",
     description: mold?.description || "",
-    cycle_time: mold?.cycle_time || "",
+    cycle_time: mold?.cycle_time || 0,
     status: mold?.status || "Active"
   })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    const number = parseInt(value);
+    setFormData((prev) => ({ ...prev, [name]: number }))
   }
 
   const handleSelectChange = (name: string, value: string) => {
@@ -71,7 +77,7 @@ export function MoldForm({ mold, onCancel }: MoldFormProps) {
 
           <div className="space-y-2">
             <Label htmlFor="cycle_time">Cycle Time</Label>
-            <Input id="cycle_time" name="cycle_time" value={formData.cycle_time} onChange={handleChange} />
+            <Input id="cycle_time" name="cycle_time" value={formData.cycle_time} onChange={handleNumberChange} />
           </div>
         </div>
 
