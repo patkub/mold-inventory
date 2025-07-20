@@ -9,6 +9,13 @@ Tech Stack
 
 ## Setup
 
+Copy `.env.example` to `.env`. Fill out Auth0 details.
+```
+NEXT_PUBLIC_AUTH0_DOMAIN=
+NEXT_PUBLIC_AUTH0_CLIENT_ID=
+```
+
+Run locally.
 ```bash
 npm install
 npm run dev
