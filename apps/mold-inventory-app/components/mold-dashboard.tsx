@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useMolds } from "@/components/mold-provider"
+import { useMolds } from "@/components/mold-providers/mold-provider-db"
 import { MoldList } from "@/components/mold-list"
 import { MoldDetail } from "@/components/mold-detail"
 import { MoldForm } from "@/components/mold-form"
@@ -13,8 +13,8 @@ import { Package2, Plus, Search } from "lucide-react"
 import { useAuth0 } from "@auth0/auth0-react"
 
 export function MoldDashboard() {
-  const { molds, addMold } = useMolds()
-  const { user, getAccessTokenSilently } = useAuth0()
+  const { molds, getMolds } = useMolds()
+  const { user } = useAuth0()
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedMoldNumber, setSelectedMoldNumber] = useState<string | null>(null)
   const [isAddingMold, setIsAddingMold] = useState(false)
@@ -33,48 +33,9 @@ export function MoldDashboard() {
     return matchesSearch
   })
 
-  const loadMolds = () => {
-    console.log("Loading molds....")
-
-     const getMoldsAuth = async () => {
-      const domain = "dev-5gm1mr1z8nbmuhv7.us.auth0.com";
-
-      try {
-        const accessToken = await getAccessTokenSilently({
-          authorizationParams: {
-            audience: `https://${domain}/api/v2/`,
-            scope: "read:current_user",
-          },
-        });
-
-        const apiMoldsResponse = await fetch("/api/molds", {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
-
-        const jsonData = await apiMoldsResponse.json();
-
-        console.log(jsonData)
-
-        // Update molds
-        for (const mold of jsonData.molds) {
-          addMold(mold)
-        }
-
-      } catch (e) {
-        //
-        console.log(e)
-      }
-    };
-
-    getMoldsAuth();
-
-  };
-
   // load molds once on start
   useEffect(() => {
-    loadMolds()
+    getMolds()
   }, [])
 
   return (

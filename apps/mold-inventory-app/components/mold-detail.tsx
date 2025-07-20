@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { useMolds } from "@/components/mold-provider"
+import { useMolds } from "@/components/mold-providers/mold-provider-db"
 import { MoldForm } from "@/components/mold-form"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"

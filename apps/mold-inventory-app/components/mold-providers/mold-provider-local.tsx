@@ -15,7 +15,7 @@ type MoldContextType = {
 
 const MoldContext = createContext<MoldContextType | undefined>(undefined)
 
-export function MoldProvider({ children }: { children: React.ReactNode }) {
+export function MoldProviderLocal({ children }: { children: React.ReactNode }) {
   const [molds, setMolds] = useState<Mold[]>([])
 
   const addMold = (mold: Omit<Mold, "id">) => {
@@ -46,7 +46,7 @@ export function MoldProvider({ children }: { children: React.ReactNode }) {
 export const useMolds = () => {
   const context = useContext(MoldContext)
   if (context === undefined) {
-    throw new Error("useMolds must be used within a MoldProvider")
+    throw new Error("useMolds must be used within a MoldProviderLocal")
   }
   return context
 }
