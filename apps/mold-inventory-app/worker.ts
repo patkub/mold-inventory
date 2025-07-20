@@ -118,6 +118,33 @@ app.post("/api/molds", async (c) => {
 })
 
 
+// Update mold
+app.put("/api/molds", async (c) => {
+  try {
+    // Prisma adapter
+    const adapter = new PrismaD1(c.env.MOLD_DB);
+    const prisma = new PrismaClient({ adapter });
+
+    // request data
+    const data = await c.req.json();
+
+    // update mold in database
+    const updateMold = await prisma.molds.update({
+      where: {
+        number: data.number,
+      },
+      data: data,
+    })
+
+    // return the updated mold as json
+    return c.json({ updateMold })
+
+  } catch (error) {
+    throw new HTTPException(500, { message: "Failed to update mold" })
+  }
+})
+
+
 // Delete mold
 app.delete("/api/molds", async (c) => {
   try {

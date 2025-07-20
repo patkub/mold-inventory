@@ -36,6 +36,7 @@ export function MoldDashboard() {
   // load molds once on start
   useEffect(() => {
     getMolds()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
