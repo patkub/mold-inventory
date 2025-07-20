@@ -18,6 +18,10 @@
           "database_name": "mold-inventory-app"
         }
       ],
+      "vars": {
+        "NEXT_PUBLIC_AUTH0_DOMAIN": "dev-5gm1mr1z8nbmuhv7.us.auth0.com",
+        "NEXT_PUBLIC_AUTH0_CLIENT_ID": "DYZT9rpjL5LoJNfpjo8JEQtPaLqyABHO"
+      },
       "observability": {
         "enabled": false
       }
@@ -31,7 +35,9 @@
         }
       ],
       "vars": {
-        "IS_LOCAL_MODE": true
+        "IS_LOCAL_MODE": true,
+        "NEXT_PUBLIC_AUTH0_DOMAIN": "dev-5gm1mr1z8nbmuhv7.us.auth0.com",
+        "NEXT_PUBLIC_AUTH0_CLIENT_ID": "DYZT9rpjL5LoJNfpjo8JEQtPaLqyABHO"
       },
       "observability": {
         "enabled": true

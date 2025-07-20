@@ -26,6 +26,8 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
 
   const [molds, setMolds] = useState<Mold[]>([])
 
+  const AUTH0_DOMAIN = process.env.NEXT_PUBLIC_AUTH0_DOMAIN || ""
+
   /**
    * Get molds from database
    * 
@@ -34,12 +36,10 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
    * Return molds JSON response
    */
   const getMoldsAuth = async (): Promise<MoldsType | undefined> => {
-    const domain = "dev-5gm1mr1z8nbmuhv7.us.auth0.com";
-
     try {
       const accessToken = await getAccessTokenSilently({
         authorizationParams: {
-          audience: `https://${domain}/api/v2/`,
+          audience: `https://${AUTH0_DOMAIN}/api/v2/`,
           scope: "read:current_user",
         },
       });
@@ -61,12 +61,10 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
   };
 
   const createMoldAuth = async (newMold: Omit<Mold, "id">): Promise<Mold | undefined> => {
-    const domain = "dev-5gm1mr1z8nbmuhv7.us.auth0.com";
-
     try {
       const accessToken = await getAccessTokenSilently({
         authorizationParams: {
-          audience: `https://${domain}/api/v2/`,
+          audience: `https://${AUTH0_DOMAIN}/api/v2/`,
           scope: "read:current_user",
         },
       });
@@ -91,12 +89,10 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
   };
 
   const deleteMoldAuth = async (number: string): Promise<Mold | undefined> => {
-    const domain = "dev-5gm1mr1z8nbmuhv7.us.auth0.com";
-
     try {
       const accessToken = await getAccessTokenSilently({
         authorizationParams: {
-          audience: `https://${domain}/api/v2/`,
+          audience: `https://${AUTH0_DOMAIN}/api/v2/`,
           scope: "read:current_user",
         },
       });
@@ -121,12 +117,10 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
   };
 
   const updateMoldAuth = async (existingMold: Partial<Mold>): Promise<Mold | undefined> => {
-    const domain = "dev-5gm1mr1z8nbmuhv7.us.auth0.com";
-
     try {
       const accessToken = await getAccessTokenSilently({
         authorizationParams: {
-          audience: `https://${domain}/api/v2/`,
+          audience: `https://${AUTH0_DOMAIN}/api/v2/`,
           scope: "read:current_user",
         },
       });

@@ -35,6 +35,8 @@ NEXT_PUBLIC_AUTH0_DOMAIN=
 NEXT_PUBLIC_AUTH0_CLIENT_ID=
 ```
 
+Configure environments in `wrangler.jsonc`.
+
 Run locally.
 ```bash
 # install Node.js dependencies
