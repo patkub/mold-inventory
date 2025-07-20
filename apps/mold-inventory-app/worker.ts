@@ -83,7 +83,7 @@ app.get("/api/molds", async (c) => {
     const adapter = new PrismaD1(c.env.MOLD_DB);
     const prisma = new PrismaClient({ adapter });
 
-    const molds = await prisma.mold.findMany();
+    const molds = await prisma.molds.findMany();
 
     // return molds as json
     return c.json({ molds })

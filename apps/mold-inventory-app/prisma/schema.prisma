@@ -11,10 +11,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Mold {
+model molds {
   id    Int     @id @default(autoincrement())
   number String  @unique
   description String?
-  cycle_time String?
+  cycle_time Int
   status String?
 }

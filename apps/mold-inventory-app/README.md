@@ -25,6 +25,7 @@ npm run deploy
 - `npm run db:migrate:local` - setup mold-inventory-app database locally
 - `npm run db:seed` - seed initial mold-inventory-app data in Cloudflare
 - `npm run db:seed:local` - seed initial mold-inventory-app data locally
+- `npm run prisma:generate` - regenerate prisma database schema
 
 
 # Next.js README
