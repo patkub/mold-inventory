@@ -16,12 +16,6 @@ import { D1Database } from '@cloudflare/workers-types';
 
 import { setupAuth } from './worker/auth'
 
-// Initialize JWKS client with the URL to fetch keys
-const domain = "dev-5gm1mr1z8nbmuhv7.us.auth0.com";
-const client = jwksClient({ jwksUri: `https://${domain}/.well-known/jwks.json` })
-const authProvider = setupAuth(client);
-const { isAuthorized } = authProvider;
-
 type Bindings = {
   MOLD_DB: D1Database
 }
@@ -43,10 +37,7 @@ app.use(
 app.use("/", async (c) => {
   // Next.js handler
   // https://github.com/honojs/hono/issues/1677
-  const response = await openNextWorker.fetch(c.req.raw, c.env, c.executionCtx);
-
-  console.log("Custom worker logic after fetch");
-  return response;
+  return await openNextWorker.fetch(c.req.raw, c.env, c.executionCtx);
 })
 
 // Require authentication for /api endpoints
@@ -57,10 +48,16 @@ const checkAuth = createMiddleware(async (c, next) => {
     return;
   }
 
+  // Initialize JWKS client with the URL to fetch keys
+  const domain = c.env.NEXT_PUBLIC_AUTH0_DOMAIN;
+  const client = jwksClient({ jwksUri: `https://${domain}/.well-known/jwks.json` })
+  const authProvider = setupAuth(client);
+  const { isAuthorized } = authProvider;
+
   // Get raw request in Cloudflare Worker
   const raw = c.req.raw;
 
-  // Custom Auth logic
+  // Check if authorized
   if (!isAuthorized(raw)) {
     c.status(401);
     return c.text("Unauthorized");
@@ -70,8 +67,10 @@ const checkAuth = createMiddleware(async (c, next) => {
   await next();
 });
 
-// First, register the middleware
+// Require authentication for /api endpoints
+// Middleware must be registered before any /api endpoints.
 app.use("/api/*", checkAuth);
+// Now register /api endpoints
 
 
 // Get all molds
@@ -167,5 +166,6 @@ app.delete("/api/molds", async (c) => {
     throw new HTTPException(500, { message: "Failed to create new mold" })
   }
 })
+
 
 export default app
