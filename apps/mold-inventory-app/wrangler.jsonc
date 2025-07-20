@@ -18,9 +18,8 @@
           "database_name": "mold-inventory-app"
         }
       ],
-      "vars": {
-        "AUTH0_AUDIENCE": "mold-inventory-api",
-        "AUTH0_DOMAIN": "dev-5gm1mr1z8nbmuhv7.us.auth0.com"
+      "observability": {
+        "enabled": false
       }
     },
     "dev": {
@@ -32,18 +31,15 @@
         }
       ],
       "vars": {
-        "IS_LOCAL_MODE": true,
-        "AUTH0_AUDIENCE": "mold-inventory-api",
-        "AUTH0_DOMAIN": "dev-5gm1mr1z8nbmuhv7.us.auth0.com"
+        "IS_LOCAL_MODE": true
+      },
+      "observability": {
+        "enabled": true
       }
     }
   },
   "dev": {
     "host": "localhost",
     "port": 3000
-  },
-  // TODO: disable logs for prod
-  "observability": {
-    "enabled": true
   }
 }

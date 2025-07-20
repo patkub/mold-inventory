@@ -1,6 +1,6 @@
 # Mold Inventory App
 
-[https://mold-inventory-app.epicpatka.workers.dev/](https://mold-inventory-app.epicpatka.workers.dev/)
+[https://mold-inventory-app-production.epicpatka.workers.dev/](https://mold-inventory-app-production.epicpatka.workers.dev/)
 
 ## Tech Stack
 - [Auth0](https://auth0.com/)
@@ -63,7 +63,8 @@ npm run deploy
 - `npm run db:seed:local` - seed initial mold-inventory-app data locally
 - `npm run prisma:generate` - regenerate prisma database schema
 - `npm run cf-typegen` - update type definitions after adding new bindings to your Wrangler configuration
-
+- `npm run upload` - deploy preview version to Cloudflare
+- `npm run deploy` - deploy production version to Cloudflare
 
 # Next.js README
 

@@ -24,8 +24,6 @@ const { isAuthorized } = authProvider;
 
 type Bindings = {
   MOLD_DB: D1Database
-  AUTH0_DOMAIN: string
-  AUTH0_AUDIENCE: string
 }
 
 // Hono
@@ -35,7 +33,7 @@ const app = new Hono<{ Bindings: Bindings }>()
 app.use(
   "*",
   cors({
-    origin: ["http://localhost:3000", "https://mold-inventory-app.epicpatka.workers.dev"],
+    origin: ["http://localhost:3000", "https://mold-inventory-app-production.epicpatka.workers.dev"],
     allowHeaders: ["Content-Type", "Authorization"],
     allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   }),
