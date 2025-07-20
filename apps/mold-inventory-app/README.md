@@ -19,6 +19,13 @@ npm run dev
 npm run deploy
 ```
 
+### Cloudflare commands
+- `npm run db:create` - create mold-inventory-app database in Cloudflare
+- `npm run db:migrate` - setup mold-inventory-app database in Cloudflare
+- `npm run db:migrate:local` - setup mold-inventory-app database locally
+- `npm run db:seed` - seed initial mold-inventory-app data in Cloudflare
+- `npm run db:seed:local` - seed initial mold-inventory-app data locally
+
 
 # Next.js README
 
