@@ -2,10 +2,30 @@
 
 [https://mold-inventory-app.epicpatka.workers.dev/](https://mold-inventory-app.epicpatka.workers.dev/)
 
-Tech Stack
+## Tech Stack
 - [Auth0](https://auth0.com/)
 - [Cloudflare D1](https://developers.cloudflare.com/d1/)
 - [Cloudflare Workers](https://developers.cloudflare.com/workers/)
+  - [Hono](https://hono.dev/)
+  - [Prisma](https://www.prisma.io/)
+- [Next.js](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/)
+
+### Implementation Details
+
+A custom [Cloudflare Worker](https://developers.cloudflare.com/workers/) using
+  - [Auth0](https://auth0.com/) for login
+  - [Hono](https://hono.dev/) for the backend web framework
+  - [Prisma](https://www.prisma.io/) ORM to manage a [Cloudflare D1](https://developers.cloudflare.com/d1/) database
+  - [Next.js](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/) as the frontend React Framework
+  
+The [Cloudflare Worker](https://developers.cloudflare.com/workers/) has CRUD API to manage molds and validates access token from Auth0 on each request.
+
+UI generated with [v0.dev](https://v0.dev/).
+
+
+## UI
+
+![Screenshot of UI](./docs/ui.png)
 
 ## Setup
 
