@@ -80,6 +80,37 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const deleteMoldAuth = async (number: string) => {
+    const domain = "dev-5gm1mr1z8nbmuhv7.us.auth0.com";
+
+    try {
+      const accessToken = await getAccessTokenSilently({
+        authorizationParams: {
+          audience: `https://${domain}/api/v2/`,
+          scope: "read:current_user",
+        },
+      });
+
+      const apiMoldsResponse = await fetch("/api/molds", {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ number: number }),
+      });
+      
+
+      const molds = await apiMoldsResponse.json();
+      // console.log(molds)
+
+      return molds;
+    } catch (e) {
+      // Error occurred getting molds
+      console.log(e)
+    }
+  };
+
   /**
    * Get molds from database
    * 
@@ -111,8 +142,13 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
     setMolds((prev) => prev.map((mold) => (mold.number === number ? { ...mold, ...updatedMold } : mold)))
   }
 
-  const deleteMold = (number: string) => {
-    setMolds((prev) => prev.filter((mold) => mold.number !== number))
+  const deleteMold = async (number: string) => {
+    await deleteMoldAuth(number);
+
+    // Get molds from API
+    const molds = await getMoldsAuth();
+    // update molds
+    setMolds([...molds.molds]);
   }
 
   const getMold = (number: string) => {

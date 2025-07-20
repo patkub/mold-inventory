@@ -117,4 +117,30 @@ app.post("/api/molds", async (c) => {
   }
 })
 
+
+// Delete mold
+app.delete("/api/molds", async (c) => {
+  try {
+    // Prisma adapter
+    const adapter = new PrismaD1(c.env.MOLD_DB);
+    const prisma = new PrismaClient({ adapter });
+
+    // request data
+    const data = await c.req.json();
+
+    // delete mold from database
+    const deleteMold = await prisma.molds.delete({
+      where: {
+        number: data.number,
+      },
+    })
+
+    // return the new mold as json
+    return c.json({ message: "Mold has been deleted" })
+
+  } catch (error) {
+    throw new HTTPException(500, { message: "Failed to create new mold" })
+  }
+})
+
 export default app
