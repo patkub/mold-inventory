@@ -17,6 +17,7 @@ import { D1Database } from '@cloudflare/workers-types';
 import { setupAuth } from './worker/auth'
 
 type Bindings = {
+  CORS_ORIGIN: string[],
   MOLD_DB: D1Database
 }
 
@@ -24,14 +25,14 @@ type Bindings = {
 const app = new Hono<{ Bindings: Bindings }>()
 
 // CORS middleware
-app.use(
-  "*",
-  cors({
-    origin: ["http://localhost:3000", "https://mold-inventory-app-production.epicpatka.workers.dev"],
+app.use('*', async (c, next) => {
+  const middleware = cors({
+    origin: c.env.CORS_ORIGIN,
     allowHeaders: ["Content-Type", "Authorization"],
     allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  }),
-)
+  })
+  return middleware(c, next)
+})
 
 // For Cloudflare Workers
 app.use("/", async (c) => {
