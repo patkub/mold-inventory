@@ -13,17 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Issue: napi-postinstall is not found in GitHub Actions
-      - name: Remove package-lock.json
-        run: rm package-lock.json
-
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: npm install
+        # Issue: napi-postinstall is not found in GitHub Actions
+        run: npm install --no-package-lock
 
       - name: Build
         run: npm run cf:build
