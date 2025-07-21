@@ -7,6 +7,8 @@ import { Hono } from "hono"
 import { createMiddleware } from "hono/factory";
 import { cors } from "hono/cors"
 import { HTTPException } from "hono/http-exception"
+import * as z from "zod";
+import { zValidator } from '@hono/zod-validator'
 
 import jwksClient from 'jwks-rsa'
 
@@ -74,6 +76,19 @@ app.use("/api/*", checkAuth);
 // Now register /api endpoints
 
 
+// Mold objects for Zod validation
+const zMold = z.object({
+  number: z.string(),
+  description: z.string(),
+  cycle_time: z.number(),
+  status: z.string(),
+});
+
+const zDeleteMold = z.object({
+  number: z.string()
+})
+
+
 // Get all molds
 app.get("/api/molds", async (c) => {
   try {
@@ -93,7 +108,10 @@ app.get("/api/molds", async (c) => {
 
 
 // Create new mold
-app.post("/api/molds", async (c) => {
+app.post("/api/molds", zValidator(
+  'json',
+  zMold
+), async (c) => {
   try {
     // Prisma adapter
     const adapter = new PrismaD1(c.env.MOLD_DB);
@@ -117,7 +135,10 @@ app.post("/api/molds", async (c) => {
 
 
 // Update mold
-app.put("/api/molds", async (c) => {
+app.put("/api/molds", zValidator(
+  'json',
+  zMold
+), async (c) => {
   try {
     // Prisma adapter
     const adapter = new PrismaD1(c.env.MOLD_DB);
@@ -144,7 +165,10 @@ app.put("/api/molds", async (c) => {
 
 
 // Delete mold
-app.delete("/api/molds", async (c) => {
+app.delete("/api/molds",zValidator(
+  'json',
+  zDeleteMold
+), async (c) => {
   try {
     // Prisma adapter
     const adapter = new PrismaD1(c.env.MOLD_DB);
