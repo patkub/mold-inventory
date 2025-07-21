@@ -1,0 +1,32 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [22.x]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Issue: napi-postinstall is not found in GitHub Actions
+      - name: Remove package-lock.json
+        run: rm package-lock.json
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run cf:build
+
+      - name: Run tests
+        run: npm test

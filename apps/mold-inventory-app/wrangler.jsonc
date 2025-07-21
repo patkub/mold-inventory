@@ -1,7 +1,7 @@
 {
   "main": "worker.ts",
   "name": "mold-inventory-app",
-  "compatibility_date": "2025-07-19",
+  "compatibility_date": "2025-07-12",
   "compatibility_flags": [
     "nodejs_compat"
   ],
