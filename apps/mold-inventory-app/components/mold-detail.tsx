@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { useMolds } from "@/components/mold-providers/mold-provider-db"
 import { MoldForm } from "@/components/mold-form"
+import { MoldStatusBadge } from "@/components/mold-status-badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import {
@@ -15,9 +16,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
-import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { Edit, Trash2, X, AlertTriangle, CheckCircle2, RotateCw } from "lucide-react"
+import { Edit, Trash2, X } from "lucide-react"
 
 interface MoldDetailProps {
   moldNumber: string
@@ -33,33 +33,6 @@ export function MoldDetail({ moldNumber, onClose }: MoldDetailProps) {
 
   if (!mold) return null
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const getStatusIcon = (status: string) => {
-    switch (status) {
-      case "Active":
-        return <CheckCircle2 className="h-5 w-5 text-green-500" />
-      case "Maintenance":
-        return <RotateCw className="h-5 w-5 text-yellow-500" />
-      case "Retired":
-        return <AlertTriangle className="h-5 w-5 text-red-500" />
-      default:
-        return null
-    }
-  }
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "Active":
-        return "bg-green-100 text-green-800"
-      case "Maintenance":
-        return "bg-yellow-100 text-yellow-800"
-      case "Retired":
-        return "bg-red-100 text-red-800"
-      default:
-        return "bg-gray-100 text-gray-800"
-    }
-  }
-
   if (isEditing) {
     return <MoldForm mold={mold} onCancel={() => setIsEditing(false)} />
   }
@@ -70,7 +43,7 @@ export function MoldDetail({ moldNumber, onClose }: MoldDetailProps) {
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-bold">{mold.number}</h2>
-            <Badge className={getStatusColor(mold.status)}>{mold.status}</Badge>
+            <MoldStatusBadge mold={mold}></MoldStatusBadge>
           </div>
           <p className="text-muted-foreground">Mold #{mold.number}</p>
         </div>

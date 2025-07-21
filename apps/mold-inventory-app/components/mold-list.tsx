@@ -1,9 +1,9 @@
 "use client"
 
-import { Badge } from "@/components/ui/badge"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { cn } from "@/lib/utils"
 import type { Mold } from "@/types/mold"
+import { MoldStatusBadge } from "@/components/mold-status-badge"
 
 interface MoldListProps {
   molds: Mold[]
@@ -12,19 +12,6 @@ interface MoldListProps {
 }
 
 export function MoldList({ molds, onSelect, selectedMoldNumber }: MoldListProps) {
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "Active":
-        return "bg-green-100 text-green-800 hover:bg-green-200"
-      case "Maintenance":
-        return "bg-yellow-100 text-yellow-800 hover:bg-yellow-200"
-      case "Retired":
-        return "bg-red-100 text-red-800 hover:bg-red-200"
-      default:
-        return "bg-gray-100 text-gray-800 hover:bg-gray-200"
-    }
-  }
-
   return (
     <ScrollArea className="h-[500px]">
       {molds.length === 0 ? (
@@ -45,7 +32,7 @@ export function MoldList({ molds, onSelect, selectedMoldNumber }: MoldListProps)
                     <p className="font-medium">{mold.number}</p>
                     <p className="text-sm text-muted-foreground">{mold.description}</p>
                   </div>
-                  <Badge className={getStatusColor(mold.status)}>{mold.status}</Badge>
+                  <MoldStatusBadge mold={mold}></MoldStatusBadge>
                 </div>
               </button>
             </li>
