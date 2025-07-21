@@ -1,7 +1,7 @@
 // src/index.test.ts
 import { env } from 'cloudflare:test'
 import { describe, it, expect, beforeEach, vi } from 'vitest'
-import { mockReset, mockDeep, DeepMockProxy } from "vitest-mock-extended";
+import { mockReset } from "vitest-mock-extended";
 
 import app from './worker'
 
@@ -43,6 +43,77 @@ describe('Molds', () => {
 
     // expect molds
     expect(res.status).toBe(200)
-    expect(await res.json()).toEqual({"molds": fakeMolds})
+    expect(await res.json()).toEqual(fakeMolds)
+  })
+
+  it('Should create a new mold', async () => {
+
+    const fakeMold = {
+      number: "test mold",
+      description: "test mold description",
+      cycle_time: 10,
+      status: "Active",
+    }
+
+    // mock database of molds
+    prisma.molds.create.mockResolvedValue(fakeMold)
+
+    // request molds
+    const res = await app.request('/api/molds', {
+      method: 'POST',
+      body: JSON.stringify(fakeMold),
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+    }, env)
+
+    // expect molds
+    expect(res.status).toBe(200)
+    expect(await res.json()).toEqual(fakeMold)
+  })
+
+  it('Should update an existing mold', async () => {
+
+    const fakeMold = {
+      number: "test mold",
+      description: "test mold description",
+      cycle_time: 10,
+      status: "Active",
+    }
+
+    // mock database of molds
+    prisma.molds.update.mockResolvedValue(fakeMold)
+
+    // request molds
+    const res = await app.request('/api/molds', {
+      method: 'PUT',
+      body: JSON.stringify(fakeMold),
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+    }, env)
+
+    // expect molds
+    expect(res.status).toBe(200)
+    expect(await res.json()).toEqual(fakeMold)
+  })
+
+  it('Should delete an existing mold', async () => {
+
+    const fakeMold = {
+      number: "test mold",
+      description: "test mold description",
+      cycle_time: 10,
+      status: "Active",
+    }
+
+    const moldDeleted = { message: "Mold has been deleted" }
+
+    // request molds
+    const res = await app.request('/api/molds', {
+      method: 'DELETE',
+      body: JSON.stringify(fakeMold),
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+    }, env)
+
+    // expect molds
+    expect(res.status).toBe(200)
+    expect(await res.json()).toEqual(moldDeleted)
   })
 })

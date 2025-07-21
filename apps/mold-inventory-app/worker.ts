@@ -104,7 +104,7 @@ app.get("/api/molds", async (c) => {
     const molds = await prisma.molds.findMany();
 
     // return molds as json
-    return c.json({ molds })
+    return c.json(molds)
 
   } catch (error) {
     throw new HTTPException(500, { message: "Failed to fetch molds" })
@@ -130,7 +130,7 @@ app.post("/api/molds", zValidator(
     })
 
     // return the new mold as json
-    return c.json({ mold })
+    return c.json(mold)
 
   } catch (error) {
     throw new HTTPException(500, { message: "Failed to create new mold" })
@@ -151,7 +151,7 @@ app.put("/api/molds", zValidator(
     const data = await c.req.json();
 
     // update mold in database
-    const updateMold = await prisma.molds.update({
+    const updatedMold = await prisma.molds.update({
       where: {
         number: data.number,
       },
@@ -159,7 +159,7 @@ app.put("/api/molds", zValidator(
     })
 
     // return the updated mold as json
-    return c.json({ updateMold })
+    return c.json(updatedMold)
 
   } catch (error) {
     throw new HTTPException(500, { message: "Failed to update mold" })

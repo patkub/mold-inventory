@@ -15,10 +15,6 @@ type MoldContextType = {
   getMold: (id: string) => Mold | undefined
 }
 
-type MoldsType = {
-  molds: Mold[]
-}
-
 const MoldContext = createContext<MoldContextType | undefined>(undefined)
 
 export function MoldProviderDB({ children }: { children: React.ReactNode }) {
@@ -35,7 +31,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
    * Call GET /api/molds with access token
    * Return molds JSON response
    */
-  const getMoldsAuth = async (): Promise<MoldsType | undefined> => {
+  const getMoldsAuth = async (): Promise<Mold[] | undefined> => {
     try {
       const accessToken = await getAccessTokenSilently({
         authorizationParams: {
@@ -50,7 +46,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
         },
       });
 
-      const molds = await apiMoldsResponse.json() as MoldsType;
+      const molds = await apiMoldsResponse.json() as Mold[];
       // console.log(molds)
 
       return molds;
@@ -156,7 +152,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
     const molds = await getMoldsAuth();
     if (molds) {
       // update molds
-      setMolds([...molds.molds]);
+      setMolds([...molds]);
     }
   };
 
@@ -168,7 +164,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
     const molds = await getMoldsAuth();
     if (molds) {
       // update molds
-      setMolds([...molds.molds]);
+      setMolds([...molds]);
     }
   }
 
@@ -180,7 +176,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
     const molds = await getMoldsAuth();
     if (molds) {
       // update molds
-      setMolds([...molds.molds]);
+      setMolds([...molds]);
     }
   }
 
@@ -192,7 +188,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
     const molds = await getMoldsAuth();
     if (molds) {
       // update molds
-      setMolds([...molds.molds]);
+      setMolds([...molds]);
     }
   }
 
