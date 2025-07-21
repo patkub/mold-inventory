@@ -12,13 +12,13 @@ import { zValidator } from '@hono/zod-validator'
 
 import jwksClient from 'jwks-rsa'
 
-import { PrismaClient } from './.generated/prisma/';
-import { PrismaD1 } from '@prisma/adapter-d1';
+import { createPrismaClient } from './worker/prismaClient'
 import { D1Database } from '@cloudflare/workers-types';
 
 import { setupAuth } from './worker/auth'
 
 type Bindings = {
+  IS_LOCAL_MODE: string,
   CORS_ORIGIN: string[],
   MOLD_DB: D1Database
 }
@@ -28,6 +28,12 @@ const app = new Hono<{ Bindings: Bindings }>()
 
 // CORS middleware
 app.use('*', async (c, next) => {
+  // Skip cors locally
+  if (c.env.IS_LOCAL_MODE) {
+    await next();
+    return;
+  }
+
   const middleware = cors({
     origin: c.env.CORS_ORIGIN,
     allowHeaders: ["Content-Type", "Authorization"],
@@ -93,8 +99,7 @@ const zDeleteMold = z.object({
 app.get("/api/molds", async (c) => {
   try {
     // Prisma adapter
-    const adapter = new PrismaD1(c.env.MOLD_DB);
-    const prisma = new PrismaClient({ adapter });
+    const prisma = createPrismaClient(c.env.MOLD_DB);
 
     const molds = await prisma.molds.findMany();
 
@@ -114,8 +119,7 @@ app.post("/api/molds", zValidator(
 ), async (c) => {
   try {
     // Prisma adapter
-    const adapter = new PrismaD1(c.env.MOLD_DB);
-    const prisma = new PrismaClient({ adapter });
+    const prisma = createPrismaClient(c.env.MOLD_DB);
 
     // request data
     const data = await c.req.json();
@@ -141,8 +145,7 @@ app.put("/api/molds", zValidator(
 ), async (c) => {
   try {
     // Prisma adapter
-    const adapter = new PrismaD1(c.env.MOLD_DB);
-    const prisma = new PrismaClient({ adapter });
+    const prisma = createPrismaClient(c.env.MOLD_DB);
 
     // request data
     const data = await c.req.json();
@@ -171,8 +174,7 @@ app.delete("/api/molds",zValidator(
 ), async (c) => {
   try {
     // Prisma adapter
-    const adapter = new PrismaD1(c.env.MOLD_DB);
-    const prisma = new PrismaClient({ adapter });
+    const prisma = createPrismaClient(c.env.MOLD_DB);
 
     // request data
     const data = await c.req.json();
