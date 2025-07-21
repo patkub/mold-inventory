@@ -68,6 +68,10 @@ npm run deploy
 - `npm run upload` - deploy preview version to Cloudflare
 - `npm run deploy` - deploy production version to Cloudflare
 
+### Unit Testing
+- `npm run test` - vitest single run
+- `npm run test:watch` - vitest watch test suites for changes
+
 # Next.js README
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
