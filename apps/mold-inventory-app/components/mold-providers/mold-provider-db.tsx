@@ -26,11 +26,11 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
 
   const [molds, setMolds] = useState<Mold[]>([])
 
-  const AUTH0_DOMAIN = process.env.NEXT_PUBLIC_AUTH0_DOMAIN || ""
-  const AUTH0_AUDIENCE = process.env.NEXT_PUBLIC_AUTH0_AUDIENCE || ""
-
   // Add Auth0 access token to request
-  const attachAuth0AccessToken = async (request: Request, AUTH0_DOMAIN: string) => {
+  const attachAuth0AccessToken = async (request: Request) => {
+    const AUTH0_DOMAIN = process.env.NEXT_PUBLIC_AUTH0_DOMAIN || ""
+    const AUTH0_AUDIENCE = process.env.NEXT_PUBLIC_AUTH0_AUDIENCE || ""
+
     const accessToken = await getAccessTokenSilently({
       authorizationParams: {
         audience: `https://${AUTH0_AUDIENCE}`,
@@ -54,7 +54,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
       const request = new Request("/api/molds", {
         method: 'GET'
       });
-      await attachAuth0AccessToken(request, AUTH0_DOMAIN);
+      await attachAuth0AccessToken(request);
 
       const response = await fetch(request);
       const molds = await response.json() as Mold[];
@@ -75,7 +75,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
         },
         body: JSON.stringify(newMold),
       });
-      await attachAuth0AccessToken(request, AUTH0_DOMAIN);
+      await attachAuth0AccessToken(request);
 
       const response = await fetch(request);
       const mold = await response.json() as Mold;
@@ -96,7 +96,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
         },
         body: JSON.stringify({ number: number }),
       });
-      await attachAuth0AccessToken(request, AUTH0_DOMAIN);
+      await attachAuth0AccessToken(request);
 
       const response = await fetch(request);
       const delResp = await response.json() as DeleteMoldResponse;
@@ -118,7 +118,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
         },
         body: JSON.stringify({ number: number, mold: existingMold }),
       });
-      await attachAuth0AccessToken(request, AUTH0_DOMAIN);
+      await attachAuth0AccessToken(request);
 
       const response = await fetch(request);
       const updatedMold = await response.json() as Mold;
