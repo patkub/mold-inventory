@@ -108,14 +108,14 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const updateMoldAuth = async (existingMold: Partial<Mold>): Promise<Mold | undefined> => {
+  const updateMoldAuth = async (number: string, existingMold: Partial<Mold>): Promise<Mold | undefined> => {
     try {
       const request = new Request("/api/molds", {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(existingMold),
+        body: JSON.stringify({ number: number, mold: existingMold }),
       });
       await attachAuth0AccessToken(request, AUTH0_DOMAIN);
 
@@ -160,7 +160,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
 
   const updateMold = async (number: string, updatedMold: Partial<Mold>) => {
     // Update mold in database
-    await updateMoldAuth(updatedMold)
+    await updateMoldAuth(number, updatedMold)
 
     // Get molds from API
     const molds = await getMoldsAuth();

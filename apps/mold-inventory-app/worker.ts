@@ -2,20 +2,15 @@
 
 // @ts-ignore: Will be resolved by wrangler build
 import openNextWorker from './.open-next/worker.js'; // Adjust path as needed
-
-import { Hono } from "hono"
-import { createMiddleware } from "hono/factory";
-import { cors } from "hono/cors"
-import { HTTPException } from "hono/http-exception"
-import * as z from "zod";
-import { zValidator } from '@hono/zod-validator'
-
-import jwksClient from 'jwks-rsa'
-
-import { createPrismaClient } from './worker/prismaClient'
 import { D1Database } from '@cloudflare/workers-types';
 
-import { setupAuth } from './worker/auth'
+// Hono
+import { Hono } from "hono"
+// CORS
+import { setupCORS } from './worker/middleware/cors';
+// Auth0 authentication
+import { checkAuth } from './worker/middleware/checkAuth';
+import { moldsRoute } from './worker/routes/moldsRoute';
 
 type Bindings = {
   IS_LOCAL_MODE: string,
@@ -26,21 +21,8 @@ type Bindings = {
 // Hono
 const app = new Hono<{ Bindings: Bindings }>()
 
-// CORS middleware
-app.use('*', async (c, next) => {
-  // Skip cors locally
-  if (c.env.IS_LOCAL_MODE) {
-    await next();
-    return;
-  }
-
-  const middleware = cors({
-    origin: c.env.CORS_ORIGIN,
-    allowHeaders: ["Content-Type", "Authorization"],
-    allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  })
-  return middleware(c, next)
-})
+// Setup CORS
+app.use('*', setupCORS)
 
 // For Cloudflare Workers
 app.use("/", async (c) => {
@@ -49,150 +31,14 @@ app.use("/", async (c) => {
   return await openNextWorker.fetch(c.req.raw, c.env, c.executionCtx);
 })
 
+// Middleware must be registered before any /api endpoints
 // Require authentication for /api endpoints
-const checkAuth = createMiddleware(async (c, next) => {
-  // Skip auth locally
-  if (c.env.IS_LOCAL_MODE) {
-    await next();
-    return;
-  }
-
-  // Initialize JWKS client with the URL to fetch keys
-  const domain = c.env.NEXT_PUBLIC_AUTH0_DOMAIN;
-  const client = jwksClient({ jwksUri: `https://${domain}/.well-known/jwks.json` })
-  const authProvider = setupAuth(client);
-  const { isAuthorized } = authProvider;
-
-  // Get raw request in Cloudflare Worker
-  const raw = c.req.raw;
-
-  // Check if authorized
-  if (!isAuthorized(raw)) {
-    c.status(401);
-    return c.text("Unauthorized");
-  }
-
-  // Proceed with request
-  await next();
-});
-
-// Require authentication for /api endpoints
-// Middleware must be registered before any /api endpoints.
 app.use("/api/*", checkAuth);
 // Now register /api endpoints
 
 
-// Mold objects for Zod validation
-const zMold = z.object({
-  number: z.string(),
-  description: z.string(),
-  cycle_time: z.number(),
-  status: z.string(),
-});
-
-const zDeleteMold = z.object({
-  number: z.string()
-})
-
-
-// Get all molds
-app.get("/api/molds", async (c) => {
-  try {
-    // Prisma adapter
-    const prisma = createPrismaClient(c.env.MOLD_DB);
-
-    const molds = await prisma.molds.findMany();
-
-    // return molds as json
-    return c.json(molds)
-
-  } catch (error) {
-    throw new HTTPException(500, { message: "Failed to fetch molds" })
-  }
-})
-
-
-// Create new mold
-app.post("/api/molds", zValidator(
-  'json',
-  zMold
-), async (c) => {
-  try {
-    // Prisma adapter
-    const prisma = createPrismaClient(c.env.MOLD_DB);
-
-    // request data
-    const data = await c.req.json();
-
-    // create new mold in database
-    const mold = await prisma.molds.create({
-      data: data
-    })
-
-    // return the new mold as json
-    return c.json(mold)
-
-  } catch (error) {
-    throw new HTTPException(500, { message: "Failed to create new mold" })
-  }
-})
-
-
-// Update mold
-app.put("/api/molds", zValidator(
-  'json',
-  zMold
-), async (c) => {
-  try {
-    // Prisma adapter
-    const prisma = createPrismaClient(c.env.MOLD_DB);
-
-    // request data
-    const data = await c.req.json();
-
-    // update mold in database
-    const updatedMold = await prisma.molds.update({
-      where: {
-        number: data.number,
-      },
-      data: data,
-    })
-
-    // return the updated mold as json
-    return c.json(updatedMold)
-
-  } catch (error) {
-    throw new HTTPException(500, { message: "Failed to update mold" })
-  }
-})
-
-
-// Delete mold
-app.delete("/api/molds",zValidator(
-  'json',
-  zDeleteMold
-), async (c) => {
-  try {
-    // Prisma adapter
-    const prisma = createPrismaClient(c.env.MOLD_DB);
-
-    // request data
-    const data = await c.req.json();
-
-    // delete mold from database
-    const deleteMold = await prisma.molds.delete({
-      where: {
-        number: data.number,
-      },
-    })
-
-    // return the new mold as json
-    return c.json({ message: "Mold has been deleted" })
-
-  } catch (error) {
-    throw new HTTPException(500, { message: "Failed to create new mold" })
-  }
-})
+// Handle /api/molds endpoint
+app.route('/api', moldsRoute)
 
 
 export default app

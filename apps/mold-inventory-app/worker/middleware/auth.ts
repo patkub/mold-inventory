@@ -1,3 +1,7 @@
+/**
+ * JWT token helpers
+ */
+
 import { verify } from 'jsonwebtoken'
 
 const setupAuth = (client: any) => {

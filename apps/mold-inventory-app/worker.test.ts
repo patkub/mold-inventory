@@ -14,8 +14,10 @@ describe('Molds', () => {
     // reset prisma mocks
     mockReset(prisma);
 
-    // disable CORS for local testing
+    // skip auth for local testing
     env.IS_LOCAL_MODE = true;
+    // disable CORS for local testing
+    env.CORS_ORIGIN = ["*"];
 
     // when worker calls createPrismaClient, return the mocked prisma object
     vi.mock('./worker/prismaClient', () => ({
@@ -85,7 +87,10 @@ describe('Molds', () => {
     // request molds
     const res = await app.request('/api/molds', {
       method: 'PUT',
-      body: JSON.stringify(fakeMold),
+      body: JSON.stringify({
+        number: fakeMold.number,
+        mold: fakeMold
+      }),
       headers: new Headers({ 'Content-Type': 'application/json' }),
     }, env)
 
