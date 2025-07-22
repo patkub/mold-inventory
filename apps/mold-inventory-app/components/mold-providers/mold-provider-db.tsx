@@ -15,6 +15,10 @@ type MoldContextType = {
   getMold: (id: string) => Mold | undefined
 }
 
+type DeleteMoldResponse = {
+  message: string
+}
+
 const MoldContext = createContext<MoldContextType | undefined>(undefined)
 
 export function MoldProviderDB({ children }: { children: React.ReactNode }) {
@@ -23,6 +27,19 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
   const [molds, setMolds] = useState<Mold[]>([])
 
   const AUTH0_DOMAIN = process.env.NEXT_PUBLIC_AUTH0_DOMAIN || ""
+
+  // Add Auth0 access token to request
+  const attachAuth0AccessToken = async (request: Request, AUTH0_DOMAIN: string) => {
+    const accessToken = await getAccessTokenSilently({
+      authorizationParams: {
+        audience: `https://${AUTH0_DOMAIN}/api/v2/`,
+        scope: "read:current_user",
+      },
+    });
+
+    request.headers.append("Authorization", `Bearer ${accessToken}`)
+    return request;
+  }
 
   /**
    * Get molds from database
@@ -33,21 +50,13 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
    */
   const getMoldsAuth = async (): Promise<Mold[] | undefined> => {
     try {
-      const accessToken = await getAccessTokenSilently({
-        authorizationParams: {
-          audience: `https://${AUTH0_DOMAIN}/api/v2/`,
-          scope: "read:current_user",
-        },
+      const request = new Request("/api/molds", {
+        method: 'GET'
       });
+      await attachAuth0AccessToken(request, AUTH0_DOMAIN);
 
-      const apiMoldsResponse = await fetch("/api/molds", {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      });
-
-      const molds = await apiMoldsResponse.json() as Mold[];
-      // console.log(molds)
+      const response = await fetch(request);
+      const molds = await response.json() as Mold[];
 
       return molds;
     } catch (e) {
@@ -58,24 +67,17 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
 
   const createMoldAuth = async (newMold: Omit<Mold, "id">): Promise<Mold | undefined> => {
     try {
-      const accessToken = await getAccessTokenSilently({
-        authorizationParams: {
-          audience: `https://${AUTH0_DOMAIN}/api/v2/`,
-          scope: "read:current_user",
-        },
-      });
-
-      const apiMoldsResponse = await fetch("/api/molds", {
+      const request = new Request("/api/molds", {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${accessToken}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(newMold),
       });
+      await attachAuth0AccessToken(request, AUTH0_DOMAIN);
 
-      const mold = await apiMoldsResponse.json() as Mold;
-      // console.log(mold)
+      const response = await fetch(request);
+      const mold = await response.json() as Mold;
 
       return mold;
     } catch (e) {
@@ -84,28 +86,22 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const deleteMoldAuth = async (number: string): Promise<Mold | undefined> => {
+  const deleteMoldAuth = async (number: string): Promise<DeleteMoldResponse | undefined> => {
     try {
-      const accessToken = await getAccessTokenSilently({
-        authorizationParams: {
-          audience: `https://${AUTH0_DOMAIN}/api/v2/`,
-          scope: "read:current_user",
-        },
-      });
-
-      const apiMoldsResponse = await fetch("/api/molds", {
+      const request = new Request("/api/molds", {
         method: 'DELETE',
         headers: {
-          Authorization: `Bearer ${accessToken}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ number: number }),
       });
+      await attachAuth0AccessToken(request, AUTH0_DOMAIN);
 
-      const response = await apiMoldsResponse.json() as Mold;
-      // console.log(response)
+      const response = await fetch(request);
+      const delResp = await response.json() as DeleteMoldResponse;
+      // console.log(delResp)
 
-      return response;
+      return delResp;
     } catch (e) {
       // Error occurred deleting mold
       console.log(e)
@@ -114,23 +110,17 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
 
   const updateMoldAuth = async (existingMold: Partial<Mold>): Promise<Mold | undefined> => {
     try {
-      const accessToken = await getAccessTokenSilently({
-        authorizationParams: {
-          audience: `https://${AUTH0_DOMAIN}/api/v2/`,
-          scope: "read:current_user",
-        },
-      });
-
-      const apiMoldsResponse = await fetch("/api/molds", {
+      const request = new Request("/api/molds", {
         method: 'PUT',
         headers: {
-          Authorization: `Bearer ${accessToken}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(existingMold),
       });
+      await attachAuth0AccessToken(request, AUTH0_DOMAIN);
 
-      const updatedMold = await apiMoldsResponse.json() as Mold;
+      const response = await fetch(request);
+      const updatedMold = await response.json() as Mold;
       // console.log(updatedMold)
 
       return updatedMold;
@@ -171,7 +161,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
   const updateMold = async (number: string, updatedMold: Partial<Mold>) => {
     // Update mold in database
     await updateMoldAuth(updatedMold)
-    
+
     // Get molds from API
     const molds = await getMoldsAuth();
     if (molds) {
