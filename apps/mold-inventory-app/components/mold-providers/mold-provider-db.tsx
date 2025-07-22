@@ -33,9 +33,8 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
   const attachAuth0AccessToken = async (request: Request, AUTH0_DOMAIN: string) => {
     const accessToken = await getAccessTokenSilently({
       authorizationParams: {
-        // audience: `https://${AUTH0_DOMAIN}/api/v2/`,
+        audience: `https://${AUTH0_AUDIENCE}`,
         issuer: `https://${AUTH0_DOMAIN}`,
-        audience: `${AUTH0_AUDIENCE}`
       },
     });
 
