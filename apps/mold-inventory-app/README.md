@@ -29,6 +29,22 @@ UI generated with [v0.dev](https://v0.dev/).
 
 ## Setup
 
+```bash
+# install Node.js dependencies
+npm install
+```
+
+### Auth0 Tenant
+
+Copy auth0 config from `auth0-config.json.example` to `auth0-config.json` and fill out details using Machine to Machine client.
+
+Deploy Auth0 configuration.
+```bash
+npm run auth0-import
+```
+
+### App
+
 Copy `.env.example` to `.env`. Fill out Auth0 details.
 ```
 NEXT_PUBLIC_AUTH0_DOMAIN=
@@ -41,9 +57,6 @@ Configure environments in `wrangler.jsonc`.
 
 Run locally.
 ```bash
-# install Node.js dependencies
-npm install
-
 # setup local Cloudflare D1 database
 npm run db:migrate:local
 npm run db:seed:local
@@ -54,14 +67,7 @@ npm run preview
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Auth0 Tenant
 
-Copy auth0 config from `cli-config/config.json.example` to `cli-config/config.json` and fill out details using Machine to Machine client.
-
-Deploy Auth0 configuration.
-```bash
-npm run auth0-import
-```
 
 
 ## Deploy to Cloudflare
