@@ -27,6 +27,7 @@ UI generated with [v0.dev](https://v0.dev/).
 
 ![Screenshot of UI](./docs/ui.png)
 
+
 ## Setup
 
 ```bash
@@ -68,8 +69,6 @@ npm run preview
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 
-
-
 ## Deploy to Cloudflare
 ```bash
 npm run deploy
@@ -86,9 +85,11 @@ npm run deploy
 - `npm run upload` - deploy preview version to Cloudflare
 - `npm run deploy` - deploy production version to Cloudflare
 
-### Unit Testing
+
+## Unit Testing
 - `npm run test` - vitest single run
 - `npm run test:watch` - vitest watch test suites for changes
+
 
 # Next.js README
 
