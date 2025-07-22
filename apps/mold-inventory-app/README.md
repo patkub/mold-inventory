@@ -33,6 +33,8 @@ Copy `.env.example` to `.env`. Fill out Auth0 details.
 ```
 NEXT_PUBLIC_AUTH0_DOMAIN=
 NEXT_PUBLIC_AUTH0_CLIENT_ID=
+NEXT_PUBLIC_AUTH0_AUDIENCE=mold-inventory-app-production.epicpatka.workers.dev/api
+NEXT_PUBLIC_AUTH0_SCOPES="openid profile read:current_user create:molds update:molds delete:molds read:molds"
 ```
 
 Configure environments in `wrangler.jsonc`.
@@ -51,6 +53,16 @@ npm run preview
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Auth0 Tenant
+
+Copy auth0 config from `cli-config/config.json.example` to `cli-config/config.json` and fill out details using Machine to Machine client.
+
+Deploy Auth0 configuration.
+```bash
+npm run auth0-import
+```
+
 
 ## Deploy to Cloudflare
 ```bash

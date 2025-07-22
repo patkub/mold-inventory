@@ -9,9 +9,11 @@ export function Auth0Provider({ children }: { children: ReactNode }) {
 
   const domain = process.env.NEXT_PUBLIC_AUTH0_DOMAIN || ""
   const clientId = process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID || ""
+  const audience = process.env.NEXT_PUBLIC_AUTH0_AUDIENCE || ""
+  const scopes = process.env.NEXT_PUBLIC_AUTH0_SCOPES || ""
   const redirectUri = typeof window !== "undefined" ? window.location.origin : ""
 
-  if (!domain || !clientId) {
+  if (!domain || !clientId || !audience) {
     return <>{children}</>
   }
 
@@ -26,6 +28,8 @@ export function Auth0Provider({ children }: { children: ReactNode }) {
       clientId={clientId}
       authorizationParams={{
         redirect_uri: redirectUri,
+        audience: audience,
+        scope: scopes
       }}
       onRedirectCallback={onRedirectCallback}
     >
