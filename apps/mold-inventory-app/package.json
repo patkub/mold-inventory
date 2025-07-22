@@ -19,7 +19,8 @@
     "db:seed": "wrangler d1 execute mold-inventory-app --remote -e production --file=./scripts/seed-data.sql",
     "db:seed:local": "wrangler d1 execute mold-inventory-app -e dev --file=./scripts/seed-data.sql",
     "prisma:generate": "prisma generate",
-    "cf-typegen": "wrangler types worker-configuration.d.ts"
+    "cf-typegen": "wrangler types worker-configuration.d.ts",
+    "auth0-import": "a0deploy import -c auth0-config.json -i auth0-tenant"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.3.0",
@@ -55,6 +56,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "auth0-deploy-cli": "^8.11.0",
     "eslint": "^9.31.0",
     "eslint-config-next": "^15.2.4",
     "prisma": "^6.12.0",

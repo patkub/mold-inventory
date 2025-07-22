@@ -2,9 +2,16 @@
  * JWT token helpers
  */
 
-import { verify } from 'jsonwebtoken'
+import { verify, VerifyOptions } from 'jsonwebtoken'
 
-const setupAuth = (client: any) => {
+type AuthConfig = {
+  domain: string,
+  jwksUri: string,
+  audience: string,
+  issuer: string
+}
+
+const setupAuth = (client: any, config: AuthConfig) => {
 
   // Function to retrieve the signing key from the JWKS endpoint
   const getKey = (
@@ -29,14 +36,14 @@ const setupAuth = (client: any) => {
   }
 
   // Function to verify the JWT token
-  const verifyJwtToken = (token: string) => {
+  const verifyJwtToken = (token: string, options: VerifyOptions) => {
     return new Promise((
       resolve, reject,
     ) => {
       verify(
         token,
         getKey,
-        {},
+        options,
         (
           err: any, decoded: any,
         ) => {
@@ -57,7 +64,10 @@ const setupAuth = (client: any) => {
 
     if (!accessToken) return false
 
-    const tokenBody = await verifyJwtToken(accessToken)
+    const tokenBody = await verifyJwtToken(accessToken, {
+      audience: config.audience,
+      issuer: config.issuer
+    })
 
     if (!tokenBody) return false
 

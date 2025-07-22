@@ -15,9 +15,15 @@ const checkAuth = createMiddleware(async (c, next) => {
   }
 
   // Initialize JWKS client with the URL to fetch keys
-  const domain = c.env.NEXT_PUBLIC_AUTH0_DOMAIN;
-  const client = jwksClient({ jwksUri: `https://${domain}/.well-known/jwks.json` })
-  const authProvider = setupAuth(client);
+  const config = {
+    domain: c.env.NEXT_PUBLIC_AUTH0_DOMAIN,
+    jwksUri: `https://${c.env.NEXT_PUBLIC_AUTH0_DOMAIN}/.well-known/jwks.json`,
+    audience: `https://${c.env.NEXT_PUBLIC_AUTH0_AUDIENCE}`,
+    issuer: `https://${c.env.NEXT_PUBLIC_AUTH0_DOMAIN}`
+  }
+
+  const client = jwksClient({ jwksUri: config.jwksUri })
+  const authProvider = setupAuth(client, config);
   const { isAuthorized } = authProvider;
 
   // Get raw request in Cloudflare Worker

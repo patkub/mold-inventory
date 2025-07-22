@@ -27,13 +27,14 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
   const [molds, setMolds] = useState<Mold[]>([])
 
   const AUTH0_DOMAIN = process.env.NEXT_PUBLIC_AUTH0_DOMAIN || ""
+  const AUTH0_AUDIENCE = process.env.NEXT_PUBLIC_AUTH0_AUDIENCE || ""
 
   // Add Auth0 access token to request
   const attachAuth0AccessToken = async (request: Request, AUTH0_DOMAIN: string) => {
     const accessToken = await getAccessTokenSilently({
       authorizationParams: {
-        audience: `https://${AUTH0_DOMAIN}/api/v2/`,
-        scope: "read:current_user",
+        audience: `https://${AUTH0_AUDIENCE}`,
+        issuer: `https://${AUTH0_DOMAIN}`,
       },
     });
 

@@ -1,0 +1,28 @@
+{
+  "name": "Mold Inventory API",
+  "identifier": "https://mold-inventory-app-production.epicpatka.workers.dev/api",
+  "allow_offline_access": false,
+  "skip_consent_for_verifiable_first_party_clients": true,
+  "token_lifetime": 86400,
+  "token_lifetime_for_web": 7200,
+  "signing_alg": "RS256",
+  "scopes": [
+    {
+      "value": "create:molds",
+      "description": "Create molds"
+    },
+    {
+      "value": "update:molds",
+      "description": "Update molds"
+    },
+    {
+      "value": "delete:molds",
+      "description": "Delete molds"
+    },
+    {
+      "value": "read:molds",
+      "description": "Read molds"
+    }
+  ],
+  "token_dialect": "access_token"
+}
