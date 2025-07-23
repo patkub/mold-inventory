@@ -33,6 +33,7 @@ UI generated with [v0.dev](https://v0.dev/)
 
 ## Setup
 
+Install Node.js dependencies.
 ```bash
 # install Node.js dependencies
 npm install
@@ -44,6 +45,7 @@ Copy auth0 config from `auth0-config.json.example` to `auth0-config.json` and fi
 
 Deploy Auth0 configuration.
 ```bash
+# deploy Auth0 configuration
 npm run auth0-import
 ```
 
@@ -63,39 +65,45 @@ NEXT_PUBLIC_AUTH0_SCOPES="openid profile read:current_user create:molds read:mol
 
 Configure environments in `wrangler.jsonc`.
 
-Run locally.
+Setup local Cloudflare D1 database for the first time.
 ```bash
 # setup local Cloudflare D1 database
 npm run db:migrate:local
 npm run db:seed:local
+```
 
+Run the app locally.
+```bash
 # run Cloudflare Worker locally
 npm run preview
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## Unit Testing
+- `npm run test` - vitest single run
+- `npm run test:watch` - vitest watch test suites for changes
 
 ## Deploy to Cloudflare
 ```bash
 npm run deploy
 ```
 
-### Cloudflare commands
+## Commands
+
+### Cloudflare Commands
 - `npm run db:create` - create mold-inventory-app database in Cloudflare
 - `npm run db:migrate` - setup mold-inventory-app database in Cloudflare
 - `npm run db:migrate:local` - setup mold-inventory-app database locally
 - `npm run db:seed` - seed initial mold-inventory-app data in Cloudflare
 - `npm run db:seed:local` - seed initial mold-inventory-app data locally
-- `npm run prisma:generate` - regenerate prisma database schema
 - `npm run cf-typegen` - update type definitions after adding new bindings to your Wrangler configuration
 - `npm run upload` - deploy preview version to Cloudflare
 - `npm run deploy` - deploy production version to Cloudflare
 
-
-## Unit Testing
-- `npm run test` - vitest single run
-- `npm run test:watch` - vitest watch test suites for changes
+### Other Commands
+- `npm run prisma:generate` - regenerate prisma database schema
+- `npm run auth0-import` - deploy Auth0 configuration
 
 
 # Next.js README
