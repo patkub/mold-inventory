@@ -11,11 +11,13 @@ import prisma from './libs/__mocks__/prisma'
 
 describe('Molds', () => {
   beforeEach(() => {
-    // reset prisma mocks
-    mockReset(prisma);
-
-    // skip auth for local testing
-    env.IS_LOCAL_MODE = true;
+    // disable auth for local testing
+    vi.mock('./worker/middleware/checkAuth', () => ({
+      checkAuth: vi.fn(async (c, next) => {
+        await next();
+      })
+    }));
+    
     // disable CORS for local testing
     env.CORS_ORIGIN = ["*"];
 
@@ -26,6 +28,8 @@ describe('Molds', () => {
       })
     }));
 
+    // reset prisma mocks
+    mockReset(prisma);
   });
 
   it('Should get all molds', async () => {

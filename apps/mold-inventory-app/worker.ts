@@ -13,7 +13,6 @@ import { checkAuth } from './worker/middleware/checkAuth';
 import { moldsRoute } from './worker/routes/moldsRoute';
 
 type Bindings = {
-  IS_LOCAL_MODE: string,
   CORS_ORIGIN: string[],
   MOLD_DB: D1Database
 }

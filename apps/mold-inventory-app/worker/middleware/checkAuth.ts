@@ -8,12 +8,6 @@ import { setupAuth } from './auth'
 
 // Require authentication
 const checkAuth = createMiddleware(async (c, next) => {
-  // Skip auth locally
-  if (c.env.IS_LOCAL_MODE) {
-    await next();
-    return;
-  }
-
   // Initialize JWKS client with the URL to fetch keys
   const config = {
     domain: c.env.NEXT_PUBLIC_AUTH0_DOMAIN,

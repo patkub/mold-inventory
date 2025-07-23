@@ -37,7 +37,6 @@
         }
       ],
       "vars": {
-        "IS_LOCAL_MODE": true,
         "CORS_ORIGIN": ["http://localhost:3000"],
         "NEXT_PUBLIC_AUTH0_DOMAIN": "dev-5gm1mr1z8nbmuhv7.us.auth0.com",
         "NEXT_PUBLIC_AUTH0_CLIENT_ID": "DYZT9rpjL5LoJNfpjo8JEQtPaLqyABHO",
