@@ -8,7 +8,7 @@
 - [Cloudflare Workers](https://developers.cloudflare.com/workers/)
   - [Hono](https://hono.dev/)
   - [Prisma](https://www.prisma.io/)
-- [Next.js](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/)
+- [Next.js](https://nextjs.org/)
 
 ### Implementation Details
 
@@ -18,9 +18,12 @@ A custom [Cloudflare Worker](https://developers.cloudflare.com/workers/) using
   - [Prisma](https://www.prisma.io/) ORM to manage a [Cloudflare D1](https://developers.cloudflare.com/d1/) database
   - [Next.js](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/) as the frontend React Framework
   
-The [Cloudflare Worker](https://developers.cloudflare.com/workers/) has CRUD API to manage molds and validates access token from Auth0 on each request.
+The [Cloudflare Worker](https://developers.cloudflare.com/workers/)
+  - Serves the Next.js app
+  - A CRUD API that manages molds
+    - Validates Auth0 JWT access token scope claim for permissions
 
-UI generated with [v0.dev](https://v0.dev/).
+UI generated with [v0.dev](https://v0.dev/)
 
 
 ## UI
