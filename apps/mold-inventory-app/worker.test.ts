@@ -11,15 +11,22 @@ import prisma from './libs/__mocks__/prisma'
 
 describe('Molds', () => {
   beforeEach(() => {
+    // disable CORS for local testing
+    env.CORS_ORIGIN = ["*"];
+
     // disable auth for local testing
-    vi.mock('./worker/middleware/checkAuth', () => ({
-      checkAuth: vi.fn(async (c, next) => {
+    vi.mock('./worker/middleware/jwt', () => ({
+      setupJWT: vi.fn(async (c, next) => {
         await next();
       })
     }));
-    
-    // disable CORS for local testing
-    env.CORS_ORIGIN = ["*"];
+    vi.mock('./worker/middleware/scopes', () => ({
+      createScopesMiddleware: vi.fn(() => {
+        return vi.fn(async (c, next) => {
+          await next();
+        })
+      })
+    }));
 
     // when worker calls createPrismaClient, return the mocked prisma object
     vi.mock('./worker/prismaClient', () => ({

@@ -5,11 +5,12 @@ import openNextWorker from './.open-next/worker.js'; // Adjust path as needed
 import { D1Database } from '@cloudflare/workers-types';
 
 // Hono
-import { Hono } from "hono"
+import { Hono } from "hono";
 // CORS
 import { setupCORS } from './worker/middleware/cors';
-// Auth0 authentication
-import { checkAuth } from './worker/middleware/checkAuth';
+// JWT Auth
+import { setupJWT } from './worker/middleware/jwt';
+import { createScopesMiddleware } from './worker/middleware/scopes';
 import { moldsRoute } from './worker/routes/moldsRoute';
 
 type Bindings = {
@@ -31,10 +32,14 @@ app.use("/", async (c) => {
 })
 
 // Middleware must be registered before any /api endpoints
-// Require authentication for /api endpoints
-app.use("/api/*", checkAuth);
+// Require JWT authentication for all /api endpoints
+app.use('/api/*', setupJWT)
+// Validate JWT scope claim for CRUD routes
+app.get('/api/molds/*', createScopesMiddleware(["read:molds"]))
+app.post('/api/molds/*', createScopesMiddleware(["create:molds"]))
+app.put('/api/molds/*', createScopesMiddleware(["update:molds"]))
+app.delete('/api/molds/*', createScopesMiddleware(["delete:molds"]))
 // Now register /api endpoints
-
 
 // Handle /api/molds endpoint
 app.route('/api', moldsRoute)

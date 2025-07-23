@@ -12,16 +12,16 @@
       "description": "Create molds"
     },
     {
+      "value": "read:molds",
+      "description": "Read molds"
+    },
+    {
       "value": "update:molds",
       "description": "Update molds"
     },
     {
       "value": "delete:molds",
       "description": "Delete molds"
-    },
-    {
-      "value": "read:molds",
-      "description": "Read molds"
     }
   ],
   "token_dialect": "access_token"
