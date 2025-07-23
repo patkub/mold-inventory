@@ -47,6 +47,10 @@ Deploy Auth0 configuration.
 npm run auth0-import
 ```
 
+Create users in Auth0 dashboard.
+- Assign permissions to users for the Mold Inventory API.
+  - Available permissions: `create:molds`, `read:molds`, `update:molds`, and `delete:molds`
+
 ### App
 
 Copy `.env.example` to `.env`. Fill out Auth0 details.
