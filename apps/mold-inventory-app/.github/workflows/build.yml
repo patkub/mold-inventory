@@ -17,10 +17,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'npm'
 
       - name: Install dependencies
-        # Issue: napi-postinstall is not found in GitHub Actions
-        run: npm install --no-package-lock
+        run: npm ci
 
       - name: Build
         run: npm run cf:build
