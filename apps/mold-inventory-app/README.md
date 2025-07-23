@@ -48,8 +48,8 @@ npm run auth0-import
 
 Copy `.env.example` to `.env`. Fill out Auth0 details.
 ```
-NEXT_PUBLIC_AUTH0_DOMAIN=
-NEXT_PUBLIC_AUTH0_CLIENT_ID=
+NEXT_PUBLIC_AUTH0_DOMAIN=dev-5gm1mr1z8nbmuhv7.us.auth0.com
+NEXT_PUBLIC_AUTH0_CLIENT_ID=DYZT9rpjL5LoJNfpjo8JEQtPaLqyABHO
 NEXT_PUBLIC_AUTH0_AUDIENCE=mold-inventory-app-production.epicpatka.workers.dev/api
 NEXT_PUBLIC_AUTH0_SCOPES="openid profile read:current_user create:molds update:molds delete:molds read:molds"
 ```

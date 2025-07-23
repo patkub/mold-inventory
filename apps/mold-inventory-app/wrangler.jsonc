@@ -25,7 +25,7 @@
         "NEXT_PUBLIC_AUTH0_AUDIENCE": "mold-inventory-app-production.epicpatka.workers.dev/api"
       },
       "observability": {
-        "enabled": false
+        "enabled": true
       }
     },
     "dev": {
@@ -43,7 +43,7 @@
         "NEXT_PUBLIC_AUTH0_AUDIENCE": "mold-inventory-app-production.epicpatka.workers.dev/api"
       },
       "observability": {
-        "enabled": true
+        "enabled": false
       }
     }
   },
