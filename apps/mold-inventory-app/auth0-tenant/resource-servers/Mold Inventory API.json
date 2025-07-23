@@ -24,5 +24,6 @@
       "description": "Delete molds"
     }
   ],
+  "enforce_policies": true,
   "token_dialect": "access_token"
 }
