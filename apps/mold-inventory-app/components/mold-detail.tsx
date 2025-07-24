@@ -42,7 +42,7 @@ export function MoldDetail({ moldNumber, onClose }: MoldDetailProps) {
       <div className="flex justify-between items-start mb-4">
         <div>
           <div className="flex items-center gap-2">
-            <h2 className="text-xl font-bold">{mold.number}</h2>
+            <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">{mold.number}</h2>
             <MoldStatusBadge mold={mold}></MoldStatusBadge>
           </div>
           <p className="text-muted-foreground">Mold #{mold.number}</p>
@@ -64,20 +64,20 @@ export function MoldDetail({ moldNumber, onClose }: MoldDetailProps) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Card>
+        <Card className="bg-card border-border">
           <CardContent className="pt-6">
-            <h3 className="font-semibold mb-2">Specifications</h3>
+            <h3 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">Specifications</h3>
             <dl className="grid grid-cols-2 gap-2 text-sm">
               <dt className="text-muted-foreground">Description:</dt>
-              <dd>{mold.description}</dd>
+              <dd className="text-gray-900 dark:text-gray-100">{mold.description}</dd>
               <dt className="text-muted-foreground">Cycle Time:</dt>
-              <dd>{mold.cycle_time}</dd>
+              <dd className="text-gray-900 dark:text-gray-100">{mold.cycle_time}</dd>
             </dl>
           </CardContent>
         </Card>
       </div>
 
-      <Separator className="my-6" />
+      <Separator className="my-6 border-border" />
 
       <AlertDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
         <AlertDialogContent>

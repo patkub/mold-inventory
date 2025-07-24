@@ -57,7 +57,7 @@ export function MoldForm({ mold, onCancel }: MoldFormProps) {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-bold">{isEditing ? "Edit Mold" : "Add New Mold"}</h2>
+        <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">{isEditing ? "Edit Mold" : "Add New Mold"}</h2>
         <Button type="button" variant="ghost" onClick={onCancel}>
           <ArrowLeft className="mr-2 h-4 w-4" /> Back
         </Button>
