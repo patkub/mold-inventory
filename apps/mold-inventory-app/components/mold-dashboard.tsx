@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Package2, Plus, Search } from "lucide-react"
 import { useAuth0 } from "@auth0/auth0-react"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export function MoldDashboard() {
   const { molds, getMolds } = useMolds()
@@ -40,10 +41,10 @@ export function MoldDashboard() {
   }, [])
 
   return (
-    <div className="container mx-auto py-6 px-4">
+    <div className="container mx-auto py-6 px-4 bg-background">
       <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
         <div>
-          <h1 className="text-2xl font-bold flex items-center">
+          <h1 className="text-2xl font-bold flex items-center text-gray-900 dark:text-gray-100">
             <Package2 className="mr-2" /> Mold Inventory Management
           </h1>
           <p className="text-muted-foreground">
@@ -51,6 +52,7 @@ export function MoldDashboard() {
           </p>
         </div>
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <Button
             onClick={() => {
               setIsAddingMold(true)
@@ -65,7 +67,7 @@ export function MoldDashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-1">
-          <div className="bg-white rounded-lg shadow p-4 space-y-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4 space-y-4">
             <div className="relative">
               <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
@@ -98,7 +100,7 @@ export function MoldDashboard() {
         </div>
 
         <div className="lg:col-span-2">
-          <div className="bg-white rounded-lg shadow p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-4">
             {isAddingMold ? (
               <MoldForm onCancel={() => setIsAddingMold(false)} />
             ) : selectedMoldNumber ? (

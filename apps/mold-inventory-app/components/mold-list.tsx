@@ -24,12 +24,14 @@ export function MoldList({ molds, onSelect, selectedMoldNumber }: MoldListProps)
                 onClick={() => onSelect(mold.number)}
                 className={cn(
                   "w-full text-left p-3 rounded-md transition-colors",
-                  selectedMoldNumber === mold.number ? "bg-gray-100 border-l-4 border-gray-900" : "hover:bg-gray-50",
+                  selectedMoldNumber === mold.number
+                    ? "bg-gray-100 dark:bg-gray-700 border-l-4 border-gray-900 dark:border-gray-100"
+                    : "hover:bg-gray-50 dark:hover:bg-gray-700",
                 )}
               >
                 <div className="flex justify-between items-start">
                   <div>
-                    <p className="font-medium">{mold.number}</p>
+                    <p className="font-medium text-gray-900 dark:text-gray-100">{mold.number}</p>
                     <p className="text-sm text-muted-foreground">{mold.description}</p>
                   </div>
                   <MoldStatusBadge mold={mold}></MoldStatusBadge>
