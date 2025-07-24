@@ -5,6 +5,7 @@ import type React from "react"
 import { createContext, useContext, useState } from "react"
 import { useAuth0 } from "@auth0/auth0-react"
 import type { Mold } from "@/types/mold"
+import { useToast } from "@/components/toast-provider"
 
 type MoldContextType = {
   getMolds: () => void
@@ -25,6 +26,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
   const { getAccessTokenSilently } = useAuth0()
 
   const [molds, setMolds] = useState<Mold[]>([])
+  const { toast } = useToast()
 
   // Add Auth0 access token to request
   const attachAuth0AccessToken = async (request: Request) => {
@@ -80,10 +82,20 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
       const response = await fetch(request);
       const mold = await response.json() as Mold;
 
+      toast({
+        title: "Success",
+        description: `Mold ${mold.number} added successfully`,
+      })
+
       return mold;
     } catch (e) {
       // Error occurred creating mold
       console.log(e)
+
+      toast({
+        title: "Error",
+        description: `An error occurred adding mold ${newMold.number}`,
+      })
     }
   };
 
@@ -102,10 +114,20 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
       const delResp = await response.json() as DeleteMoldResponse;
       // console.log(delResp)
 
+      toast({
+        title: "Success",
+        description: `Mold ${number} deleted successfully`,
+      })
+
       return delResp;
     } catch (e) {
       // Error occurred deleting mold
       console.log(e)
+
+      toast({
+        title: "Error",
+        description: `An error occurred deleting mold ${number}`,
+      })
     }
   };
 
@@ -124,10 +146,20 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
       const updatedMold = await response.json() as Mold;
       // console.log(updatedMold)
 
+      toast({
+        title: "Success",
+        description: `Mold ${number} updated successfully`,
+      })
+
       return updatedMold;
     } catch (e) {
       // Error occurred updating molds
       console.log(e)
+
+      toast({
+        title: "Error",
+        description: `An error occurred updating mold ${number}`,
+      })
     }
   };
 
