@@ -41,7 +41,7 @@ export function MoldDashboard() {
   }, [])
 
   return (
-    <div className="container mx-auto py-6 px-4 bg-background">
+    <div className="container mx-auto py-6 px-4">
       <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
         <div>
           <h1 className="text-2xl font-bold flex items-center text-gray-900 dark:text-gray-100">

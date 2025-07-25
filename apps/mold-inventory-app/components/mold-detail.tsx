@@ -64,7 +64,7 @@ export function MoldDetail({ moldNumber, onClose }: MoldDetailProps) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Card className="bg-card border-border">
+        <Card className="dark:bg-gray-800 dark:border-gray-700">
           <CardContent className="pt-6">
             <h3 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">Specifications</h3>
             <dl className="grid grid-cols-2 gap-2 text-sm">
