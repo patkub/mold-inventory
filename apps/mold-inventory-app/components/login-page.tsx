@@ -8,7 +8,7 @@ export function LoginPage() {
   const { loginWithRedirect } = useAuth0()
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-white dark:bg-gray-800">
+    <div className="h-dvh flex flex-col items-center justify-center p-4 bg-white dark:bg-gray-800">
       <div className="w-full max-w-md p-8 space-y-8 bg-card rounded-lg shadow-lg">
         <div className="text-center">
           <div className="flex justify-center">

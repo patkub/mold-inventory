@@ -18,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+    <html lang="en" className="h-dvh" suppressHydrationWarning>
+      <body className={`${inter.className} flex min-h-dvh flex-col bg-gray-50 dark:bg-gray-900`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Auth0Provider>{children}</Auth0Provider>
         </ThemeProvider>
