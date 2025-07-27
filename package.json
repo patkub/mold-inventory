@@ -6,6 +6,16 @@
     "apps/*"
   ],
   "devDependencies": {
-    "nx": "21.3.7"
-  }
+    "@nx/eslint": "21.3.7",
+    "@nx/next": "21.3.7",
+    "@nx/vite": "21.3.7",
+    "@nx/web": "21.3.7",
+    "@vitest/ui": "^3.0.0",
+    "eslint": "~8.57.0",
+    "jiti": "2.4.2",
+    "nx": "21.3.7",
+    "vite": "^6.0.0",
+    "vitest": "^3.0.0"
+  },
+  "dependencies": {}
 }
