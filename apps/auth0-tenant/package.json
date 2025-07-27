@@ -1,0 +1,15 @@
+{
+  "name": "auth0-tenant",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "a0deploy import -c auth0-config.json -i auth0-tenant"
+  },
+  "devDependencies": {
+    "auth0-deploy-cli": "^8.11.0"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "auth0-tenant",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/auth0-tenant",
+  "projectType": "application",
+  "tags": []
+}

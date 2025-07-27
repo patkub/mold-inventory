@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "nx vite:test run",
-    "test:watch": "nx vite:test",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "cf:build": "opennextjs-cloudflare build",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview --env dev",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy --env production",
@@ -19,8 +19,7 @@
     "db:seed": "wrangler d1 execute mold-inventory-app --remote -e production --file=./scripts/seed-data.sql",
     "db:seed:local": "wrangler d1 execute mold-inventory-app -e dev --file=./scripts/seed-data.sql",
     "prisma:generate": "prisma generate",
-    "cf-typegen": "wrangler types worker-configuration.d.ts",
-    "auth0-import": "a0deploy import -c auth0-config.json -i auth0-tenant"
+    "cf-typegen": "wrangler types worker-configuration.d.ts"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.4.0",
@@ -53,6 +52,7 @@
   },
   "devDependencies": {
     "@cloudflare/vitest-pool-workers": "^0.8.57",
+    "@cloudflare/workers-types": "^4.20250726.0",
     "@eslint/eslintrc": "^3.3.1",
     "@tailwindcss/postcss": "^4.1.11",
     "@testing-library/dom": "^10.4.0",
@@ -63,7 +63,6 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^4.7.0",
-    "auth0-deploy-cli": "^8.11.0",
     "eslint": "^9.31.0",
     "eslint-config-next": "15.3.4",
     "jsdom": "^26.1.0",
