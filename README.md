@@ -45,14 +45,20 @@ npm install
 
 ### Deploy Auth0 Configuration
 
+Copy auth0 config from `apps/auth0-tenant/auth0-config.json.example` to `apps/auth0-tenant/auth0-config.json` and fill out details using Machine to Machine client.
+
 Deploy Auth0 configuration.
 ```bash
 # deploy Auth0 configuration
 npx nx deploy auth0-tenant
 ```
 
+Create users in Auth0 dashboard.
+- Assign permissions to users for the Mold Inventory API.
+  - Available permissions: `create:molds`, `read:molds`, `update:molds`, and `delete:molds`
 
-### App
+
+### Run App
 
 Copy `apps/mold-inventory-app/.env.example` to `apps/mold-inventory-app/.env`. Fill out Auth0 details.
 ```
