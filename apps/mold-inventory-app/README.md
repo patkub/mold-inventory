@@ -56,6 +56,9 @@ Setup local Cloudflare D1 database for the first time.
 # setup local Cloudflare D1 database
 npm run db:migrate:local
 npm run db:seed:local
+
+# generate prisma database schema
+npm run prisma:generate
 ```
 
 Run the app locally.
@@ -83,9 +86,7 @@ npm run deploy
 - `npm run db:migrate:local` - setup mold-inventory-app database locally
 - `npm run db:seed` - seed initial mold-inventory-app data in Cloudflare
 - `npm run db:seed:local` - seed initial mold-inventory-app data locally
+- `npm run prisma:generate` - generate prisma database schema
 - `npm run cf-typegen` - update type definitions after adding new bindings to your Wrangler configuration
 - `npm run upload` - deploy preview version to Cloudflare
 - `npm run deploy` - deploy production version to Cloudflare
-
-### Other Commands
-- `npm run prisma:generate` - regenerate prisma database schema
