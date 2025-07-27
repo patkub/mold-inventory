@@ -1,0 +1,7 @@
+{
+  "name": "mold-inventory-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/mold-inventory-app",
+  "projectType": "application",
+  "tags": []
+}
