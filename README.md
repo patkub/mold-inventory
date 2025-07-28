@@ -117,7 +117,7 @@ npx nx run-many -t test -p mold-inventory-api mold-inventory-app
 
 ## Deploy to Cloudflare
 
-Deploy the API
+Deploy the api
 ```bash
 npx nx deploy mold-inventory-api
 ```
@@ -129,20 +129,33 @@ npx nx deploy mold-inventory-app
 
 ## Commands
 
-### Cloudflare Commands
+### API
+- `npx nx dev mold-inventory-api` - run Cloudflare Worker locally
+- `npx nx test mold-inventory-api` - vitest single run
+- `npx nx test:watch mold-inventory-api` -  vitest watch test suites for changes
 
-#### API
+#### Cloudflare Commands
 - `npx nx db:create mold-inventory-api` - create mold-inventory-app database in Cloudflare
 - `npx nx db:migrate mold-inventory-api` - setup mold-inventory-app database in Cloudflare
 - `npx nx db:migrate:local mold-inventory-api` - setup mold-inventory-app database locally
 - `npx nx db:seed mold-inventory-api` - seed initial mold-inventory-app data in Cloudflare
 - `npx nx db:seed:local mold-inventory-api` - seed initial mold-inventory-app data locally
+- `npx nx prisma:generate mold-inventory-api` - generate prisma database schema
 - `npx nx cf-typegen mold-inventory-api` - update type definitions after adding new bindings to your Wrangler configuration
-- `npx nx upload mold-inventory-api` - deploy preview version of API to Cloudflare
+- `npx nx upload mold-inventory-api` - deploy preview version to Cloudflare
+- `npx nx deploy mold-inventory-api` - deploy production version to Cloudflare
 
-#### App
+### App
+- `npx nx dev mold-inventory-app` - starts Next.js in development mode with hot-code reloading, error reporting, and more
+- `npx nx build mold-inventory-app` - create optimized production build
+- `npx nx start mold-inventory-app` - start Next.js in production mode
+- `npx nx lint mold-inventory-app` - run eslint
+- `npx nx test mold-inventory-app` - vitest single run
+- `npx nx test:watch mold-inventory-app` -  vitest watch test suites for changes
+
+#### Cloudflare Commands
 - `npx nx cf-typegen mold-inventory-app` - update type definitions after adding new bindings to your Wrangler configuration
-- `npx nx upload mold-inventory-app` - deploy preview version of app to Cloudflare
-
-### Other Commands
-- `npx nx prisma:generate mold-inventory-api` - regenerate prisma database schema
+- `npx nx cf:build mold-inventory-app` - build Next.js app for Cloudflare workerd runtime
+- `npx nx preview mold-inventory-app` - run locally in the Cloudflare workerd runtime, which is more accurate to production
+- `npx nx upload mold-inventory-app` - deploy preview version to Cloudflare
+- `npx nx deploy mold-inventory-app` - deploy production version to Cloudflare

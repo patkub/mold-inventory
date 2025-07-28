@@ -51,6 +51,10 @@ npm run deploy
 
 ## Commands
 
+- `npm run dev` - run Cloudflare Worker locally
+- `npm run test` - vitest single run
+- `npm run test:watch` -  vitest watch test suites for changes
+
 ### Cloudflare Commands
 - `npm run db:create` - create mold-inventory-app database in Cloudflare
 - `npm run db:migrate` - setup mold-inventory-app database in Cloudflare
