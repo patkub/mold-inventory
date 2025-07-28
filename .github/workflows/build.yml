@@ -20,15 +20,28 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+      
+      - name: Use pnpm
+        uses: pnpm/action-setup@v4
+
+      # Restore the cached .nx folder (if it exists)
+      - name: Restore Nx cache
+        id: nx-cache
+        uses: actions/cache@v3
+        with:
+          path: .nx
+          key: nx-cache-${{ runner.os }}-${{ hashFiles('**/nx.json') }}
+          restore-keys: |
+            nx-cache-${{ runner.os }}-
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install
       
       - name: Generate Prisma database schema
-        run: npx nx prisma:generate mold-inventory-api
+        run: pnpm nx prisma:generate mold-inventory-api
 
       - name: Run tests
-        run: npx nx test mold-inventory-api
+        run: pnpm nx test mold-inventory-api
 
   # This job builds the Next.js app and runs tests.
   app:
@@ -47,23 +60,37 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+      
+      - name: Use pnpm
+        uses: pnpm/action-setup@v4
+      
+      # Restore the cached .nx folder (if it exists)
+      - name: Restore Nx cache
+        id: nx-cache
+        uses: actions/cache@v3
+        with:
+          path: .nx
+          key: nx-cache-${{ runner.os }}-${{ hashFiles('**/nx.json') }}
+          restore-keys: |
+            nx-cache-${{ runner.os }}-
 
-      - name: Restore cache
+      # Next.js cache (if it exists)
+      - name: Restore Next.js cache
         uses: actions/cache@v4
         with:
           path: |
             apps/mold-inventory-app/.next/cache
           # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-${{ matrix.node-version }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          key: ${{ runner.os }}-${{ matrix.node-version }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
-            ${{ runner.os }}-${{ matrix.node-version }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+            ${{ runner.os }}-${{ matrix.node-version }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install
 
       - name: Build
-        run: npx nx cf:build mold-inventory-app
+        run: pnpm nx cf:build mold-inventory-app
 
       - name: Run tests
-        run: npx nx test mold-inventory-app
+        run: pnpm nx test mold-inventory-app

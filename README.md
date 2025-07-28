@@ -50,7 +50,7 @@ UI generated with [v0.dev](https://v0.dev/)
 
 Install Node.js dependencies.
 ```bash
-npm install
+pnpm install
 ```
 
 ### Deploy Auth0 Configuration
@@ -59,7 +59,7 @@ Copy auth0 config from `apps/auth0-tenant/auth0-config.json.example` to `apps/au
 
 Deploy Auth0 configuration.
 ```bash
-npx nx deploy auth0-tenant
+pnpm nx deploy auth0-tenant
 ```
 
 Create users in Auth0 dashboard.
@@ -71,18 +71,18 @@ Create users in Auth0 dashboard.
 Setup local Cloudflare D1 database for the first time.
 ```bash
 # setup local Cloudflare D1 database
-npx nx db:migrate:local mold-inventory-api
-npx nx db:seed:local mold-inventory-api
+pnpm nx db:migrate:local mold-inventory-api
+pnpm nx db:seed:local mold-inventory-api
 
 # generate prisma database schema
-npx nx prisma:generate mold-inventory-api
+pnpm nx prisma:generate mold-inventory-api
 ```
 
 Configure environment variables in `apps/mold-inventory-app/wrangler.jsonc`.
 
 Run the API locally.
 ```bash
-npx nx dev mold-inventory-api
+pnpm nx dev mold-inventory-api
 ```
 
 ### Run the App locally
@@ -97,7 +97,7 @@ Configure environment variables in `apps/mold-inventory-app/wrangler.jsonc`.
 
 Run the App locally.
 ```bash
-npx nx dev mold-inventory-app
+pnpm nx dev mold-inventory-app
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
@@ -107,56 +107,56 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 Run unit tests for API and App
 ```bash
-npx nx run-many -t test -p mold-inventory-api mold-inventory-app
+pnpm nx run-many -t test -p mold-inventory-api mold-inventory-app
 ```
 
-- `npx nx test mold-inventory-api` - vitest single run for API
-- `npx nx test:watch mold-inventory-api` - vitest watch test suites for changes for API
-- `npx nx test mold-inventory-app` - vitest single run for app
-- `npx nx test:watch mold-inventory-app` - vitest watch test suites for changes for app
+- `pnpm nx test mold-inventory-api` - vitest single run for API
+- `pnpm nx test:watch mold-inventory-api` - vitest watch test suites for changes for API
+- `pnpm nx test mold-inventory-app` - vitest single run for app
+- `pnpm nx test:watch mold-inventory-app` - vitest watch test suites for changes for app
 
 
 ## Deploy to Cloudflare
 
 Deploy the API
 ```bash
-npx nx deploy mold-inventory-api
+pnpm nx deploy mold-inventory-api
 ```
 
 Deploy the App
 ```bash
-npx nx deploy mold-inventory-app
+pnpm nx deploy mold-inventory-app
 ```
 
 ## Commands
 
 ### API
-- `npx nx dev mold-inventory-api` - run Cloudflare Worker locally
-- `npx nx test mold-inventory-api` - vitest single run
-- `npx nx test:watch mold-inventory-api` -  vitest watch test suites for changes
+- `pnpm nx dev mold-inventory-api` - run Cloudflare Worker locally
+- `pnpm nx test mold-inventory-api` - vitest single run
+- `pnpm nx test:watch mold-inventory-api` -  vitest watch test suites for changes
 
 #### Cloudflare Commands
-- `npx nx db:create mold-inventory-api` - create mold-inventory-app database in Cloudflare
-- `npx nx db:migrate mold-inventory-api` - setup mold-inventory-app database in Cloudflare
-- `npx nx db:migrate:local mold-inventory-api` - setup mold-inventory-app database locally
-- `npx nx db:seed mold-inventory-api` - seed initial mold-inventory-app data in Cloudflare
-- `npx nx db:seed:local mold-inventory-api` - seed initial mold-inventory-app data locally
-- `npx nx prisma:generate mold-inventory-api` - generate prisma database schema
-- `npx nx cf-typegen mold-inventory-api` - update type definitions after adding new bindings to your Wrangler configuration
-- `npx nx upload mold-inventory-api` - deploy preview version to Cloudflare
-- `npx nx deploy mold-inventory-api` - deploy production version to Cloudflare
+- `pnpm nx db:create mold-inventory-api` - create mold-inventory-app database in Cloudflare
+- `pnpm nx db:migrate mold-inventory-api` - setup mold-inventory-app database in Cloudflare
+- `pnpm nx db:migrate:local mold-inventory-api` - setup mold-inventory-app database locally
+- `pnpm nx db:seed mold-inventory-api` - seed initial mold-inventory-app data in Cloudflare
+- `pnpm nx db:seed:local mold-inventory-api` - seed initial mold-inventory-app data locally
+- `pnpm nx prisma:generate mold-inventory-api` - generate prisma database schema
+- `pnpm nx cf-typegen mold-inventory-api` - update type definitions after adding new bindings to your Wrangler configuration
+- `pnpm nx upload mold-inventory-api` - deploy preview version to Cloudflare
+- `pnpm nx deploy mold-inventory-api` - deploy production version to Cloudflare
 
 ### App
-- `npx nx dev mold-inventory-app` - starts Next.js in development mode with hot-code reloading, error reporting, and more
-- `npx nx build mold-inventory-app` - create optimized production build
-- `npx nx start mold-inventory-app` - start Next.js in production mode
-- `npx nx lint mold-inventory-app` - run eslint
-- `npx nx test mold-inventory-app` - vitest single run
-- `npx nx test:watch mold-inventory-app` -  vitest watch test suites for changes
+- `pnpm nx dev mold-inventory-app` - starts Next.js in development mode with hot-code reloading, error reporting, and more
+- `pnpm nx build mold-inventory-app` - create optimized production build
+- `pnpm nx start mold-inventory-app` - start Next.js in production mode
+- `pnpm nx lint mold-inventory-app` - run eslint
+- `pnpm nx test mold-inventory-app` - vitest single run
+- `pnpm nx test:watch mold-inventory-app` -  vitest watch test suites for changes
 
 #### Cloudflare Commands
-- `npx nx cf-typegen mold-inventory-app` - update type definitions after adding new bindings to your Wrangler configuration
-- `npx nx cf:build mold-inventory-app` - build Next.js app for Cloudflare workerd runtime
-- `npx nx preview mold-inventory-app` - run locally in the Cloudflare workerd runtime, which is more accurate to production
-- `npx nx upload mold-inventory-app` - deploy preview version to Cloudflare
-- `npx nx deploy mold-inventory-app` - deploy production version to Cloudflare
+- `pnpm nx cf-typegen mold-inventory-app` - update type definitions after adding new bindings to your Wrangler configuration
+- `pnpm nx cf:build mold-inventory-app` - build Next.js app for Cloudflare workerd runtime
+- `pnpm nx preview mold-inventory-app` - run locally in the Cloudflare workerd runtime, which is more accurate to production
+- `pnpm nx upload mold-inventory-app` - deploy preview version to Cloudflare
+- `pnpm nx deploy mold-inventory-app` - deploy production version to Cloudflare

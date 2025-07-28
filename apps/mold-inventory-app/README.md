@@ -23,7 +23,7 @@ UI generated with [v0.dev](https://v0.dev/)
 Install Node.js dependencies.
 ```bash
 # install Node.js dependencies
-npm install
+pnpm install
 ```
 
 ### App
@@ -40,37 +40,37 @@ There are two ways to run the app locally, using either the Next.js development 
 
 Run locally in Node.js using the Next.js development server, with hot-code reloading, error reporting, and more.
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 Run locally in the Cloudflare workerd runtime, which is more accurate to production.
 ```bash
-npm run preview
+pnpm run preview
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Unit Testing
-- `npm run test` - vitest single run
-- `npm run test:watch` - vitest watch test suites for changes
+- `pnpm run test` - vitest single run
+- `pnpm run test:watch` - vitest watch test suites for changes
 
 ## Deploy to Cloudflare
 ```bash
-npm run deploy
+pnpm run deploy
 ```
 
 ## Commands
 
-- `npm run dev` - starts Next.js in development mode with hot-code reloading, error reporting, and more
-- `npm run build` - create optimized production build
-- `npm run start` - start Next.js in production mode
-- `npm run lint` - run eslint
-- `npm run test` - vitest single run
-- `npm run test:watch` -  vitest watch test suites for changes
+- `pnpm run dev` - starts Next.js in development mode with hot-code reloading, error reporting, and more
+- `pnpm run build` - create optimized production build
+- `pnpm run start` - start Next.js in production mode
+- `pnpm run lint` - run eslint
+- `pnpm run test` - vitest single run
+- `pnpm run test:watch` -  vitest watch test suites for changes
 
 ### Cloudflare Commands
-- `npm run cf-typegen` - update type definitions after adding new bindings to your Wrangler configuration
-- `npm run cf:build` - build Next.js app for Cloudflare workerd runtime
-- `npm run preview` - run locally in the Cloudflare workerd runtime, which is more accurate to production
-- `npm run upload` - deploy preview version to Cloudflare
-- `npm run deploy` - deploy production version to Cloudflare
+- `pnpm run cf-typegen` - update type definitions after adding new bindings to your Wrangler configuration
+- `pnpm run cf:build` - build Next.js app for Cloudflare workerd runtime
+- `pnpm run preview` - run locally in the Cloudflare workerd runtime, which is more accurate to production
+- `pnpm run upload` - deploy preview version to Cloudflare
+- `pnpm run deploy` - deploy production version to Cloudflare

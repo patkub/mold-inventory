@@ -25,43 +25,43 @@ Configure environments in `wrangler.jsonc`.
 Setup local Cloudflare D1 database for the first time.
 ```bash
 # setup local Cloudflare D1 database
-npm run db:migrate:local
-npm run db:seed:local
+pnpm run db:migrate:local
+pnpm run db:seed:local
 
 # generate prisma database schema
-npm run prisma:generate
+pnpm run prisma:generate
 ```
 
 Run the API locally.
 ```bash
 # run Cloudflare Worker locally
-npm run dev
+pnpm run dev
 ```
 
 Open [http://localhost:3001](http://localhost:3001) in your browser.
 
 ## Unit Testing
-- `npm run test` - vitest single run
-- `npm run test:watch` - vitest watch test suites for changes
+- `pnpm run test` - vitest single run
+- `pnpm run test:watch` - vitest watch test suites for changes
 
 ## Deploy to Cloudflare
 ```bash
-npm run deploy
+pnpm run deploy
 ```
 
 ## Commands
 
-- `npm run dev` - run Cloudflare Worker locally
-- `npm run test` - vitest single run
-- `npm run test:watch` -  vitest watch test suites for changes
+- `pnpm run dev` - run Cloudflare Worker locally
+- `pnpm run test` - vitest single run
+- `pnpm run test:watch` -  vitest watch test suites for changes
 
 ### Cloudflare Commands
-- `npm run db:create` - create mold-inventory-app database in Cloudflare
-- `npm run db:migrate` - setup mold-inventory-app database in Cloudflare
-- `npm run db:migrate:local` - setup mold-inventory-app database locally
-- `npm run db:seed` - seed initial mold-inventory-app data in Cloudflare
-- `npm run db:seed:local` - seed initial mold-inventory-app data locally
-- `npm run prisma:generate` - generate prisma database schema
-- `npm run cf-typegen` - update type definitions after adding new bindings to your Wrangler configuration
-- `npm run upload` - deploy preview version to Cloudflare
-- `npm run deploy` - deploy production version to Cloudflare
+- `pnpm run db:create` - create mold-inventory-app database in Cloudflare
+- `pnpm run db:migrate` - setup mold-inventory-app database in Cloudflare
+- `pnpm run db:migrate:local` - setup mold-inventory-app database locally
+- `pnpm run db:seed` - seed initial mold-inventory-app data in Cloudflare
+- `pnpm run db:seed:local` - seed initial mold-inventory-app data locally
+- `pnpm run prisma:generate` - generate prisma database schema
+- `pnpm run cf-typegen` - update type definitions after adding new bindings to your Wrangler configuration
+- `pnpm run upload` - deploy preview version to Cloudflare
+- `pnpm run deploy` - deploy production version to Cloudflare

@@ -9,7 +9,7 @@ This subproject is responsible for the Auth0 tenant configuration
 Install Node.js dependencies.
 ```bash
 # install Node.js dependencies
-npm install
+pnpm install
 ```
 
 ### Auth0 Tenant
@@ -19,7 +19,7 @@ Copy auth0 config from `auth0-config.json.example` to `auth0-config.json` and fi
 Deploy Auth0 configuration.
 ```bash
 # deploy Auth0 configuration
-npm run auth0-import
+pnpm run auth0-import
 ```
 
 Create users in Auth0 dashboard.
