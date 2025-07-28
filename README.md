@@ -21,7 +21,7 @@ This is a monorepo powered by [Nx](https://nx.dev/).
 
 #### auth0-tenant
 
-Deployable [Auth0](https://auth0.com/) tenant configuration for this app.
+[`auth0-tenant`](./apps/auth0-tenant/README.md): Deployable [Auth0](https://auth0.com/) tenant configuration for this app.
 
 #### mold-inventory-api
 
