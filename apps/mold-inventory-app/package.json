@@ -9,10 +9,10 @@
     "lint": "next lint",
     "test": "vitest run",
     "test:watch": "vitest",
-    "cf:build": "opennextjs-cloudflare build",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview --env development",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy --env production",
-    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload --env production",
+    "cf:build": "NODE_ENV=development opennextjs-cloudflare build",
+    "preview": "NODE_ENV=development opennextjs-cloudflare build && NODE_ENV=development opennextjs-cloudflare preview --env development",
+    "deploy": "NODE_ENV=production opennextjs-cloudflare build && NODE_ENV=production opennextjs-cloudflare deploy --env production",
+    "upload": "NODE_ENV=production opennextjs-cloudflare build && NODE_ENV=production opennextjs-cloudflare upload --env production",
     "cf-typegen": "wrangler types worker-configuration.d.ts"
   },
   "dependencies": {

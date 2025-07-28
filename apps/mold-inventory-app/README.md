@@ -32,13 +32,9 @@ pnpm install
 
 ### App
 
-Copy `.env.development.example` to `.env.development`.
+Fill out Auth0 details for development in `.env.development`.
 
-Fill out Auth0 details for dev and prod in:
-- `.env.development`
-- `.env.production`
-
-Configure environment variables in `wrangler.jsonc`.
+Configure environment variables for development in `wrangler.jsonc`.
 
 There are two ways to run the app locally, using either the Next.js development server, or the Cloudflare workerd runtime.
 
@@ -59,6 +55,11 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - `pnpm run test:watch` - vitest watch test suites for changes
 
 ## Deploy to Cloudflare
+
+Fill out Auth0 details for production in `.env.production`.
+
+Configure environment variables for production in `wrangler.jsonc`.
+
 ```bash
 pnpm run deploy
 ```
