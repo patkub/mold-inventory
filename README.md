@@ -87,6 +87,8 @@ npx nx dev mold-inventory-api
 
 ### Run the App locally
 
+Copy `.env.development.example` to `.env.development`.
+
 Fill out Auth0 details for dev and prod in:
 - `apps/mold-inventory-app/.env.development`
 - `apps/mold-inventory-app/.env.production`

@@ -28,10 +28,10 @@ npm install
 
 ### App
 
-Copy `.env.local.example` to `.env.local`.
+Copy `.env.development.example` to `.env.development`.
 
 Fill out Auth0 details for dev and prod in:
-- `apps/mold-inventory-app/.env.local`
+- `apps/mold-inventory-app/.env.development`
 - `apps/mold-inventory-app/.env.production`
 
 Configure environment variables in `wrangler.jsonc`.
