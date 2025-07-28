@@ -125,8 +125,6 @@ pnpm nx run-many -t test -p mold-inventory-api mold-inventory-app
 
 ## Deploy to Cloudflare
 
-Fill out Auth0 details for production in `apps/mold-inventory-app/.env.production`.
-
 Configure environment variables for production in `wrangler.jsonc`.
 
 Deploy the API

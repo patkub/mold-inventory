@@ -56,8 +56,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Deploy to Cloudflare
 
-Fill out Auth0 details for production in `.env.production`.
-
 Configure environment variables for production in `wrangler.jsonc`.
 
 ```bash
