@@ -19,7 +19,7 @@ Copy auth0 config from `auth0-config.json.example` to `auth0-config.json` and fi
 Deploy Auth0 configuration.
 ```bash
 # deploy Auth0 configuration
-pnpm run auth0-import
+pnpm run deploy
 ```
 
 Create users in Auth0 dashboard.
