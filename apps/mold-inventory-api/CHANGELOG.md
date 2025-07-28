@@ -1,5 +1,11 @@
 # mold-inventory-api
 
+## 1.4.0
+
+### Minor Changes
+
+- Fix dev and prod environments
+
 ## 1.3.0
 
 ### Minor Changes
