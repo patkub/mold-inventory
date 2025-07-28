@@ -51,7 +51,6 @@ UI generated with [v0.dev](https://v0.dev/)
 
 Install Node.js dependencies.
 ```bash
-# install Node.js dependencies
 npm install
 ```
 
@@ -61,14 +60,12 @@ Copy auth0 config from `apps/auth0-tenant/auth0-config.json.example` to `apps/au
 
 Deploy Auth0 configuration.
 ```bash
-# deploy Auth0 configuration
 npx nx deploy auth0-tenant
 ```
 
 Create users in Auth0 dashboard.
 - Assign permissions to users for the Mold Inventory API.
   - Available permissions: `create:molds`, `read:molds`, `update:molds`, and `delete:molds`
-
 
 ### Run App
 
@@ -82,6 +79,10 @@ NEXT_PUBLIC_AUTH0_SCOPES="openid profile read:current_user create:molds read:mol
 
 Configure environments in `apps/mold-inventory-app/wrangler.jsonc`.
 
+Copy `apps/mold-inventory-api/.env.example` to `apps/mold-inventory-api/.env`.
+
+Configure environments in `apps/mold-inventory-api/wrangler.jsonc`.
+
 Setup local Cloudflare D1 database for the first time.
 ```bash
 # setup local Cloudflare D1 database
@@ -89,9 +90,13 @@ npx nx db:migrate:local mold-inventory-app
 npx nx db:seed:local mold-inventory-app
 ```
 
+Run the API locally.
+```bash
+npx nx preview mold-inventory-api
+```
+
 Run the app locally.
 ```bash
-# run Cloudflare Worker locally
 npx nx preview mold-inventory-app
 ```
 
@@ -99,11 +104,26 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 
 ## Unit Testing
-- `npx nx test mold-inventory-app` - vitest single run
-- `npx nx test:watch mold-inventory-app` - vitest watch test suites for changes
+
+Run unit tests for API and App
+```
+npx nx run-many -t test -p mold-inventory-api mold-inventory-app
+```
+
+- `npx nx test mold-inventory-api` - vitest single run for API
+- `npx nx test:watch mold-inventory-api` - vitest watch test suites for changes for API
+- `npx nx test mold-inventory-app` - vitest single run for app
+- `npx nx test:watch mold-inventory-app` - vitest watch test suites for changes for app
 
 
 ## Deploy to Cloudflare
+
+Deploy the API
+```bash
+npx nx deploy mold-inventory-api
+```
+
+Deploy the app
 ```bash
 npx nx deploy mold-inventory-app
 ```

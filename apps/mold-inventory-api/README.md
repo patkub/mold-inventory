@@ -20,11 +20,6 @@ A Cloudflare Worker that serves a [Hono](https://hono.dev/) CRUD API to manage m
 
 ### App
 
-Copy `.env.example` to `.env`. Fill out Auth0 details.
-```
-AUTH0_DOMAIN=dev-5gm1mr1z8nbmuhv7.us.auth0.com
-```
-
 Configure environments in `wrangler.jsonc`.
 
 Setup local Cloudflare D1 database for the first time.
