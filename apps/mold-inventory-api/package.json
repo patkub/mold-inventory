@@ -1,0 +1,39 @@
+{
+  "name": "mold-inventory-api",
+  "version": "0.5.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "preview": "wrangler dev --env dev",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "deploy": "wrangler deploy --minify --env production",
+    "upload": "wrangler upload --minify --env production",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings",
+    "db:create": "wrangler d1 create mold-inventory-app",
+    "db:migrate": "wrangler d1 execute mold-inventory-app --remote -e production --file=./scripts/setup-database.sql",
+    "db:migrate:local": "wrangler d1 execute mold-inventory-app -e dev --file=./scripts/setup-database.sql",
+    "db:seed": "wrangler d1 execute mold-inventory-app --remote -e production --file=./scripts/seed-data.sql",
+    "db:seed:local": "wrangler d1 execute mold-inventory-app -e dev --file=./scripts/seed-data.sql",
+    "prisma:generate": "prisma generate"
+  },
+  "dependencies": {
+    "@hono/zod-validator": "^0.7.2",
+    "@prisma/adapter-d1": "^6.12.0",
+    "@prisma/client": "^6.12.0",
+    "hono": "^4.8.5",
+    "zod": "^4.0.9"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.8.57",
+    "@cloudflare/workers-types": "^4.20250726.0",
+    "@eslint/eslintrc": "^3.3.1",
+    "eslint": "^9.31.0",
+    "eslint-config-next": "15.3.4",
+    "prisma": "^6.12.0",
+    "typescript": "^5",
+    "vitest": "~3.2.4",
+    "vitest-mock-extended": "^3.1.0",
+    "wrangler": "^4.26.0"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "main": "worker.ts",
+  "main": "./.open-next/worker.js",
   "name": "mold-inventory-app",
   "compatibility_date": "2025-07-12",
   "compatibility_flags": [
@@ -12,15 +12,7 @@
   },
   "env": {
     "production": {
-      "d1_databases": [
-        {
-          "binding": "MOLD_DB",
-          "database_id": "3ae8c9bd-ea18-4d9f-af11-24b97ed4c05a",
-          "database_name": "mold-inventory-app"
-        }
-      ],
       "vars": {
-        "CORS_ORIGIN": ["https://mold-inventory-app-production.epicpatka.workers.dev"],
         "NEXT_PUBLIC_AUTH0_DOMAIN": "dev-5gm1mr1z8nbmuhv7.us.auth0.com",
         "NEXT_PUBLIC_AUTH0_CLIENT_ID": "DYZT9rpjL5LoJNfpjo8JEQtPaLqyABHO",
         "NEXT_PUBLIC_AUTH0_AUDIENCE": "mold-inventory-app-production.epicpatka.workers.dev/api",
@@ -31,15 +23,7 @@
       }
     },
     "dev": {
-      "d1_databases": [
-        {
-          "binding": "MOLD_DB",
-          "database_id": "3ae8c9bd-ea18-4d9f-af11-24b97ed4c05a",
-          "database_name": "mold-inventory-app"
-        }
-      ],
       "vars": {
-        "CORS_ORIGIN": ["http://localhost:3000"],
         "NEXT_PUBLIC_AUTH0_DOMAIN": "dev-5gm1mr1z8nbmuhv7.us.auth0.com",
         "NEXT_PUBLIC_AUTH0_CLIENT_ID": "DYZT9rpjL5LoJNfpjo8JEQtPaLqyABHO",
         "NEXT_PUBLIC_AUTH0_AUDIENCE": "mold-inventory-app-production.epicpatka.workers.dev/api",

@@ -7,7 +7,7 @@ import app from './worker'
 
 // Mock prisma
 // import the mocked prisma object
-import prisma from './libs/__mocks__/prisma'
+import prisma from '../libs/__mocks__/prisma'
 
 describe('Molds', () => {
   beforeEach(() => {
@@ -15,12 +15,12 @@ describe('Molds', () => {
     env.CORS_ORIGIN = ["*"];
 
     // disable auth for local testing
-    vi.mock('./worker/middleware/jwt', () => ({
+    vi.mock('./middleware/jwt', () => ({
       setupJWT: vi.fn(async (c, next) => {
         await next();
       })
     }));
-    vi.mock('./worker/middleware/scopes', () => ({
+    vi.mock('./middleware/scopes', () => ({
       createScopesMiddleware: vi.fn(() => {
         return vi.fn(async (c, next) => {
           await next();
@@ -29,7 +29,7 @@ describe('Molds', () => {
     }));
 
     // when worker calls createPrismaClient, return the mocked prisma object
-    vi.mock('./worker/prismaClient', () => ({
+    vi.mock('./prismaClient', () => ({
       createPrismaClient: vi.fn(() => {
         return prisma;
       })

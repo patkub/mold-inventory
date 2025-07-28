@@ -9,7 +9,7 @@ import { jwk } from 'hono/jwk'
 const setupJWT = createMiddleware(async (c, next) => {
   const middleware = jwk({
     jwks_uri: (c) =>
-      `https://${c.env.NEXT_PUBLIC_AUTH0_DOMAIN}/.well-known/jwks.json`,
+      `https://${c.env.AUTH0_DOMAIN}/.well-known/jwks.json`,
   })
   return middleware(c, next)
 });

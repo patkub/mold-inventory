@@ -28,6 +28,8 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
   const [molds, setMolds] = useState<Mold[]>([])
   const { toast } = useToast()
 
+  const NEXT_PUBLIC_API_SERVER = process.env.NEXT_PUBLIC_API_SERVER || ""
+
   // Add Auth0 access token to request
   const attachAuth0AccessToken = async (request: Request) => {
     const AUTH0_DOMAIN = process.env.NEXT_PUBLIC_AUTH0_DOMAIN || ""
@@ -53,7 +55,8 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
    */
   const getMoldsAuth = async (): Promise<Mold[] | undefined> => {
     try {
-      const request = new Request("/api/molds", {
+      const url = new URL("/api/molds", NEXT_PUBLIC_API_SERVER);
+      const request = new Request(url, {
         method: 'GET'
       });
       await attachAuth0AccessToken(request);
@@ -70,7 +73,8 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
 
   const createMoldAuth = async (newMold: Omit<Mold, "id">): Promise<Mold | undefined> => {
     try {
-      const request = new Request("/api/molds", {
+      const url = new URL("/api/molds", NEXT_PUBLIC_API_SERVER);
+      const request = new Request(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -101,7 +105,8 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
 
   const deleteMoldAuth = async (number: string): Promise<DeleteMoldResponse | undefined> => {
     try {
-      const request = new Request("/api/molds", {
+      const url = new URL("/api/molds", NEXT_PUBLIC_API_SERVER);
+      const request = new Request(url, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -133,7 +138,8 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
 
   const updateMoldAuth = async (number: string, existingMold: Partial<Mold>): Promise<Mold | undefined> => {
     try {
-      const request = new Request("/api/molds", {
+      const url = new URL("/api/molds", NEXT_PUBLIC_API_SERVER);
+      const request = new Request(url, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
