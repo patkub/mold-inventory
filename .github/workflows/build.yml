@@ -14,15 +14,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      
+      - name: Use pnpm
+        uses: pnpm/action-setup@v4
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      
-      - name: Use pnpm
-        uses: pnpm/action-setup@v4
 
       # Restore the cached .nx folder (if it exists)
       - name: Restore Nx cache
@@ -54,15 +54,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      
+      - name: Use pnpm
+        uses: pnpm/action-setup@v4
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      
-      - name: Use pnpm
-        uses: pnpm/action-setup@v4
       
       # Restore the cached .nx folder (if it exists)
       - name: Restore Nx cache
