@@ -1,5 +1,11 @@
 # mold-inventory-app
 
+## 1.4.0
+
+### Minor Changes
+
+- Update app README instructions
+
 ## 1.3.0
 
 ### Minor Changes

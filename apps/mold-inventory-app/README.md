@@ -35,8 +35,8 @@ pnpm install
 Copy `.env.development.example` to `.env.development`.
 
 Fill out Auth0 details for dev and prod in:
-- `apps/mold-inventory-app/.env.development`
-- `apps/mold-inventory-app/.env.production`
+- `.env.development`
+- `.env.production`
 
 Configure environment variables in `wrangler.jsonc`.
 
