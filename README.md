@@ -11,7 +11,6 @@ This is a monorepo powered by [Nx](https://nx.dev/).
 
 
 ### Apps
-
 - [`auth0-tenant`](./apps/auth0-tenant/README.md): [Auth0](https://auth0.com/) tenant configuration
 - [`mold-inventory-api`](./apps/mold-inventory-api/README.md): Cloudflare Worker serving a [Hono](https://hono.dev/) API backend
 - [`mold-inventory-app`](./apps/mold-inventory-app/README.md): Cloudflare Worker serving the [Next.js](https://nextjs.org/) app
@@ -81,7 +80,7 @@ npx nx prisma:generate mold-inventory-api
 
 Configure environment variables in `apps/mold-inventory-app/wrangler.jsonc`.
 
-Run the api locally.
+Run the API locally.
 ```bash
 npx nx dev mold-inventory-api
 ```
@@ -94,7 +93,7 @@ Fill out Auth0 details for dev and prod in:
 
 Configure environment variables in `apps/mold-inventory-app/wrangler.jsonc`.
 
-Run the app locally.
+Run the App locally.
 ```bash
 npx nx dev mold-inventory-app
 ```
@@ -117,12 +116,12 @@ npx nx run-many -t test -p mold-inventory-api mold-inventory-app
 
 ## Deploy to Cloudflare
 
-Deploy the api
+Deploy the API
 ```bash
 npx nx deploy mold-inventory-api
 ```
 
-Deploy the app
+Deploy the App
 ```bash
 npx nx deploy mold-inventory-app
 ```
