@@ -2,38 +2,50 @@
 
 [https://mold-inventory-app-production.epicpatka.workers.dev/](https://mold-inventory-app-production.epicpatka.workers.dev/)
 
-## Tech Stack
+## Architecture
+
+This is a monorepo powered by [Nx](https://nx.dev/).
+
+### Tech Stack
 [Auth0](https://auth0.com/), [Cloudflare D1](https://developers.cloudflare.com/d1/), [Cloudflare Workers](https://developers.cloudflare.com/workers/), [Hono](https://hono.dev/), [Prisma](https://www.prisma.io/), [Next.js](https://nextjs.org/)
+
+
+### Apps
+
+- [`auth0-tenant`](./apps/auth0-tenant/README.md): [Auth0](https://auth0.com/) tenant configuration
+- [`mold-inventory-api`](./apps/mold-inventory-api/README.md): Cloudflare Worker serving a [Hono](https://hono.dev/) API backend
+- [`mold-inventory-app`](./apps/mold-inventory-app/README.md): Cloudflare Worker serving the [Next.js](https://nextjs.org/) app
+
 
 ### Implementation Details
 
-A custom [Cloudflare Worker](https://developers.cloudflare.com/workers/) using
-  - [Auth0](https://auth0.com/) for login
-  - [Hono](https://hono.dev/) for the backend web framework
-  - [Prisma](https://www.prisma.io/) ORM to manage a [Cloudflare D1](https://developers.cloudflare.com/d1/) database
-  - [Next.js](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/) as the frontend React Framework
-  
-The [Cloudflare Worker](https://developers.cloudflare.com/workers/)
-  - Serves the Next.js app
-  - A CRUD API that manages molds
-    - Validates Auth0 JWT access token scope claim for permissions
+#### auth0-tenant
 
-UI generated with [v0.dev](https://v0.dev/)
+Deployable [Auth0](https://auth0.com/) tenant configuration for this app.
+
+#### mold-inventory-api
+
+[`mold-inventory-api`](./apps/mold-inventory-api/README.md): Cloudflare Worker [Hono](https://hono.dev/) API backend
+
+- Cloudflare Worker that serves a [Hono](https://hono.dev/) CRUD API that manages molds.
+- Validates [Auth0](https://auth0.com/) JWT access token scope claim for permissions.
+- Uses [Prisma](https://www.prisma.io/) ORM to manage a [Cloudflare D1](https://developers.cloudflare.com/d1/) database
+
+#### mold-inventory-app
+
+[`mold-inventory-app`](./apps/mold-inventory-app/README.md): Cloudflare Worker serving the [Next.js](https://nextjs.org/) app
+  - [Auth0](https://auth0.com/) for login
+  - [Next.js](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/) as the frontend React Framework
 
 
 ## UI
 
 ![Screenshot of UI](./apps/mold-inventory-app/docs/ui.png)
 
+UI generated with [v0.dev](https://v0.dev/)
+
 
 ## Setup
-
-This is a monorepo powered by [Nx](https://nx.dev/).
-
-### Apps
-
-- [`auth0-tenant`](./apps/auth0-tenant/README.md): Auth0 configuration
-- [`mold-inventory-app`](./apps/mold-inventory-app/README.md): Cloudflare Worker Next.js app
 
 ### Install Dependencies
 
