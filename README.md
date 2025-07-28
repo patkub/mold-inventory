@@ -67,33 +67,29 @@ Create users in Auth0 dashboard.
 - Assign permissions to users for the Mold Inventory API.
   - Available permissions: `create:molds`, `read:molds`, `update:molds`, and `delete:molds`
 
-### Run App
-
-Copy `apps/mold-inventory-app/.env.example` to `apps/mold-inventory-app/.env`. Fill out Auth0 details.
-```
-NEXT_PUBLIC_AUTH0_DOMAIN=dev-5gm1mr1z8nbmuhv7.us.auth0.com
-NEXT_PUBLIC_AUTH0_CLIENT_ID=DYZT9rpjL5LoJNfpjo8JEQtPaLqyABHO
-NEXT_PUBLIC_AUTH0_AUDIENCE=mold-inventory-app-production.epicpatka.workers.dev/api
-NEXT_PUBLIC_AUTH0_SCOPES="openid profile read:current_user create:molds read:molds update:molds delete:molds"
-```
-
-Configure environments in `apps/mold-inventory-app/wrangler.jsonc`.
-
-Copy `apps/mold-inventory-api/.env.example` to `apps/mold-inventory-api/.env`.
-
-Configure environments in `apps/mold-inventory-api/wrangler.jsonc`.
+### Run the API locally
 
 Setup local Cloudflare D1 database for the first time.
 ```bash
 # setup local Cloudflare D1 database
-npx nx db:migrate:local mold-inventory-app
-npx nx db:seed:local mold-inventory-app
+npx nx db:migrate:local mold-inventory-api
+npx nx db:seed:local mold-inventory-api
 ```
 
-Run the API locally.
+Configure environment variables in `apps/mold-inventory-app/wrangler.jsonc`.
+
+Run the api locally.
 ```bash
-npx nx preview mold-inventory-api
+npx nx dev mold-inventory-api
 ```
+
+### Run the App locally
+
+Fill out Auth0 details for dev and prod in:
+- `apps/mold-inventory-app/.env.development`
+- `apps/mold-inventory-app/.env.production`
+
+Configure environment variables in `apps/mold-inventory-app/wrangler.jsonc`.
 
 Run the app locally.
 ```bash
@@ -131,14 +127,19 @@ npx nx deploy mold-inventory-app
 ## Commands
 
 ### Cloudflare Commands
-- `npx nx db:create mold-inventory-app` - create mold-inventory-app database in Cloudflare
-- `npx nx db:migrate mold-inventory-app` - setup mold-inventory-app database in Cloudflare
-- `npx nx db:migrate:local mold-inventory-app` - setup mold-inventory-app database locally
-- `npx nx db:seed mold-inventory-app` - seed initial mold-inventory-app data in Cloudflare
-- `npx nx db:seed:local mold-inventory-app` - seed initial mold-inventory-app data locally
+
+#### API
+- `npx nx db:create mold-inventory-api` - create mold-inventory-app database in Cloudflare
+- `npx nx db:migrate mold-inventory-api` - setup mold-inventory-app database in Cloudflare
+- `npx nx db:migrate:local mold-inventory-api` - setup mold-inventory-app database locally
+- `npx nx db:seed mold-inventory-api` - seed initial mold-inventory-app data in Cloudflare
+- `npx nx db:seed:local mold-inventory-api` - seed initial mold-inventory-app data locally
+- `npx nx cf-typegen mold-inventory-api` - update type definitions after adding new bindings to your Wrangler configuration
+- `npx nx upload mold-inventory-api` - deploy preview version of API to Cloudflare
+
+#### App
 - `npx nx cf-typegen mold-inventory-app` - update type definitions after adding new bindings to your Wrangler configuration
-- `npx nx upload mold-inventory-app` - deploy preview version to Cloudflare
-- `npx nx deploy mold-inventory-app` - deploy production version to Cloudflare
+- `npx nx upload mold-inventory-app` - deploy preview version of app to Cloudflare
 
 ### Other Commands
-- `npx nx prisma:generate` - regenerate prisma database schema
+- `npx nx prisma:generate mold-inventory-api` - regenerate prisma database schema

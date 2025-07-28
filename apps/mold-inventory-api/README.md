@@ -18,7 +18,7 @@ A Cloudflare Worker that serves a [Hono](https://hono.dev/) CRUD API to manage m
 
 ## Setup
 
-### App
+### API
 
 Configure environments in `wrangler.jsonc`.
 
@@ -32,13 +32,13 @@ npm run db:seed:local
 npm run prisma:generate
 ```
 
-Run the app locally.
+Run the API locally.
 ```bash
 # run Cloudflare Worker locally
-npm run preview
+npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3001](http://localhost:3001) in your browser.
 
 ## Unit Testing
 - `npm run test` - vitest single run
