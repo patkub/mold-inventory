@@ -13,7 +13,11 @@ A Cloudflare Worker that serves the [Next.js](https://nextjs.org/) app.
 
 ## UI
 
-![Screenshot of UI](./docs/ui.png)
+![Screenshot of Light UI](./docs/light/home-screen-light.png)
+
+![Screenshot of Dark UI](./docs/dark/home-screen-dark.png)
+
+[See more UI screenshots](./docs/UI.md)
 
 UI generated with [v0.dev](https://v0.dev/)
 

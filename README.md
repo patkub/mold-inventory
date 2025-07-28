@@ -39,7 +39,11 @@ This is a monorepo powered by [Nx](https://nx.dev/).
 
 ## UI
 
-![Screenshot of UI](./apps/mold-inventory-app/docs/ui.png)
+![Screenshot of Light UI](./apps/mold-inventory-app/docs/light/home-screen-light.png)
+
+![Screenshot of Dark UI](./apps/mold-inventory-app/docs/dark/home-screen-dark.png)
+
+[See more UI screenshots](./apps/mold-inventory-app/docs/UI.md)
 
 UI generated with [v0.dev](https://v0.dev/)
 
