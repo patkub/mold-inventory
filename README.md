@@ -106,7 +106,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ## Unit Testing
 
 Run unit tests for API and App
-```
+```bash
 npx nx run-many -t test -p mold-inventory-api mold-inventory-app
 ```
 
