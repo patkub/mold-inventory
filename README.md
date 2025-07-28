@@ -27,7 +27,7 @@ Deployable [Auth0](https://auth0.com/) tenant configuration for this app.
 
 [`mold-inventory-api`](./apps/mold-inventory-api/README.md): Cloudflare Worker [Hono](https://hono.dev/) API backend
 
-- Cloudflare Worker that serves a [Hono](https://hono.dev/) CRUD API that manages molds.
+- A Cloudflare Worker that serves a [Hono](https://hono.dev/) CRUD API to manage molds.
 - Validates [Auth0](https://auth0.com/) JWT access token scope claim for permissions.
 - Uses [Prisma](https://www.prisma.io/) ORM to manage a [Cloudflare D1](https://developers.cloudflare.com/d1/) database
 
