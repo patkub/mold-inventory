@@ -91,8 +91,6 @@ pnpm nx dev mold-inventory-api
 
 ### Run the App locally
 
-Fill out Auth0 details for development in `apps/mold-inventory-app/.env.development`.
-
 Configure environment variables for development in `apps/mold-inventory-app/wrangler.jsonc`.
 
 There are two ways to run the app locally, using either the Next.js development server, or the Cloudflare workerd runtime.

@@ -32,8 +32,6 @@ pnpm install
 
 ### App
 
-Fill out Auth0 details for development in `.env.development`.
-
 Configure environment variables for development in `wrangler.jsonc`.
 
 There are two ways to run the app locally, using either the Next.js development server, or the Cloudflare workerd runtime.

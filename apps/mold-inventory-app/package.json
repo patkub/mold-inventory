@@ -3,16 +3,16 @@
   "version": "1.6.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "node wrangler-to-env.js development && next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "cf:build": "opennextjs-cloudflare build --env development",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview --env development",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy --env production",
-    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload --env production",
+    "test": "node wrangler-to-env.js development && vitest run",
+    "test:watch": "node wrangler-to-env.js development && vitest",
+    "cf:build": "node wrangler-to-env.js development && opennextjs-cloudflare build --env development",
+    "preview": "node wrangler-to-env.js development && opennextjs-cloudflare build && opennextjs-cloudflare preview --env development",
+    "deploy": "node wrangler-to-env.js production && opennextjs-cloudflare build && opennextjs-cloudflare deploy -- --env production",
+    "upload": "node wrangler-to-env.js production && opennextjs-cloudflare build && opennextjs-cloudflare upload -- --env production",
     "cf-typegen": "wrangler types worker-configuration.d.ts"
   },
   "dependencies": {
