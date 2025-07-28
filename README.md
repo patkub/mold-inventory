@@ -96,7 +96,7 @@ Configure environment variables in `apps/mold-inventory-app/wrangler.jsonc`.
 
 Run the app locally.
 ```bash
-npx nx preview mold-inventory-app
+npx nx dev mold-inventory-app
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
