@@ -128,6 +128,13 @@ Deploy the App
 pnpm nx deploy mold-inventory-app
 ```
 
+## Changesets
+
+**Create a changeset:** Whenever a change is made that warrants a new release (e.g., bug fixes, new features), run:
+```bash
+pnpm changeset
+```
+
 ## Commands
 
 ### API
