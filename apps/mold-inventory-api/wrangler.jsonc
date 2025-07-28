@@ -16,7 +16,7 @@
       ],
       "vars": {
         "CORS_ORIGIN": ["https://mold-inventory-app-production.epicpatka.workers.dev"],
-        "AUTH0_DOMAIN": "dev-5gm1mr1z8nbmuhv7.us.auth0.com"
+        "AUTH0_DOMAIN": "epicpatka.us.auth0.com"
       },
       "observability": {
         "enabled": true
