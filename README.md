@@ -74,6 +74,9 @@ Setup local Cloudflare D1 database for the first time.
 # setup local Cloudflare D1 database
 npx nx db:migrate:local mold-inventory-api
 npx nx db:seed:local mold-inventory-api
+
+# generate prisma database schema
+npx nx prisma:generate mold-inventory-api
 ```
 
 Configure environment variables in `apps/mold-inventory-app/wrangler.jsonc`.
