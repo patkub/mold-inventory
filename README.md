@@ -161,7 +161,11 @@ pnpm changeset version
 
 ## Commands
 
-### API
+### auth0-tenant
+- `pnpm run deploy-dev` - deploy development Auth0 tenant
+- `pnpm run deploy-prod` - deploy production Auth0 tenant
+
+### mold-inventory-api
 - `pnpm nx dev mold-inventory-api` - run Cloudflare Worker locally
 - `pnpm nx test mold-inventory-api` - vitest single run
 - `pnpm nx test:watch mold-inventory-api` -  vitest watch test suites for changes
@@ -177,7 +181,7 @@ pnpm changeset version
 - `pnpm nx upload mold-inventory-api` - deploy preview version to Cloudflare
 - `pnpm nx deploy mold-inventory-api` - deploy production version to Cloudflare
 
-### App
+### mold-inventory-app
 - `pnpm nx dev mold-inventory-app` - starts Next.js in development mode with hot-code reloading, error reporting, and more
 - `pnpm nx build mold-inventory-app` - create optimized production build
 - `pnpm nx start mold-inventory-app` - start Next.js in production mode
