@@ -1,5 +1,11 @@
 # mold-inventory-app
 
+## 1.7.0
+
+### Minor Changes
+
+- Configuration mapping for dev and prod auth0 tenants
+
 ## 1.6.0
 
 ### Minor Changes
