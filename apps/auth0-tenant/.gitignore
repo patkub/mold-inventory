@@ -1,2 +1,3 @@
 node_modules/
-auth0-config.json
+auth0-config*.json
+!auth0-config*.example

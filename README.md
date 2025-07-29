@@ -48,7 +48,7 @@ This is a monorepo powered by [Nx](https://nx.dev/).
 UI generated with [v0.dev](https://v0.dev/)
 
 
-## Setup
+## Local Setup
 
 ### Install Dependencies
 
@@ -57,14 +57,16 @@ Install Node.js dependencies.
 pnpm install
 ```
 
-### Deploy Auth0 Configuration
+### Deploy Development Auth0 Configuration
 
-Copy auth0 config from `apps/auth0-tenant/auth0-config.json.example` to `apps/auth0-tenant/auth0-config.json` and fill out details using Machine to Machine client.
+Copy auth0 config from `apps/auth0-tenant/auth0-config.json.example` to `apps/auth0-tenant/auth0-config-dev.json` and fill out details using Machine to Machine client.
 
-Deploy Auth0 configuration.
+Deploy development Auth0 configuration.
 ```bash
-pnpm nx deploy auth0-tenant
+pnpm nx deploy-dev auth0-tenant
 ```
+
+#### Create Users
 
 Create users in Auth0 dashboard.
 - Assign permissions to users for the Mold Inventory API.
@@ -121,16 +123,30 @@ pnpm nx run-many -t test -p mold-inventory-api mold-inventory-app
 - `pnpm nx test:watch mold-inventory-app` - vitest watch test suites for changes for app
 
 
-## Deploy to Cloudflare
+## Production Deploy
 
-Configure environment variables for production in `wrangler.jsonc`.
+### Deploy Production Auth0 Configuration
 
-### Deploy the API
+Copy auth0 config from `apps/auth0-tenant/auth0-config.json.example` to `apps/auth0-tenant/auth0-config-prod.json` and fill out details using Machine to Machine client.
+
+Deploy production Auth0 configuration.
+```bash
+pnpm nx deploy-prod auth0-tenant
+```
+
+Create users in Auth0 dashboard.
+- Assign permissions to users for the Mold Inventory API.
+  - Available permissions: `create:molds`, `read:molds`, `update:molds`, and `delete:molds`
+
+### Deploy the API to Cloudflare
 ```bash
 pnpm nx deploy mold-inventory-api
 ```
 
-### Deploy the App
+### Deploy the App to Cloudflare
+
+Configure environment variables for production in `apps/mold-inventory-app/wrangler.jsonc`.
+
 ```bash
 pnpm nx deploy mold-inventory-app
 ```

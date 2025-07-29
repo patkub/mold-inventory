@@ -16,11 +16,7 @@
     "rotation_type": "rotating"
   },
   "allowed_clients": [],
-  "callbacks": [
-    "https://mold-inventory-app-production.epicpatka.workers.dev",
-    "https://*-mold-inventory-app-production.epicpatka.workers.dev",
-    "http://localhost:3000/"
-  ],
+  "callbacks": @@MOLD_INVENTORY_APP_CALLBACKS@@,
   "native_social_login": {
     "apple": {
       "enabled": false
@@ -29,11 +25,7 @@
       "enabled": false
     }
   },
-  "allowed_logout_urls": [
-    "https://mold-inventory-app-production.epicpatka.workers.dev",
-    "https://*-mold-inventory-app-production.epicpatka.workers.dev",
-    "http://localhost:3000/"
-  ],
+  "allowed_logout_urls": @@MOLD_INVENTORY_APP_ALLOWED_LOGOUT_URLS@@,
   "jwt_configuration": {
     "alg": "RS256",
     "lifetime_in_seconds": 36000,
@@ -47,10 +39,6 @@
     "implicit",
     "refresh_token"
   ],
-  "web_origins": [
-    "https://mold-inventory-app-production.epicpatka.workers.dev",
-    "https://*-mold-inventory-app-production.epicpatka.workers.dev",
-    "http://localhost:3000/"
-  ],
+  "web_origins": @@MOLD_INVENTORY_APP_WEB_ORIGINS@@,
   "custom_login_page_on": true
 }

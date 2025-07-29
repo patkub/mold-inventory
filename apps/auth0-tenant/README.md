@@ -12,15 +12,26 @@ Install Node.js dependencies.
 pnpm install
 ```
 
-### Auth0 Tenant
+### Development Auth0 Tenant
 
-Copy auth0 config from `auth0-config.json.example` to `auth0-config.json` and fill out details using Machine to Machine client.
+Copy auth0 config from `auth0-config.json.example` to `auth0-config-dev.json` and fill out details using Machine to Machine client.
 
 Deploy Auth0 configuration.
 ```bash
-# deploy Auth0 configuration
-pnpm run deploy
+# deploy development Auth0 configuration
+pnpm run deploy-dev
 ```
+
+### Production Auth0 Tenant
+
+Fill out auth0 config in `auth0-config-prod.json`.
+
+```bash
+# deploy production Auth0 configuration
+pnpm run deploy-prod
+```
+
+### Create Users
 
 Create users in Auth0 dashboard.
 - Assign permissions to users for the Mold Inventory API.

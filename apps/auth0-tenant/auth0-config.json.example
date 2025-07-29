@@ -9,5 +9,22 @@
         "rules",
         "rulesConfigs",
         "hooks"
-    ]
+    ],
+    "AUTH0_KEYWORD_REPLACE_MAPPINGS": {
+        "MOLD_INVENTORY_APP_CALLBACKS": [
+            "https://mold-inventory-app-production.epicpatka.workers.dev",
+            "https://*-mold-inventory-app-production.epicpatka.workers.dev",
+            "http://localhost:3000/"
+        ],
+        "MOLD_INVENTORY_APP_ALLOWED_LOGOUT_URLS": [
+            "https://mold-inventory-app-production.epicpatka.workers.dev",
+            "https://*-mold-inventory-app-production.epicpatka.workers.dev",
+            "http://localhost:3000/"
+        ],
+        "MOLD_INVENTORY_APP_WEB_ORIGINS": [
+            "https://mold-inventory-app-production.epicpatka.workers.dev",
+            "https://*-mold-inventory-app-production.epicpatka.workers.dev",
+            "http://localhost:3000/"
+        ]
+    }
 }
