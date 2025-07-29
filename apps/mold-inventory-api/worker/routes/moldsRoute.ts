@@ -9,9 +9,8 @@ import { createPrismaClient } from '../prismaClient.js'
 // Define /molds route
 const moldsRoute = new Hono().basePath('/molds')
 
-
 // Get all molds
-moldsRoute.get("/", async (c: any) => {
+moldsRoute.get("/", async (c) => {
   try {
     // Prisma adapter
     const prisma = createPrismaClient(c.env.MOLD_DB);
@@ -22,7 +21,7 @@ moldsRoute.get("/", async (c: any) => {
     // return molds as json
     return c.json(molds)
 
-  } catch (error) {
+  } catch {
     throw new HTTPException(500, { message: "Failed to fetch molds" })
   }
 })
@@ -32,7 +31,7 @@ moldsRoute.get("/", async (c: any) => {
 moldsRoute.post("/", zValidator(
   'json',
   zMold
-), async (c: any) => {
+), async (c) => {
   try {
     // Prisma adapter
     const prisma = createPrismaClient(c.env.MOLD_DB);
@@ -48,7 +47,7 @@ moldsRoute.post("/", zValidator(
     // return the new mold as json
     return c.json(mold)
 
-  } catch (error) {
+  } catch {
     throw new HTTPException(500, { message: "Failed to create new mold" })
   }
 })
@@ -58,7 +57,7 @@ moldsRoute.post("/", zValidator(
 moldsRoute.put("/", zValidator(
   'json',
   zUpdateMold
-), async (c: any) => {
+), async (c) => {
   try {
     // Prisma adapter
     const prisma = createPrismaClient(c.env.MOLD_DB);
@@ -77,7 +76,7 @@ moldsRoute.put("/", zValidator(
     // return the updated mold as json
     return c.json(updatedMold)
 
-  } catch (error) {
+  } catch {
     throw new HTTPException(500, { message: "Failed to update mold" })
   }
 })
@@ -87,7 +86,7 @@ moldsRoute.put("/", zValidator(
 moldsRoute.delete("/", zValidator(
   'json',
   zDeleteMold
-), async (c: any) => {
+), async (c) => {
   try {
     // Prisma adapter
     const prisma = createPrismaClient(c.env.MOLD_DB);
@@ -96,7 +95,7 @@ moldsRoute.delete("/", zValidator(
     const data = await c.req.json();
 
     // delete mold from database
-    const deleteMold = await prisma.molds.delete({
+    await prisma.molds.delete({
       where: {
         number: data.number,
       },
@@ -105,7 +104,7 @@ moldsRoute.delete("/", zValidator(
     // return the new mold as json
     return c.json({ message: "Mold has been deleted" })
 
-  } catch (error) {
+  } catch {
     throw new HTTPException(500, { message: "Failed to create new mold" })
   }
 })

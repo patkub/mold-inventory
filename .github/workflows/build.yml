@@ -37,6 +37,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       
+      - name: Lint
+        run: pnpm nx lint mold-inventory-api
+      
       - name: Generate Prisma database schema
         run: pnpm nx prisma:generate mold-inventory-api
 
@@ -88,8 +91,14 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+      
+      - name: Lint
+        run: pnpm nx lint mold-inventory-app
+      
+      - name: Next.js Build
+        run: pnpm nx build mold-inventory-app
 
-      - name: Build
+      - name: Next.js build for Cloudflare workerd runtime
         run: pnpm nx cf:build mold-inventory-app
 
       - name: Run tests

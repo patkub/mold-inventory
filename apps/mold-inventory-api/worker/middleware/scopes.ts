@@ -1,16 +1,15 @@
 /**
  * JWT middleware for hono
  */
-
 import { createMiddleware } from "hono/factory";
 import { HTTPException } from "hono/http-exception"
 
 /**
  * Ensure JWT "scope" claim includes all permissions
- * @param c 
+ * @param {ExecutionContext} c 
  * @param {string[]} scopes all scopes to check for
  */
-function checkJWTScopes(c: any, scopes: string[]) {
+function checkJWTScopes(c: Context, scopes: string[]) {
   const jwtPayload = c.get('jwtPayload')
   if (!jwtPayload || !jwtPayload.scope) {
     throw new HTTPException(403, { message: "Permission denied" })
