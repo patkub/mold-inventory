@@ -125,12 +125,12 @@ pnpm nx run-many -t test -p mold-inventory-api mold-inventory-app
 
 Configure environment variables for production in `wrangler.jsonc`.
 
-Deploy the API
+### Deploy the API
 ```bash
 pnpm nx deploy mold-inventory-api
 ```
 
-Deploy the App
+### Deploy the App
 ```bash
 pnpm nx deploy mold-inventory-app
 ```
