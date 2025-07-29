@@ -5,6 +5,7 @@
 ### Minor Changes
 
 - Configuration mapping for dev and prod auth0 tenants
+- Latest Cloudflare supported Next.js version
 
 ## 1.6.0
 

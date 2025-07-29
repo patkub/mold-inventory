@@ -5,6 +5,7 @@
 ### Minor Changes
 
 - Configuration mapping for dev and prod auth0 tenants
+- Latest auth0-deploy-cli
 
 ## 1.2.0
 
