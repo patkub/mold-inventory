@@ -11,8 +11,8 @@
     "test:watch": "node wrangler-to-env.js development && vitest",
     "cf:build": "node wrangler-to-env.js development && opennextjs-cloudflare build --env development",
     "preview": "node wrangler-to-env.js development && opennextjs-cloudflare build && opennextjs-cloudflare preview --env development",
-    "deploy": "node wrangler-to-env.js production && opennextjs-cloudflare build && opennextjs-cloudflare deploy -- --env production",
-    "upload": "node wrangler-to-env.js production && opennextjs-cloudflare build && opennextjs-cloudflare upload -- --env production",
+    "deploy": "node wrangler-to-env.js production && opennextjs-cloudflare build && opennextjs-cloudflare deploy --env production",
+    "upload": "node wrangler-to-env.js production && opennextjs-cloudflare build && opennextjs-cloudflare upload --env production",
     "cf-typegen": "wrangler types worker-configuration.d.ts"
   },
   "dependencies": {
