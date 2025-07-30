@@ -21,6 +21,11 @@ A Cloudflare Worker that serves a [Hono](https://hono.dev/) CRUD API to manage m
 
 ### API
 
+```bash
+# create mold-inventory-app database in Cloudflare
+pnpm run db:create
+```
+
 Configure environments in `wrangler.jsonc`.
 
 Setup local Cloudflare D1 database for the first time.

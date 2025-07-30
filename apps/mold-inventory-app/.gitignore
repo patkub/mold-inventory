@@ -46,6 +46,3 @@ next-env.d.ts
 
 # prisma
 .generated
-
-# auth0
-auth0-config.json
