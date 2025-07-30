@@ -71,8 +71,6 @@ pnpm run deploy
 - `pnpm run start` - start Next.js in production mode
 - `pnpm run lint` - check code with eslint
 - `pnpm run lint:fix` - fix code with eslint
-- `pnpm run format` - check code format with prettier
-- `pnpm run format:fix` - fix code format with prettier
 - `pnpm run test` - vitest single run
 - `pnpm run test:watch` - vitest watch test suites for changes
 
