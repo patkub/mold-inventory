@@ -3,7 +3,7 @@
  */
 
 import { createMiddleware } from "hono/factory";
-import { cors } from "hono/cors"
+import { cors } from "hono/cors";
 
 // Require authentication
 const setupCORS = createMiddleware(async (c, next) => {
@@ -11,10 +11,8 @@ const setupCORS = createMiddleware(async (c, next) => {
     origin: c.env.CORS_ORIGIN,
     allowHeaders: ["Content-Type", "Authorization"],
     allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  })
-  return middleware(c, next)
+  });
+  return middleware(c, next);
 });
 
-export {
-  setupCORS
-}
+export { setupCORS };

@@ -6,5 +6,5 @@ export function LoadingScreen() {
         <p className="text-foreground font-medium">Loading...</p>
       </div>
     </div>
-  )
+  );
 }

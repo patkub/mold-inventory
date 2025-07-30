@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { useAuth0 } from "@auth0/auth0-react"
-import { Button } from "@/components/ui/button"
-import { Package2, LogIn } from "lucide-react"
+import { useAuth0 } from "@auth0/auth0-react";
+import { Button } from "@/components/ui/button";
+import { Package2, LogIn } from "lucide-react";
 
 export function LoginPage() {
-  const { loginWithRedirect } = useAuth0()
+  const { loginWithRedirect } = useAuth0();
 
   return (
     <div className="h-dvh flex flex-col items-center justify-center p-4 bg-white dark:bg-gray-800">
@@ -14,8 +14,12 @@ export function LoginPage() {
           <div className="flex justify-center">
             <Package2 className="h-12 w-12 text-foreground" />
           </div>
-          <h1 className="mt-4 text-2xl font-bold text-foreground">Mold Inventory Management</h1>
-          <p className="mt-2 text-foreground">Track and manage your mold inventory efficiently</p>
+          <h1 className="mt-4 text-2xl font-bold text-foreground">
+            Mold Inventory Management
+          </h1>
+          <p className="mt-2 text-foreground">
+            Track and manage your mold inventory efficiently
+          </p>
         </div>
 
         <div className="mt-8 space-y-6">
@@ -34,5 +38,5 @@ export function LoginPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

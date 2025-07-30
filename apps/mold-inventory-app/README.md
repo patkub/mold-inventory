@@ -3,6 +3,7 @@
 [https://mold-inventory-app-production.epicpatka.workers.dev/](https://mold-inventory-app-production.epicpatka.workers.dev/)
 
 ## Tech Stack
+
 - [Auth0](https://auth0.com/)
 - [Cloudflare Workers](https://developers.cloudflare.com/workers/)
 - [Next.js](https://nextjs.org/)
@@ -21,10 +22,10 @@ A Cloudflare Worker that serves the [Next.js](https://nextjs.org/) app.
 
 UI generated with [v0.dev](https://v0.dev/)
 
-
 ## Setup
 
 Install Node.js dependencies.
+
 ```bash
 # install Node.js dependencies
 pnpm install
@@ -37,11 +38,13 @@ Configure environment variables for development in `wrangler.jsonc`.
 There are two ways to run the app locally, using either the Next.js development server, or the Cloudflare workerd runtime.
 
 Run locally in Node.js using the Next.js development server, with hot-code reloading, error reporting, and more.
+
 ```bash
 pnpm run dev
 ```
 
 Run locally in the Cloudflare workerd runtime, which is more accurate to production.
+
 ```bash
 pnpm run preview
 ```
@@ -49,6 +52,7 @@ pnpm run preview
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Unit Testing
+
 - `pnpm run test` - vitest single run
 - `pnpm run test:watch` - vitest watch test suites for changes
 
@@ -67,9 +71,10 @@ pnpm run deploy
 - `pnpm run start` - start Next.js in production mode
 - `pnpm run lint` - run eslint
 - `pnpm run test` - vitest single run
-- `pnpm run test:watch` -  vitest watch test suites for changes
+- `pnpm run test:watch` - vitest watch test suites for changes
 
 ### Cloudflare Commands
+
 - `pnpm run cf-typegen` - update type definitions after adding new bindings to your Wrangler configuration
 - `pnpm run cf:build` - build Next.js app for Cloudflare workerd runtime
 - `pnpm run preview` - run locally in the Cloudflare workerd runtime, which is more accurate to production

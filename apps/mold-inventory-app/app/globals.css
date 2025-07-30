@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @import "tw-animate-css";
 
 @source '../*.{js,ts,jsx,tsx,mdx}';
@@ -97,7 +97,6 @@
 }
 
 @layer base {
-
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;

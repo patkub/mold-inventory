@@ -40,6 +40,9 @@ jobs:
       - name: Lint
         run: pnpm nx lint mold-inventory-api
       
+      - name: Format
+        run: pnpm nx format mold-inventory-api
+      
       - name: Generate Prisma database schema
         run: pnpm nx prisma:generate mold-inventory-api
 
@@ -94,6 +97,9 @@ jobs:
       
       - name: Lint
         run: pnpm nx lint mold-inventory-app
+      
+      - name: Format
+        run: pnpm nx format mold-inventory-app
       
       - name: Next.js Build
         run: pnpm nx build mold-inventory-app

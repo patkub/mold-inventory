@@ -14,16 +14,12 @@ const zUpdateMold = z.object({
     number: z.string(),
     description: z.string(),
     cycle_time: z.number(),
-    status: z.string()
-  })
+    status: z.string(),
+  }),
 });
 
 const zDeleteMold = z.object({
-  number: z.string()
-})
+  number: z.string(),
+});
 
-export {
-  zMold,
-  zUpdateMold,
-  zDeleteMold
-}
+export { zMold, zUpdateMold, zDeleteMold };
