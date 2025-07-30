@@ -55,6 +55,14 @@ Open [http://localhost:3001](http://localhost:3001) in your browser.
 
 ## Deploy to Cloudflare
 
+Create mold-inventory-app database in Cloudflare.
+
+```bash
+pnpm run db:create
+```
+
+Deploy the API to Cloudflare.
+
 ```bash
 pnpm run deploy
 ```
