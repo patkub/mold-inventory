@@ -25,6 +25,9 @@
             "https://mold-inventory-app-production.epicpatka.workers.dev",
             "https://*-mold-inventory-app-production.epicpatka.workers.dev",
             "http://localhost:3000/"
+        ],
+        "MOLDS_MCP_CALLBACKS": [
+            "http://localhost:8788/callback"
         ]
     }
 }
