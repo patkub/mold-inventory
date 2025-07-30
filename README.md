@@ -167,6 +167,10 @@ pnpm changeset version
 
 ### mold-inventory-api
 - `pnpm nx dev mold-inventory-api` - run Cloudflare Worker locally
+- `pnpm nx lint mold-inventory-api` - check code with eslint
+- `pnpm nx lint:fix mold-inventory-api` - fix code with eslint
+- `pnpm nx format mold-inventory-api` - check code format with prettier
+- `pnpm nx format:fix mold-inventory-api` - fix code format with prettier
 - `pnpm nx test mold-inventory-api` - vitest single run
 - `pnpm nx test:watch mold-inventory-api` -  vitest watch test suites for changes
 
@@ -185,7 +189,10 @@ pnpm changeset version
 - `pnpm nx dev mold-inventory-app` - starts Next.js in development mode with hot-code reloading, error reporting, and more
 - `pnpm nx build mold-inventory-app` - create optimized production build
 - `pnpm nx start mold-inventory-app` - start Next.js in production mode
-- `pnpm nx lint mold-inventory-app` - run eslint
+- `pnpm nx lint mold-inventory-app` - check code with eslint
+- `pnpm nx lint:fix mold-inventory-app` - fix code with eslint
+- `pnpm nx format mold-inventory-app` - check code format with prettier
+- `pnpm nx format:fix mold-inventory-app` - fix code format with prettier
 - `pnpm nx test mold-inventory-app` - vitest single run
 - `pnpm nx test:watch mold-inventory-app` -  vitest watch test suites for changes
 
