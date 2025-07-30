@@ -1,14 +1,14 @@
-"use client";
+'use client'
 
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { cn } from "@/lib/utils";
-import type { Mold } from "@/types/mold";
-import { MoldStatusBadge } from "@/components/mold-status-badge";
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { cn } from '@/lib/utils'
+import type { Mold } from '@/types/mold'
+import { MoldStatusBadge } from '@/components/mold-status-badge'
 
 interface MoldListProps {
-  molds: Mold[];
-  onSelect: (id: string) => void;
-  selectedMoldNumber: string | null;
+  molds: Mold[]
+  onSelect: (id: string) => void
+  selectedMoldNumber: string | null
 }
 
 export function MoldList({
@@ -29,10 +29,10 @@ export function MoldList({
               <button
                 onClick={() => onSelect(mold.number)}
                 className={cn(
-                  "w-full text-left p-3 rounded-md transition-colors",
+                  'w-full text-left p-3 rounded-md transition-colors',
                   selectedMoldNumber === mold.number
-                    ? "bg-gray-100 dark:bg-gray-700 border-l-4 border-gray-900 dark:border-gray-100"
-                    : "hover:bg-gray-50 dark:hover:bg-gray-700",
+                    ? 'bg-gray-100 dark:bg-gray-700 border-l-4 border-gray-900 dark:border-gray-100'
+                    : 'hover:bg-gray-50 dark:hover:bg-gray-700'
                 )}
               >
                 <div className="flex justify-between items-start">
@@ -52,5 +52,5 @@ export function MoldList({
         </ul>
       )}
     </ScrollArea>
-  );
+  )
 }

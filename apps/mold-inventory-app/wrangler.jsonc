@@ -6,7 +6,7 @@
   "keep_names": false,
   "assets": {
     "directory": ".open-next/assets",
-    "binding": "ASSETS",
+    "binding": "ASSETS"
   },
   "env": {
     "production": {
@@ -15,11 +15,11 @@
         "NEXT_PUBLIC_AUTH0_CLIENT_ID": "pqSGR9SiCUZSJeo4rr8voSifIOISWlGw",
         "NEXT_PUBLIC_AUTH0_AUDIENCE": "mold-inventory-app-production.epicpatka.workers.dev/api",
         "NEXT_PUBLIC_AUTH0_SCOPES": "openid profile read:current_user create:molds read:molds update:molds delete:molds",
-        "NEXT_PUBLIC_API_SERVER": "https://mold-inventory-api-production.epicpatka.workers.dev",
+        "NEXT_PUBLIC_API_SERVER": "https://mold-inventory-api-production.epicpatka.workers.dev"
       },
       "observability": {
-        "enabled": true,
-      },
+        "enabled": true
+      }
     },
     "development": {
       "vars": {
@@ -27,15 +27,15 @@
         "NEXT_PUBLIC_AUTH0_CLIENT_ID": "DYZT9rpjL5LoJNfpjo8JEQtPaLqyABHO",
         "NEXT_PUBLIC_AUTH0_AUDIENCE": "mold-inventory-app-production.epicpatka.workers.dev/api",
         "NEXT_PUBLIC_AUTH0_SCOPES": "openid profile read:current_user create:molds read:molds update:molds delete:molds",
-        "NEXT_PUBLIC_API_SERVER": "http://localhost:3001/",
+        "NEXT_PUBLIC_API_SERVER": "http://localhost:3001/"
       },
       "observability": {
-        "enabled": false,
-      },
-    },
+        "enabled": false
+      }
+    }
   },
   "dev": {
     "host": "localhost",
-    "port": 3000,
-  },
+    "port": 3000
+  }
 }

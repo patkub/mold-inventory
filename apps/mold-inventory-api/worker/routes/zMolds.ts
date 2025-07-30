@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 
 // Mold objects for Zod validator
 const zMold = z.object({
@@ -6,7 +6,7 @@ const zMold = z.object({
   description: z.string(),
   cycle_time: z.number(),
   status: z.string(),
-});
+})
 
 const zUpdateMold = z.object({
   number: z.string(),
@@ -16,10 +16,10 @@ const zUpdateMold = z.object({
     cycle_time: z.number(),
     status: z.string(),
   }),
-});
+})
 
 const zDeleteMold = z.object({
   number: z.string(),
-});
+})
 
-export { zMold, zUpdateMold, zDeleteMold };
+export { zMold, zUpdateMold, zDeleteMold }

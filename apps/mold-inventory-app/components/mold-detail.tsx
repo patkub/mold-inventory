@@ -1,11 +1,11 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import { useMolds } from "@/components/mold-providers/mold-provider-db";
-import { MoldForm } from "@/components/mold-form";
-import { MoldStatusBadge } from "@/components/mold-status-badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { useState } from 'react'
+import { useMolds } from '@/components/mold-providers/mold-provider-db'
+import { MoldForm } from '@/components/mold-form'
+import { MoldStatusBadge } from '@/components/mold-status-badge'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -15,26 +15,26 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
-import { Separator } from "@/components/ui/separator";
-import { Edit, Trash2, X } from "lucide-react";
+} from '@/components/ui/alert-dialog'
+import { Separator } from '@/components/ui/separator'
+import { Edit, Trash2, X } from 'lucide-react'
 
 interface MoldDetailProps {
-  moldNumber: string;
-  onClose: () => void;
+  moldNumber: string
+  onClose: () => void
 }
 
 export function MoldDetail({ moldNumber, onClose }: MoldDetailProps) {
-  const { getMold, deleteMold } = useMolds();
-  const [isEditing, setIsEditing] = useState(false);
-  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+  const { getMold, deleteMold } = useMolds()
+  const [isEditing, setIsEditing] = useState(false)
+  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
 
-  const mold = getMold(moldNumber);
+  const mold = getMold(moldNumber)
 
-  if (!mold) return null;
+  if (!mold) return null
 
   if (isEditing) {
-    return <MoldForm mold={mold} onCancel={() => setIsEditing(false)} />;
+    return <MoldForm mold={mold} onCancel={() => setIsEditing(false)} />
   }
 
   return (
@@ -103,8 +103,9 @@ export function MoldDetail({ moldNumber, onClose }: MoldDetailProps) {
           <AlertDialogHeader>
             <AlertDialogTitle>Are you sure?</AlertDialogTitle>
             <AlertDialogDescription>
-              This will permanently delete the mold &quot;{mold.number}&quot;
-              from your inventory. This action cannot be undone.
+              This will permanently delete the mold &quot;
+              {mold.number}&quot; from your inventory. This action cannot be
+              undone.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
@@ -112,8 +113,8 @@ export function MoldDetail({ moldNumber, onClose }: MoldDetailProps) {
             <AlertDialogAction
               className="bg-red-600 hover:bg-red-700"
               onClick={() => {
-                deleteMold(moldNumber);
-                onClose();
+                deleteMold(moldNumber)
+                onClose()
               }}
             >
               Delete
@@ -122,5 +123,5 @@ export function MoldDetail({ moldNumber, onClose }: MoldDetailProps) {
         </AlertDialogContent>
       </AlertDialog>
     </div>
-  );
+  )
 }

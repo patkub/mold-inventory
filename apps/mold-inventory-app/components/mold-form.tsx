@@ -1,74 +1,74 @@
-"use client";
+'use client'
 
-import type React from "react";
+import type React from 'react'
 
-import { useState } from "react";
-import { useMolds } from "@/components/mold-providers/mold-provider-db";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { useState } from 'react'
+import { useMolds } from '@/components/mold-providers/mold-provider-db'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import type { Mold } from "@/types/mold";
-import { ArrowLeft, Save } from "lucide-react";
+} from '@/components/ui/select'
+import type { Mold } from '@/types/mold'
+import { ArrowLeft, Save } from 'lucide-react'
 
 interface MoldFormProps {
-  mold?: Mold;
-  onCancel: () => void;
+  mold?: Mold
+  onCancel: () => void
 }
 
 export function MoldForm({ mold, onCancel }: MoldFormProps) {
-  const { addMold, updateMold } = useMolds();
-  const isEditing = !!mold;
+  const { addMold, updateMold } = useMolds()
+  const isEditing = !!mold
 
-  const [formData, setFormData] = useState<Omit<Mold, "id">>({
-    number: mold?.number || "",
-    description: mold?.description || "",
+  const [formData, setFormData] = useState<Omit<Mold, 'id'>>({
+    number: mold?.number || '',
+    description: mold?.description || '',
     cycle_time: mold?.cycle_time || 0,
-    status: mold?.status || "Active",
-  });
+    status: mold?.status || 'Active',
+  })
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
 
   const handleNumberChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value } = e.target;
-    const number = parseInt(value);
-    setFormData((prev) => ({ ...prev, [name]: number }));
-  };
+    const { name, value } = e.target
+    const number = parseInt(value)
+    setFormData((prev) => ({ ...prev, [name]: number }))
+  }
 
   const handleSelectChange = (name: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (isEditing && mold) {
-      updateMold(mold.number, formData);
+      updateMold(mold.number, formData)
     } else {
-      addMold(formData);
+      addMold(formData)
     }
 
-    onCancel();
-  };
+    onCancel()
+  }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
-          {isEditing ? "Edit Mold" : "Add New Mold"}
+          {isEditing ? 'Edit Mold' : 'Add New Mold'}
         </h2>
         <Button type="button" variant="ghost" onClick={onCancel}>
           <ArrowLeft className="mr-2 h-4 w-4" /> Back
@@ -115,7 +115,7 @@ export function MoldForm({ mold, onCancel }: MoldFormProps) {
             <Label htmlFor="status">Status</Label>
             <Select
               value={formData.status}
-              onValueChange={(value) => handleSelectChange("status", value)}
+              onValueChange={(value) => handleSelectChange('status', value)}
             >
               <SelectTrigger>
                 <SelectValue placeholder="Select status" />
@@ -136,9 +136,9 @@ export function MoldForm({ mold, onCancel }: MoldFormProps) {
         </Button>
         <Button type="submit">
           <Save className="mr-2 h-4 w-4" />
-          {isEditing ? "Update Mold" : "Save Mold"}
+          {isEditing ? 'Update Mold' : 'Save Mold'}
         </Button>
       </div>
     </form>
-  );
+  )
 }

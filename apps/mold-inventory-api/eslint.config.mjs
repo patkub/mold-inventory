@@ -1,8 +1,8 @@
 // @ts-check
 
-import eslint from "@eslint/js";
-import tseslint from "typescript-eslint";
-import eslintConfigPrettier from "eslint-config-prettier/flat";
+import eslint from '@eslint/js'
+import tseslint from 'typescript-eslint'
+import eslintConfigPrettier from 'eslint-config-prettier/flat'
 
 export default tseslint.config(
   eslint.configs.recommended,
@@ -10,10 +10,10 @@ export default tseslint.config(
   eslintConfigPrettier,
   {
     ignores: [
-      ".generated/",
-      ".wrangler/",
-      "node_modules/",
-      "worker-configuration.d.ts",
+      '.generated/',
+      '.wrangler/',
+      'node_modules/',
+      'worker-configuration.d.ts',
     ],
-  },
-);
+  }
+)

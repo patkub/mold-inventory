@@ -9,38 +9,38 @@
         {
           "binding": "MOLD_DB",
           "database_id": "3ae8c9bd-ea18-4d9f-af11-24b97ed4c05a",
-          "database_name": "mold-inventory-app",
-        },
+          "database_name": "mold-inventory-app"
+        }
       ],
       "vars": {
         "CORS_ORIGIN": [
-          "https://mold-inventory-app-production.epicpatka.workers.dev",
+          "https://mold-inventory-app-production.epicpatka.workers.dev"
         ],
-        "AUTH0_DOMAIN": "epicpatka.us.auth0.com",
+        "AUTH0_DOMAIN": "epicpatka.us.auth0.com"
       },
       "observability": {
-        "enabled": true,
-      },
+        "enabled": true
+      }
     },
     "dev": {
       "d1_databases": [
         {
           "binding": "MOLD_DB",
           "database_id": "3ae8c9bd-ea18-4d9f-af11-24b97ed4c05a",
-          "database_name": "mold-inventory-app",
-        },
+          "database_name": "mold-inventory-app"
+        }
       ],
       "vars": {
         "CORS_ORIGIN": "*",
-        "AUTH0_DOMAIN": "dev-5gm1mr1z8nbmuhv7.us.auth0.com",
+        "AUTH0_DOMAIN": "dev-5gm1mr1z8nbmuhv7.us.auth0.com"
       },
       "observability": {
-        "enabled": false,
-      },
-    },
+        "enabled": false
+      }
+    }
   },
   "dev": {
     "host": "localhost",
-    "port": 3001,
-  },
+    "port": 3001
+  }
 }

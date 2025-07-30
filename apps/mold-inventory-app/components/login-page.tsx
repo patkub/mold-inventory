@@ -1,11 +1,11 @@
-"use client";
+'use client'
 
-import { useAuth0 } from "@auth0/auth0-react";
-import { Button } from "@/components/ui/button";
-import { Package2, LogIn } from "lucide-react";
+import { useAuth0 } from '@auth0/auth0-react'
+import { Button } from '@/components/ui/button'
+import { Package2, LogIn } from 'lucide-react'
 
 export function LoginPage() {
-  const { loginWithRedirect } = useAuth0();
+  const { loginWithRedirect } = useAuth0()
 
   return (
     <div className="h-dvh flex flex-col items-center justify-center p-4 bg-white dark:bg-gray-800">
@@ -38,5 +38,5 @@ export function LoginPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }
