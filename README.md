@@ -175,8 +175,8 @@ pnpm changeset version
 
 ### auth0-tenant
 
-- `pnpm run deploy-dev` - deploy development Auth0 tenant
-- `pnpm run deploy-prod` - deploy production Auth0 tenant
+- `pnpm nx deploy-dev auth0-tenant` - deploy development Auth0 tenant
+- `pnpm nx deploy-prod auth0-tenant` - deploy production Auth0 tenant
 
 ### mold-inventory-api
 
