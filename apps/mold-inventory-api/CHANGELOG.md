@@ -1,5 +1,11 @@
 # mold-inventory-api
 
+## 1.5.0
+
+### Minor Changes
+
+- Code formatting with eslint and prettier
+
 ## 1.4.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # mold-inventory-app
 
+## 1.8.0
+
+### Minor Changes
+
+- Code formatting with eslint and prettier
+
 ## 1.7.0
 
 ### Minor Changes
