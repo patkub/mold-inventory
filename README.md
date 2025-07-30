@@ -76,6 +76,12 @@ Create users in Auth0 dashboard.
 
 ### Run the API locally
 
+Create mold-inventory-app database in Cloudflare.
+
+```bash
+pnpm nx db:create mold-inventory-api
+```
+
 Setup local Cloudflare D1 database for the first time.
 
 ```bash
@@ -146,6 +152,14 @@ Create users in Auth0 dashboard.
   - Available permissions: `create:molds`, `read:molds`, `update:molds`, and `delete:molds`
 
 ### Deploy the API to Cloudflare
+
+Create mold-inventory-app database in Cloudflare.
+
+```bash
+pnpm nx db:create mold-inventory-api
+```
+
+Deploy the API to Cloudflare.
 
 ```bash
 pnpm nx deploy mold-inventory-api
