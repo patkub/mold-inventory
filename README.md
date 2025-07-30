@@ -170,9 +170,6 @@ pnpm changeset version
 
 ## Commands
 
-- `pnpm nx format:check` - check code format with prettier
-- `pnpm nx format` - fix code format with prettier
-
 ### auth0-tenant
 
 - `pnpm nx deploy-dev auth0-tenant` - deploy development Auth0 tenant
@@ -183,6 +180,8 @@ pnpm changeset version
 - `pnpm nx dev mold-inventory-api` - run Cloudflare Worker locally
 - `pnpm nx lint mold-inventory-api` - check code with eslint
 - `pnpm nx lint:fix mold-inventory-api` - fix code with eslint
+- `pnpm nx prettier mold-inventory-api` - check code format with prettier
+- `pnpm nx prettier:fix mold-inventory-api` - fix code format with prettier
 - `pnpm nx test mold-inventory-api` - vitest single run
 - `pnpm nx test:watch mold-inventory-api` - vitest watch test suites for changes
 
@@ -205,6 +204,8 @@ pnpm changeset version
 - `pnpm nx start mold-inventory-app` - start Next.js in production mode
 - `pnpm nx lint mold-inventory-app` - check code with eslint
 - `pnpm nx lint:fix mold-inventory-app` - fix code with eslint
+- `pnpm nx prettier mold-inventory-app` - check code format with prettier
+- `pnpm nx prettier:fix mold-inventory-app` - fix code format with prettier
 - `pnpm nx test mold-inventory-app` - vitest single run
 - `pnpm nx test:watch mold-inventory-app` - vitest watch test suites for changes
 

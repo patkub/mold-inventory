@@ -3,43 +3,6 @@ name: Build
 on: [push]
 
 jobs:
-  # Prettier formatting for all apps
-  format:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [22.x]
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      
-      - name: Use pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-
-      # Restore the cached .nx folder (if it exists)
-      - name: Restore Nx cache
-        id: nx-cache
-        uses: actions/cache@v3
-        with:
-          path: .nx
-          key: nx-cache-lint-${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('**/nx.json') }}
-          restore-keys: |
-            nx-cache-lint-${{ runner.os }}-${{ matrix.node-version }}-
-
-      - name: Install dependencies
-        run: pnpm install
-      
-      - name: Lint
-        run: pnpm nx format:check
-
 
   # This job builds the Hono API backend
   api:
@@ -52,7 +15,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Use pnpm
         uses: pnpm/action-setup@v4
 
@@ -60,7 +23,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
+          cache: "pnpm"
 
       # Restore the cached .nx folder (if it exists)
       - name: Restore Nx cache
@@ -74,10 +37,13 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-      
+
       - name: Lint
         run: pnpm nx lint mold-inventory-api
       
+      - name: Prettier
+        run: pnpm nx prettier mold-inventory-api
+
       - name: Generate Prisma database schema
         run: pnpm nx prisma:generate mold-inventory-api
 
@@ -95,7 +61,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Use pnpm
         uses: pnpm/action-setup@v4
 
@@ -103,8 +69,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-      
+          cache: "pnpm"
+
       # Restore the cached .nx folder (if it exists)
       - name: Restore Nx cache
         id: nx-cache
@@ -129,10 +95,13 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-      
+
       - name: Lint
         run: pnpm nx lint mold-inventory-app
       
+      - name: Prettier
+        run: pnpm nx prettier mold-inventory-app
+
       - name: Next.js Build
         run: pnpm nx build mold-inventory-app
 
