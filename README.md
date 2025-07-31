@@ -245,3 +245,11 @@ pnpm changeset version
 - `pnpm nx preview mold-inventory-app` - run locally in the Cloudflare workerd runtime, which is more accurate to production
 - `pnpm nx upload mold-inventory-app` - deploy preview version to Cloudflare
 - `pnpm nx deploy mold-inventory-app` - deploy production version to Cloudflare
+
+### mold-mcp
+
+- `pnpm nx dev` or `pnpm nx start molds-mcp` - run Cloudflare Worker locally
+- `pnpm nx cf-typegen molds-mcp` - update type definitions after adding new bindings to your Wrangler configuration
+- `pnpm nx type-check molds-mcp` - typescript lint
+- `pnpm nx kv:create molds-mcp` - Set up OAUTH_KV namespace
+- `pnpm nx deploy molds-mcp` - deploy production version to Cloudflare

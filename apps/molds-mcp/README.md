@@ -26,7 +26,6 @@ Refer to [`auth0-tenant`](../auth0-tenant/README.md) app.
 Refer to `.dev.vars.example` and create a `.dev.vars` file in the root of the project with the following structure:
 
 ```
-AUTH0_DOMAIN=dev-5gm1mr1z8nbmuhv7.us.auth0.com
 AUTH0_CLIENT_SECRET=The Client Secret of the application in Auth0
 NODE_ENV=development
 ```
@@ -62,6 +61,14 @@ To test this you can now use the Workers AI LLM Playground. Navigate to [https:/
 https://molds-mcp-production.epicpatka.workers.dev/sse
 
 This will open a popup where you can sign in after which you'll be able to use all of the tools.
+
+## Commands
+
+- `pnpm run dev` or `pnpm run start` - run Cloudflare Worker locally
+- `pnpm run cf-typegen` - update type definitions after adding new bindings to your Wrangler configuration
+- `pnpm run type-check` - typescript lint
+- `pnpm run kv:create` - Set up OAUTH_KV namespace
+- `pnpm run deploy` - deploy production version to Cloudflare
 
 ## Troubleshooting
 
