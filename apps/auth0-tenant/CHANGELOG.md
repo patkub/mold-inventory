@@ -1,5 +1,11 @@
 # auth0-tenant
 
+## 1.4.0
+
+### Minor Changes
+
+- Molds MCP Server
+
 ## 1.3.0
 
 ### Minor Changes
