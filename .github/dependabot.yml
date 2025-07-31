@@ -21,3 +21,7 @@ updates:
       # MCP only works with Zod v3
       - dependency-name: "zod"
         versions: [ ">=3" ]
+    groups:
+      dependencies:
+        patterns:
+          - "*"
