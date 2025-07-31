@@ -1,7 +1,3 @@
 AUTH0_DOMAIN=dev-5gm1mr1z8nbmuhv7.us.auth0.com
-AUTH0_CLIENT_ID=jemEQWGeDikDp57xdFaB0tY1c3tAVVDd
 AUTH0_CLIENT_SECRET=
-AUTH0_AUDIENCE=https://mold-inventory-app-production.epicpatka.workers.dev/api
-AUTH0_SCOPE=openid email profile offline_access read:molds
 NODE_ENV=development
-API_BASE_URL=http://localhost:3001

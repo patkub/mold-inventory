@@ -27,6 +27,7 @@
             "http://localhost:3000/"
         ],
         "MOLDS_MCP_CALLBACKS": [
+            "https://molds-mcp-production.epicpatka.workers.dev/callback",
             "http://localhost:8788/callback"
         ]
     }

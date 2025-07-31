@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "deploy": "wrangler deploy --minify --env production",
-    "dev": "wrangler dev",
-    "start": "wrangler dev",
+    "dev": "wrangler dev --env dev",
+    "start": "wrangler dev --env dev",
     "cf-typegen": "wrangler types",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "kv:create": "wrangler kv namespace create OAUTH_KV"
   },
   "dependencies": {
     "@cloudflare/workers-oauth-provider": "^0.0.5",

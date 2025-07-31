@@ -14,7 +14,7 @@
       "vars": {
         "CORS_ORIGIN": [
           "https://mold-inventory-app-production.epicpatka.workers.dev",
-          "https://molds-mcp.epicpatka.workers.dev"
+          "https://molds-mcp-production.epicpatka.workers.dev"
         ],
         "AUTH0_DOMAIN": "epicpatka.us.auth0.com"
       },

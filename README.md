@@ -38,6 +38,14 @@ This is a monorepo powered by [Nx](https://nx.dev/).
 - [Auth0](https://auth0.com/) for login
 - [Next.js](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/) as the frontend React Framework
 
+#### molds-mcp
+
+[`molds-mcp`](./apps/molds-mcp/README.md): Cloudflare Worker Molds MCP server
+
+- [Auth0](https://auth0.com/) for login
+- Allows an LLM to recieve the list of molds on behalf of the user.
+- User must have `read:molds` permission for the Mold Inventory API.
+
 ## UI
 
 ![Screenshot of Light UI](./apps/mold-inventory-app/docs/light/home-screen-light.png)

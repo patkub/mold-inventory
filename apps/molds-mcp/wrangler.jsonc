@@ -34,11 +34,15 @@
 			"kv_namespaces": [
 				{
 					"binding": "OAUTH_KV",
-					"id": "da13cef8026d4491aa56a8113c517796"
+					"id": "b6554826e0fa427085aeea48f02b7bea"
 				}
 			],
 			"vars": {
-				"AUTH0_DOMAIN": "epicpatka.us.auth0.com"
+				"AUTH0_DOMAIN": "epicpatka.us.auth0.com",
+				"AUTH0_CLIENT_ID": "1yzbqr2RKS7CudIB1hF3Nyyvl1clHSzX",
+				"AUTH0_AUDIENCE": "https://mold-inventory-app-production.epicpatka.workers.dev/api",
+				"AUTH0_SCOPE": "openid email profile offline_access read:molds",
+				"API_BASE_URL": "https://mold-inventory-api-production.epicpatka.workers.dev",
 			},
 			"observability": {
 				"enabled": true
@@ -59,11 +63,15 @@
 			"kv_namespaces": [
 				{
 					"binding": "OAUTH_KV",
-					"id": "da13cef8026d4491aa56a8113c517796"
+					"id": "b6554826e0fa427085aeea48f02b7bea"
 				}
 			],
 			"vars": {
-				"AUTH0_DOMAIN": "dev-5gm1mr1z8nbmuhv7.us.auth0.com"
+				"AUTH0_DOMAIN": "dev-5gm1mr1z8nbmuhv7.us.auth0.com",
+				"AUTH0_CLIENT_ID": "jemEQWGeDikDp57xdFaB0tY1c3tAVVDd",
+				"AUTH0_AUDIENCE": "https://mold-inventory-app-production.epicpatka.workers.dev/api",
+				"AUTH0_SCOPE": "openid email profile offline_access read:molds",
+				"API_BASE_URL": "http://localhost:3001",
 			},
 			"observability": {
 				"enabled": false
