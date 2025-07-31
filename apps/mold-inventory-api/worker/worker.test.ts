@@ -1,5 +1,5 @@
 // src/index.test.ts
-// @ts-ignore
+// @ts-expect-error importing environment from Cloudflare
 import { env } from 'cloudflare:test'
 import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { mockReset } from 'vitest-mock-extended'

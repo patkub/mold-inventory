@@ -22,6 +22,7 @@ const app = new Hono<{ Bindings: Bindings }>()
 app.use('*', setupCORS)
 
 // Return errors as JSON
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 app.onError((err: Error, c: any) => {
   if (err instanceof HTTPException) {
     err.message = err.message || 'An error occurred'

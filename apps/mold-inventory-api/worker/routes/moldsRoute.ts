@@ -1,4 +1,4 @@
-import { Hono } from 'hono'
+import { Hono, Context } from 'hono'
 import { HTTPException } from 'hono/http-exception'
 import { zValidator } from '@hono/zod-validator'
 // Mold objects for Zod validator
@@ -10,7 +10,7 @@ import { createPrismaClient } from '../prismaClient.js'
 const moldsRoute = new Hono().basePath('/molds')
 
 // Get all molds
-moldsRoute.get('/', async (c: any) => {
+moldsRoute.get('/', async (c: Context) => {
   try {
     // Prisma adapter
     const prisma = createPrismaClient(c.env.MOLD_DB)
@@ -26,7 +26,7 @@ moldsRoute.get('/', async (c: any) => {
 })
 
 // Create new mold
-moldsRoute.post('/', zValidator('json', zMold), async (c: any) => {
+moldsRoute.post('/', zValidator('json', zMold), async (c: Context) => {
   try {
     // Prisma adapter
     const prisma = createPrismaClient(c.env.MOLD_DB)
@@ -47,7 +47,7 @@ moldsRoute.post('/', zValidator('json', zMold), async (c: any) => {
 })
 
 // Update mold
-moldsRoute.put('/', zValidator('json', zUpdateMold), async (c: any) => {
+moldsRoute.put('/', zValidator('json', zUpdateMold), async (c: Context) => {
   try {
     // Prisma adapter
     const prisma = createPrismaClient(c.env.MOLD_DB)
@@ -71,7 +71,7 @@ moldsRoute.put('/', zValidator('json', zUpdateMold), async (c: any) => {
 })
 
 // Delete mold
-moldsRoute.delete('/', zValidator('json', zDeleteMold), async (c: any) => {
+moldsRoute.delete('/', zValidator('json', zDeleteMold), async (c: Context) => {
   try {
     // Prisma adapter
     const prisma = createPrismaClient(c.env.MOLD_DB)
