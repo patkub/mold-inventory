@@ -3,6 +3,7 @@ import { D1Database } from '@cloudflare/workers-types'
 
 // Hono
 import { Hono } from 'hono'
+import { HTTPException } from 'hono/http-exception'
 // CORS
 import { setupCORS } from './middleware/cors'
 // JWT Auth
@@ -21,11 +22,19 @@ const app = new Hono<{ Bindings: Bindings }>()
 // Setup CORS
 app.use('*', setupCORS)
 
+// Return errors as JSON
+app.onError((err: Error, c: any) => {
+  if (err instanceof HTTPException) {
+    err.message = err.message || 'An error occurred';
+    return c.json({ error: err.message }, err.status)
+  }
+})
+
 // Middleware must be registered before any /api endpoints
 // Require JWT authentication for all /api endpoints
 app.use('/api/*', setupJWT)
-// Validate JWT scope claim for CRUD routes
 
+// Validate JWT scope claim for CRUD routes
 app.get('/api/molds/*', createScopesMiddleware(['read:molds']))
 app.post('/api/molds/*', createScopesMiddleware(['create:molds']))
 app.put('/api/molds/*', createScopesMiddleware(['update:molds']))
