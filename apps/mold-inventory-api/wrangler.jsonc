@@ -2,7 +2,6 @@
   "main": "worker/worker.ts",
   "name": "mold-inventory-api",
   "compatibility_date": "2025-07-12",
-  "compatibility_flags": ["nodejs_compat"],
   "env": {
     "production": {
       "d1_databases": [
@@ -14,7 +13,8 @@
       ],
       "vars": {
         "CORS_ORIGIN": [
-          "https://mold-inventory-app-production.epicpatka.workers.dev"
+          "https://mold-inventory-app-production.epicpatka.workers.dev",
+          "https://molds-mcp.epicpatka.workers.dev"
         ],
         "AUTH0_DOMAIN": "epicpatka.us.auth0.com"
       },
