@@ -18,8 +18,8 @@ importers:
   apps/auth0-tenant:
     devDependencies:
       auth0-deploy-cli:
-        specifier: ^8.11.0
-        version: 8.11.0
+        specifier: ^8.12.0
+        version: 8.12.0
 
   apps/mold-inventory-api:
     dependencies:
@@ -3240,8 +3240,8 @@ packages:
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
-  auth0-deploy-cli@8.11.0:
-    resolution: {integrity: sha512-vtBVRSfWSFapd/SVQs5iG8Dreuu7F6ZFijXIxLT4ZdTCyMozoE6p3/a++sjsw0NDam19vFJ/tbwagr/KARtV+A==}
+  auth0-deploy-cli@8.12.0:
+    resolution: {integrity: sha512-lzwHrr7WgRvQSRP9y6yf9ERCo6PlLPOqWPcv0mZH9XHcFulJqeREvHKvMshRWO2ewoRqROO4Ejeu0CCgSCjBiw==}
     engines: {node: '>=20.18.1'}
     hasBin: true
 
@@ -6015,8 +6015,8 @@ packages:
   undici-types@6.21.0:
     resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
 
-  undici@7.12.0:
-    resolution: {integrity: sha512-GrKEsc3ughskmGA9jevVlIOPMiiAHJ4OFUtaAH+NhfTUSiZ1wMPIQqQvAJUrJspFXJt3EBWgpAeoHEDVT1IBug==}
+  undici@7.13.0:
+    resolution: {integrity: sha512-l+zSMssRqrzDcb3fjMkjjLGmuiiK2pMIcV++mJaAc9vhjSGpvM7h43QgP+OAMb1GImHmbPyG2tBXeuyG5iY4gA==}
     engines: {node: '>=20.18.1'}
 
   unenv@2.0.0-rc.19:
@@ -10187,7 +10187,7 @@ snapshots:
 
   asynckit@0.4.0: {}
 
-  auth0-deploy-cli@8.11.0:
+  auth0-deploy-cli@8.12.0:
     dependencies:
       ajv: 6.12.6
       auth0: 4.27.0
@@ -10199,7 +10199,7 @@ snapshots:
       nconf: 0.13.0
       promise-pool-executor: 1.1.1
       sanitize-filename: 1.6.3
-      undici: 7.12.0
+      undici: 7.13.0
       winston: 3.17.0
       yargs: 15.4.1
     transitivePeerDependencies:
@@ -11993,7 +11993,7 @@ snapshots:
       glob-to-regexp: 0.4.1
       sharp: 0.33.5
       stoppable: 1.1.0
-      undici: 7.12.0
+      undici: 7.13.0
       workerd: 1.20250726.0
       ws: 8.18.0
       youch: 4.1.0-beta.10
@@ -13255,7 +13255,7 @@ snapshots:
 
   undici-types@6.21.0: {}
 
-  undici@7.12.0: {}
+  undici@7.13.0: {}
 
   unenv@2.0.0-rc.19:
     dependencies:
