@@ -23,7 +23,7 @@ const app = new Hono<{ Bindings: Bindings }>()
 app.use('*', setupCORS)
 
 // Return errors as JSON
-app.onError((err: Error, c: any) => {
+app.onError((err: Error, c) => {
   if (err instanceof HTTPException) {
     err.message = err.message || 'An error occurred';
     return c.json({ error: err.message }, err.status)
