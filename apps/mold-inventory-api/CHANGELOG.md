@@ -1,5 +1,11 @@
 # mold-inventory-api
 
+## 1.7.0
+
+### Minor Changes
+
+- Return API errors as JSON
+
 ## 1.6.0
 
 ### Minor Changes
