@@ -56,6 +56,12 @@ This is a monorepo powered by [Nx](https://nx.dev/).
 
 UI generated with [v0.dev](https://v0.dev/)
 
+### MCP Server AI Chat
+
+![AI Chat 1](./apps/molds-mcp/docs/ai-chat-1.png)
+
+[See more AI screenshots](./apps/molds-mcp/docs/mcp-server-ai-chat.md)
+
 ## Local Setup
 
 ### Install Dependencies
