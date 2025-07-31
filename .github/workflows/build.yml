@@ -151,6 +151,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Lint
+      - name: Type Check
         run: pnpm nx type-check molds-mcp
+      
+      - name: Prettier
+        run: pnpm nx prettier mold-inventory-app
  

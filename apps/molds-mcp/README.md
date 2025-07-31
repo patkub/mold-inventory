@@ -67,6 +67,8 @@ This will open a popup where you can sign in after which you'll be able to use a
 - `pnpm run dev` or `pnpm run start` - run Cloudflare Worker locally
 - `pnpm run cf-typegen` - update type definitions after adding new bindings to your Wrangler configuration
 - `pnpm run type-check` - typescript lint
+- `pnpm run prettier` - check code format with prettier
+- `pnpm run prettier:fix` - fix code format with prettier
 - `pnpm run kv:create` - Set up OAUTH_KV namespace
 - `pnpm run deploy` - deploy production version to Cloudflare
 

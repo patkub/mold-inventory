@@ -252,5 +252,7 @@ pnpm changeset version
 - `pnpm nx dev molds-mcp` or `pnpm nx start molds-mcp` - run Cloudflare Worker locally
 - `pnpm nx cf-typegen molds-mcp` - update type definitions after adding new bindings to your Wrangler configuration
 - `pnpm nx type-check molds-mcp` - typescript lint
+- `pnpm nx prettier mold-inventory-api` - check code format with prettier
+- `pnpm nx prettier:fix mold-inventory-api` - fix code format with prettier
 - `pnpm nx kv:create molds-mcp` - Set up OAUTH_KV namespace
 - `pnpm nx deploy molds-mcp` - deploy production version to Cloudflare

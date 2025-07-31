@@ -3,82 +3,78 @@
  * https://developers.cloudflare.com/workers/wrangler/configuration/
  */
 {
-	"$schema": "./node_modules/wrangler/config-schema.json",
-	"name": "molds-mcp",
-	"main": "src/index.ts",
-	"compatibility_date": "2025-04-01",
-	"compatibility_flags": [
-		"nodejs_compat"
-	],
-	"migrations": [
-		{
-			"new_sqlite_classes": [
-				"MoldsMCP"
-			],
-			"tag": "v1"
-		}
-	],
-	"env": {
-		"production": {
-			"ai": {
-				"binding": "AI"
-			},
-			"durable_objects": {
-				"bindings": [
-					{
-						"class_name": "MoldsMCP",
-						"name": "MCP_OBJECT"
-					}
-				]
-			},
-			"kv_namespaces": [
-				{
-					"binding": "OAUTH_KV",
-					"id": "b6554826e0fa427085aeea48f02b7bea"
-				}
-			],
-			"vars": {
-				"AUTH0_DOMAIN": "epicpatka.us.auth0.com",
-				"AUTH0_CLIENT_ID": "1yzbqr2RKS7CudIB1hF3Nyyvl1clHSzX",
-				"AUTH0_AUDIENCE": "https://mold-inventory-app-production.epicpatka.workers.dev/api",
-				"AUTH0_SCOPE": "openid email profile offline_access read:molds",
-				"API_BASE_URL": "https://mold-inventory-api-production.epicpatka.workers.dev",
-			},
-			"observability": {
-				"enabled": true
-			}
-		},
-		"dev": {
-			"ai": {
-				"binding": "AI"
-			},
-			"durable_objects": {
-				"bindings": [
-					{
-						"class_name": "MoldsMCP",
-						"name": "MCP_OBJECT"
-					}
-				]
-			},
-			"kv_namespaces": [
-				{
-					"binding": "OAUTH_KV",
-					"id": "b6554826e0fa427085aeea48f02b7bea"
-				}
-			],
-			"vars": {
-				"AUTH0_DOMAIN": "dev-5gm1mr1z8nbmuhv7.us.auth0.com",
-				"AUTH0_CLIENT_ID": "jemEQWGeDikDp57xdFaB0tY1c3tAVVDd",
-				"AUTH0_AUDIENCE": "https://mold-inventory-app-production.epicpatka.workers.dev/api",
-				"AUTH0_SCOPE": "openid email profile offline_access read:molds",
-				"API_BASE_URL": "http://localhost:3001",
-			},
-			"observability": {
-				"enabled": false
-			}
-		}
-	},
-	"dev": {
-		"port": 8788
-	}
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "molds-mcp",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-04-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "migrations": [
+    {
+      "new_sqlite_classes": ["MoldsMCP"],
+      "tag": "v1"
+    }
+  ],
+  "env": {
+    "production": {
+      "ai": {
+        "binding": "AI"
+      },
+      "durable_objects": {
+        "bindings": [
+          {
+            "class_name": "MoldsMCP",
+            "name": "MCP_OBJECT"
+          }
+        ]
+      },
+      "kv_namespaces": [
+        {
+          "binding": "OAUTH_KV",
+          "id": "b6554826e0fa427085aeea48f02b7bea"
+        }
+      ],
+      "vars": {
+        "AUTH0_DOMAIN": "epicpatka.us.auth0.com",
+        "AUTH0_CLIENT_ID": "1yzbqr2RKS7CudIB1hF3Nyyvl1clHSzX",
+        "AUTH0_AUDIENCE": "https://mold-inventory-app-production.epicpatka.workers.dev/api",
+        "AUTH0_SCOPE": "openid email profile offline_access read:molds",
+        "API_BASE_URL": "https://mold-inventory-api-production.epicpatka.workers.dev"
+      },
+      "observability": {
+        "enabled": true
+      }
+    },
+    "dev": {
+      "ai": {
+        "binding": "AI"
+      },
+      "durable_objects": {
+        "bindings": [
+          {
+            "class_name": "MoldsMCP",
+            "name": "MCP_OBJECT"
+          }
+        ]
+      },
+      "kv_namespaces": [
+        {
+          "binding": "OAUTH_KV",
+          "id": "b6554826e0fa427085aeea48f02b7bea"
+        }
+      ],
+      "vars": {
+        "AUTH0_DOMAIN": "dev-5gm1mr1z8nbmuhv7.us.auth0.com",
+        "AUTH0_CLIENT_ID": "jemEQWGeDikDp57xdFaB0tY1c3tAVVDd",
+        "AUTH0_AUDIENCE": "https://mold-inventory-app-production.epicpatka.workers.dev/api",
+        "AUTH0_SCOPE": "openid email profile offline_access read:molds",
+        "API_BASE_URL": "http://localhost:3001"
+      },
+      "observability": {
+        "enabled": false
+      }
+    }
+  },
+  "dev": {
+    "port": 8788
+  }
 }
