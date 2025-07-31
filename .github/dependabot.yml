@@ -5,7 +5,7 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
+  - package-ecosystem: "npm"
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
@@ -13,21 +13,27 @@ updates:
       # Using Node.js 22 LTS
       - dependency-name: "@types/node"
         versions: [ ">=22" ]
-  - package-ecosystem: "npm" # See documentation for possible values
+  - package-ecosystem: "npm"
     directory: "/apps/molds-inventory-app" # Location of package manifests
     schedule:
       interval: "weekly"
     ignore:
+      # Using Node.js 22 LTS
+      - dependency-name: "@types/node"
+        versions: [ ">=22" ]
       # Pin Next.js to latest supported by Cloudflare Workers
       - dependency-name: "next"
         versions: [ ">=15.3.5" ]
       - dependency-name: "eslint-config-next"
         versions: [ ">=15.3.5" ]
-  - package-ecosystem: "npm" # See documentation for possible values
+  - package-ecosystem: "npm"
     directory: "/apps/molds-mcp" # Location of package manifests
     schedule:
       interval: "weekly"
     ignore:
+      # Using Node.js 22 LTS
+      - dependency-name: "@types/node"
+        versions: [ ">=22" ]
       - dependency-name: "zod"
         # MCP only works with Zod v3
         versions: [ ">=3" ]
