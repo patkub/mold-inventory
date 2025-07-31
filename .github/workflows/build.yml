@@ -37,6 +37,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+      
+      - name: Generate Prisma database schema
+        run: pnpm nx prisma:generate mold-inventory-api
 
       - name: Type Check
         run: pnpm nx type-check mold-inventory-api
@@ -46,9 +49,6 @@ jobs:
 
       - name: Prettier
         run: pnpm nx prettier mold-inventory-api
-
-      - name: Generate Prisma database schema
-        run: pnpm nx prisma:generate mold-inventory-api
 
       - name: Run tests
         run: pnpm nx test mold-inventory-api
@@ -100,7 +100,7 @@ jobs:
         run: pnpm install
 
       - name: Type Check
-        run: pnpm nx type-check mold-inventory-api
+        run: pnpm nx type-check mold-inventory-app
 
       - name: Lint
         run: pnpm nx lint mold-inventory-app
