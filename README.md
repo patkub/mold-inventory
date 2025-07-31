@@ -246,7 +246,7 @@ pnpm changeset version
 - `pnpm nx upload mold-inventory-app` - deploy preview version to Cloudflare
 - `pnpm nx deploy mold-inventory-app` - deploy production version to Cloudflare
 
-### mold-mcp
+### molds-mcp
 
 - `pnpm nx dev` or `pnpm nx start molds-mcp` - run Cloudflare Worker locally
 - `pnpm nx cf-typegen molds-mcp` - update type definitions after adding new bindings to your Wrangler configuration
