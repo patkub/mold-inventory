@@ -25,7 +25,7 @@ importers:
     dependencies:
       '@hono/zod-validator':
         specifier: ^0.7.2
-        version: 0.7.2(hono@4.8.10)(zod@4.0.13)
+        version: 0.7.2(hono@4.8.10)(zod@4.0.14)
       '@prisma/adapter-d1':
         specifier: ^6.13.0
         version: 6.13.0
@@ -36,8 +36,8 @@ importers:
         specifier: ^4.8.10
         version: 4.8.10
       zod:
-        specifier: ^4.0.13
-        version: 4.0.13
+        specifier: ^4.0.14
+        version: 4.0.14
     devDependencies:
       '@cloudflare/vitest-pool-workers':
         specifier: ^0.8.58
@@ -239,8 +239,8 @@ importers:
         specifier: ^0.0.13
         version: 0.0.13
       zod:
-        specifier: ^3.25.67
-        version: 3.25.76
+        specifier: ^4.0.14
+        version: 4.0.14
     devDependencies:
       '@types/node':
         specifier: ^22.17.0
@@ -6418,8 +6418,8 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
-  zod@4.0.13:
-    resolution: {integrity: sha512-jv+zRxuZQxTrFHzxZ46ezL2FtnE+M4HIJHJEwLsZ7UjrXHltdG6HrxvqM0twoVCWxJiYf8WqKjAcjztegpkB+Q==}
+  zod@4.0.14:
+    resolution: {integrity: sha512-nGFJTnJN6cM2v9kXL+SOBq3AtjQby3Mv5ySGFof5UGRHrRioSJ5iG680cYNjE/yWk671nROcpPj4hAS8nyLhSw==}
 
 snapshots:
 
@@ -8077,10 +8077,10 @@ snapshots:
 
   '@floating-ui/utils@0.2.10': {}
 
-  '@hono/zod-validator@0.7.2(hono@4.8.10)(zod@4.0.13)':
+  '@hono/zod-validator@0.7.2(hono@4.8.10)(zod@4.0.14)':
     dependencies:
       hono: 4.8.10
-      zod: 4.0.13
+      zod: 4.0.14
 
   '@humanfs/core@0.19.1': {}
 
@@ -13720,4 +13720,4 @@ snapshots:
 
   zod@3.25.76: {}
 
-  zod@4.0.13: {}
+  zod@4.0.14: {}
