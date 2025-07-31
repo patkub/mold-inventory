@@ -17,7 +17,7 @@ http://localhost:8788/callback
 ### Set up a KV namespace
 
 - Create the KV namespace:
-  `wrangler kv:namespace create "OAUTH_KV"`
+  `wrangler kv namespace create "OAUTH_KV"`
 - Update the Wrangler file with the KV ID
 
 ## Environment Variables
@@ -30,9 +30,9 @@ This MCP Server needs a few environment variables to be configured:
 | `AUTH0_CLIENT_ID`     | The Client ID from the Auth0 application you created                                                                                                                            |
 | `AUTH0_CLIENT_SECRET` | The Client Secret from the Auth0 application you created                                                                                                                        |
 | `AUTH0_AUDIENCE`      | The unique identifier for your API which you registered in the Auth0 dashbaord (e.g., `urn:todos-api`)                                                                          |
-| `AUTH0_SCOPE`         | The scopes requested by the MCP Server. Here we request basic profile info (`openid email profile`), refresh token capability (`offline_access`), and API access (`read:todos`) |
+| `AUTH0_SCOPE`         | The scopes requested by the MCP Server. Here we request basic profile info (`openid email profile`), refresh token capability (`offline_access`), and API access (`read:molds`) |
 | `NODE_ENV`            | The environment setting - use `development` for local development                                                                                                               |
-| `API_BASE_URL`        | The base URL where your Todos API is running                                                                                                                                    |
+| `API_BASE_URL`        | The base URL where your Molds API is running                                                                                                                                    |
 
 ## Development
 

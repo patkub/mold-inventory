@@ -15,6 +15,7 @@ This is a monorepo powered by [Nx](https://nx.dev/).
 - [`auth0-tenant`](./apps/auth0-tenant/README.md): [Auth0](https://auth0.com/) tenant configuration
 - [`mold-inventory-api`](./apps/mold-inventory-api/README.md): Cloudflare Worker serving a [Hono](https://hono.dev/) API backend
 - [`mold-inventory-app`](./apps/mold-inventory-app/README.md): Cloudflare Worker serving the [Next.js](https://nextjs.org/) app
+- [`molds-mcp`](./apps/molds-mcp/README.md): Cloudflare Worker Molds MCP server
 
 ### Implementation Details
 
