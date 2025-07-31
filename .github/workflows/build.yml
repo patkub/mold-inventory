@@ -38,9 +38,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Type Check
+        run: pnpm nx type-check mold-inventory-api
+
       - name: Lint
         run: pnpm nx lint mold-inventory-api
-      
+
       - name: Prettier
         run: pnpm nx prettier mold-inventory-api
 
@@ -96,9 +99,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Type Check
+        run: pnpm nx type-check mold-inventory-api
+
       - name: Lint
         run: pnpm nx lint mold-inventory-app
-      
+
       - name: Prettier
         run: pnpm nx prettier mold-inventory-app
 

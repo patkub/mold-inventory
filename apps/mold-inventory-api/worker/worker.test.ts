@@ -1,4 +1,5 @@
 // src/index.test.ts
+// @ts-ignore
 import { env } from 'cloudflare:test'
 import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { mockReset } from 'vitest-mock-extended'
@@ -42,6 +43,7 @@ describe('Molds', () => {
   it('Should get all molds', async () => {
     const fakeMolds = [
       {
+        id: 1,
         number: 'test mold',
         description: 'test mold description',
         cycle_time: 10,
@@ -62,6 +64,7 @@ describe('Molds', () => {
 
   it('Should create a new mold', async () => {
     const fakeMold = {
+      id: 1,
       number: 'test mold',
       description: 'test mold description',
       cycle_time: 10,
@@ -89,6 +92,7 @@ describe('Molds', () => {
 
   it('Should update an existing mold', async () => {
     const fakeMold = {
+      id: 1,
       number: 'test mold',
       description: 'test mold description',
       cycle_time: 10,
@@ -119,6 +123,7 @@ describe('Molds', () => {
 
   it('Should delete an existing mold', async () => {
     const fakeMold = {
+      id: 1,
       number: 'test mold',
       description: 'test mold description',
       cycle_time: 10,

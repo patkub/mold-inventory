@@ -10,7 +10,7 @@ import { createPrismaClient } from '../prismaClient.js'
 const moldsRoute = new Hono().basePath('/molds')
 
 // Get all molds
-moldsRoute.get('/', async (c) => {
+moldsRoute.get('/', async (c: any) => {
   try {
     // Prisma adapter
     const prisma = createPrismaClient(c.env.MOLD_DB)
@@ -26,7 +26,7 @@ moldsRoute.get('/', async (c) => {
 })
 
 // Create new mold
-moldsRoute.post('/', zValidator('json', zMold), async (c) => {
+moldsRoute.post('/', zValidator('json', zMold), async (c: any) => {
   try {
     // Prisma adapter
     const prisma = createPrismaClient(c.env.MOLD_DB)
@@ -47,7 +47,7 @@ moldsRoute.post('/', zValidator('json', zMold), async (c) => {
 })
 
 // Update mold
-moldsRoute.put('/', zValidator('json', zUpdateMold), async (c) => {
+moldsRoute.put('/', zValidator('json', zUpdateMold), async (c: any) => {
   try {
     // Prisma adapter
     const prisma = createPrismaClient(c.env.MOLD_DB)
@@ -71,7 +71,7 @@ moldsRoute.put('/', zValidator('json', zUpdateMold), async (c) => {
 })
 
 // Delete mold
-moldsRoute.delete('/', zValidator('json', zDeleteMold), async (c) => {
+moldsRoute.delete('/', zValidator('json', zDeleteMold), async (c: any) => {
   try {
     // Prisma adapter
     const prisma = createPrismaClient(c.env.MOLD_DB)

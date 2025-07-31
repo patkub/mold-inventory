@@ -1,6 +1,6 @@
 // libs/__mocks__/prisma.ts
 // 1
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '../../.generated/prisma/index.js'
 import { beforeEach } from 'vitest'
 import { mockDeep, mockReset } from 'vitest-mock-extended'
 

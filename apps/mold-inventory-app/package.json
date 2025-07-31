@@ -6,6 +6,7 @@
     "dev": "node wrangler-to-env.js development && next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "type-check": "tsc --noEmit",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "prettier": "prettier --check .",
@@ -16,7 +17,7 @@
     "preview": "node wrangler-to-env.js development && opennextjs-cloudflare build && opennextjs-cloudflare preview --env development",
     "deploy": "node wrangler-to-env.js production && opennextjs-cloudflare build && opennextjs-cloudflare deploy --env production",
     "upload": "node wrangler-to-env.js production && opennextjs-cloudflare build && opennextjs-cloudflare upload --env production",
-    "cf-typegen": "wrangler types worker-configuration.d.ts"
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.4.0",

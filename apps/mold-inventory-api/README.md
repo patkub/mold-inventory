@@ -70,6 +70,7 @@ pnpm run deploy
 ## Commands
 
 - `pnpm run dev` - run Cloudflare Worker locally
+- `pnpm run type-check` - typescript type check
 - `pnpm run lint` - check code with eslint
 - `pnpm run lint:fix` - fix code with eslint
 - `pnpm run prettier` - check code format with prettier

@@ -1,6 +1,7 @@
 /**
  * JWT middleware for hono
  */
+import { Context } from 'hono'
 import { createMiddleware } from 'hono/factory'
 import { HTTPException } from 'hono/http-exception'
 

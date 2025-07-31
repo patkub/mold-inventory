@@ -1,5 +1,4 @@
 // worker.ts
-import { D1Database } from '@cloudflare/workers-types'
 
 // Hono
 import { Hono } from 'hono'
@@ -23,7 +22,7 @@ const app = new Hono<{ Bindings: Bindings }>()
 app.use('*', setupCORS)
 
 // Return errors as JSON
-app.onError((err: Error, c) => {
+app.onError((err: Error, c: any) => {
   if (err instanceof HTTPException) {
     err.message = err.message || 'An error occurred'
     return c.json({ error: err.message }, err.status)

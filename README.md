@@ -207,6 +207,7 @@ pnpm changeset version
 ### mold-inventory-api
 
 - `pnpm nx dev mold-inventory-api` - run Cloudflare Worker locally
+- `pnpm nx type-check mold-inventory-api` - typescript type check
 - `pnpm nx lint mold-inventory-api` - check code with eslint
 - `pnpm nx lint:fix mold-inventory-api` - fix code with eslint
 - `pnpm nx prettier mold-inventory-api` - check code format with prettier

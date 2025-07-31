@@ -69,6 +69,7 @@ pnpm run deploy
 - `pnpm run dev` - starts Next.js in development mode with hot-code reloading, error reporting, and more
 - `pnpm run build` - create optimized production build
 - `pnpm run start` - start Next.js in production mode
+- `pnpm run type-check` - typescript type check
 - `pnpm run lint` - check code with eslint
 - `pnpm run lint:fix` - fix code with eslint
 - `pnpm run test` - vitest single run

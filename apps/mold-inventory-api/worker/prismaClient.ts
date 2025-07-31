@@ -1,4 +1,3 @@
-import { D1Database } from '@cloudflare/workers-types'
 import { PrismaClient } from '../.generated/prisma'
 import { PrismaD1 } from '@prisma/adapter-d1'
 
