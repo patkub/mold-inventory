@@ -67,8 +67,8 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
 
       const response = await fetch(request)
       if (!response.ok) {
-        const errorData = (await response.json()) as ErrorResponse;
-        throw new Error(errorData.message);
+        const errorData = (await response.json()) as ErrorResponse
+        throw new Error(errorData.message)
       }
       const molds = (await response.json()) as Mold[]
 
@@ -77,7 +77,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
       // Error occurred getting molds
       toast({
         title: 'Error',
-        description: "An error occurred fetching molds",
+        description: 'An error occurred fetching molds',
       })
     }
   }
@@ -98,8 +98,8 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
 
       const response = await fetch(request)
       if (!response.ok) {
-        const errorData = (await response.json()) as ErrorResponse;
-        throw new Error(errorData.message);
+        const errorData = (await response.json()) as ErrorResponse
+        throw new Error(errorData.message)
       }
       const mold = (await response.json()) as Mold
 
@@ -135,10 +135,10 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
 
       const response = await fetch(request)
       if (!response.ok) {
-        const errorData = (await response.json()) as ErrorResponse;
-        throw new Error(errorData.message);
+        const errorData = (await response.json()) as ErrorResponse
+        throw new Error(errorData.message)
       }
-      const updatedMold = (await response.json()) as Mold;
+      const updatedMold = (await response.json()) as Mold
 
       toast({
         title: 'Success',
@@ -155,7 +155,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
     }
   }
 
-    const deleteMoldAuth = async (
+  const deleteMoldAuth = async (
     number: string
   ): Promise<DeleteMoldResponse | undefined> => {
     try {
@@ -171,8 +171,8 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
 
       const response = await fetch(request)
       if (!response.ok) {
-        const errorData = (await response.json()) as ErrorResponse;
-        throw new Error(errorData.message);
+        const errorData = (await response.json()) as ErrorResponse
+        throw new Error(errorData.message)
       }
       const delResp = (await response.json()) as DeleteMoldResponse
 
