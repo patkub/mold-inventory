@@ -73,7 +73,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
       const molds = (await response.json()) as Mold[]
 
       return molds
-    } catch (e) {
+    } catch {
       // Error occurred getting molds
       toast({
         title: 'Error',
@@ -109,10 +109,8 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
       })
 
       return mold
-    } catch (e) {
+    } catch {
       // Error occurred creating mold
-      console.log(e)
-
       toast({
         title: 'Error',
         description: `An error occurred adding mold ${newMold.number}`,
@@ -148,7 +146,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
       })
 
       return updatedMold
-    } catch (e) {
+    } catch {
       // Error occurred updating molds
       toast({
         title: 'Error',
@@ -184,7 +182,7 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
       })
 
       return delResp
-    } catch (e) {
+    } catch {
       // Error occurred deleting mold
       toast({
         title: 'Error',
