@@ -20,6 +20,10 @@ type DeleteMoldResponse = {
   message: string
 }
 
+type ErrorResponse = {
+  message: string
+}
+
 const MoldContext = createContext<MoldContextType | undefined>(undefined)
 
 export function MoldProviderDB({ children }: { children: React.ReactNode }) {
@@ -62,12 +66,19 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
       await attachAuth0AccessToken(request)
 
       const response = await fetch(request)
+      if (!response.ok) {
+        const errorData = (await response.json()) as ErrorResponse;
+        throw new Error(errorData.message);
+      }
       const molds = (await response.json()) as Mold[]
 
       return molds
     } catch (e) {
       // Error occurred getting molds
-      console.log(e)
+      toast({
+        title: 'Error',
+        description: "An error occurred fetching molds",
+      })
     }
   }
 
@@ -86,6 +97,10 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
       await attachAuth0AccessToken(request)
 
       const response = await fetch(request)
+      if (!response.ok) {
+        const errorData = (await response.json()) as ErrorResponse;
+        throw new Error(errorData.message);
+      }
       const mold = (await response.json()) as Mold
 
       toast({
@@ -101,41 +116,6 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
       toast({
         title: 'Error',
         description: `An error occurred adding mold ${newMold.number}`,
-      })
-    }
-  }
-
-  const deleteMoldAuth = async (
-    number: string
-  ): Promise<DeleteMoldResponse | undefined> => {
-    try {
-      const url = new URL('/api/molds', NEXT_PUBLIC_API_SERVER)
-      const request = new Request(url, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ number: number }),
-      })
-      await attachAuth0AccessToken(request)
-
-      const response = await fetch(request)
-      const delResp = (await response.json()) as DeleteMoldResponse
-      // console.log(delResp)
-
-      toast({
-        title: 'Success',
-        description: `Mold ${number} deleted successfully`,
-      })
-
-      return delResp
-    } catch (e) {
-      // Error occurred deleting mold
-      console.log(e)
-
-      toast({
-        title: 'Error',
-        description: `An error occurred deleting mold ${number}`,
       })
     }
   }
@@ -156,8 +136,11 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
       await attachAuth0AccessToken(request)
 
       const response = await fetch(request)
-      const updatedMold = (await response.json()) as Mold
-      // console.log(updatedMold)
+      if (!response.ok) {
+        const errorData = (await response.json()) as ErrorResponse;
+        throw new Error(errorData.message);
+      }
+      const updatedMold = (await response.json()) as Mold;
 
       toast({
         title: 'Success',
@@ -167,11 +150,45 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
       return updatedMold
     } catch (e) {
       // Error occurred updating molds
-      console.log(e)
-
       toast({
         title: 'Error',
         description: `An error occurred updating mold ${number}`,
+      })
+    }
+  }
+
+    const deleteMoldAuth = async (
+    number: string
+  ): Promise<DeleteMoldResponse | undefined> => {
+    try {
+      const url = new URL('/api/molds', NEXT_PUBLIC_API_SERVER)
+      const request = new Request(url, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ number: number }),
+      })
+      await attachAuth0AccessToken(request)
+
+      const response = await fetch(request)
+      if (!response.ok) {
+        const errorData = (await response.json()) as ErrorResponse;
+        throw new Error(errorData.message);
+      }
+      const delResp = (await response.json()) as DeleteMoldResponse
+
+      toast({
+        title: 'Success',
+        description: `Mold ${number} deleted successfully`,
+      })
+
+      return delResp
+    } catch (e) {
+      // Error occurred deleting mold
+      toast({
+        title: 'Error',
+        description: `An error occurred deleting mold ${number}`,
       })
     }
   }
