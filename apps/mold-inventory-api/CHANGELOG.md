@@ -1,5 +1,11 @@
 # mold-inventory-api
 
+## 1.7.1
+
+### Patch Changes
+
+- Better error handling responses
+
 ## 1.7.0
 
 ### Minor Changes

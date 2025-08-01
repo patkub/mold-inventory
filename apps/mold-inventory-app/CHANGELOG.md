@@ -1,5 +1,11 @@
 # mold-inventory-app
 
+## 1.8.1
+
+### Patch Changes
+
+- Better error handling responses
+
 ## 1.8.0
 
 ### Minor Changes
