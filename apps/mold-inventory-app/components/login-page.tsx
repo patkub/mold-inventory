@@ -24,10 +24,16 @@ export function LoginPage() {
 
         <div className="mt-8 space-y-6">
           <div className="text-center text-sm text-foreground">
-            <p data-testid="please-sign-in">Please sign in to access your mold inventory</p>
+            <p data-testid="please-sign-in">
+              Please sign in to access your mold inventory
+            </p>
           </div>
 
-          <Button data-testid="sign-in-btn" className="w-full" onClick={() => loginWithRedirect()}>
+          <Button
+            data-testid="sign-in-btn"
+            className="w-full"
+            onClick={() => loginWithRedirect()}
+          >
             <LogIn className="mr-2 h-4 w-4" />
             Sign In
           </Button>

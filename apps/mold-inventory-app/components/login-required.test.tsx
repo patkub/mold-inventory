@@ -14,9 +14,9 @@ const fakeUser = {
 
 describe('LoginRequired', () => {
   beforeEach(() => {
-    vi.clearAllMocks();
+    vi.clearAllMocks()
     vi.mock('@auth0/auth0-react')
-  });
+  })
 
   it('Renders loading screen when waiting for Auth0', () => {
     // Prepare
@@ -38,16 +38,17 @@ describe('LoginRequired', () => {
 
     // Act
     // Render login page
-    render(<LoginRequired>
-      <div>Protected Content</div>
-    </LoginRequired>
+    render(
+      <LoginRequired>
+        <div>Protected Content</div>
+      </LoginRequired>
     )
 
     // Expect
     // Loading screen is displayed
     const loadingEl = screen.getByTestId('loading')
     expect(loadingEl).toBeDefined()
-  });
+  })
 
   // isLoading = false, isAuthenticated = false
   it('Renders login page when not authenticated', async () => {
@@ -70,16 +71,17 @@ describe('LoginRequired', () => {
 
     // Act
     // Render login page
-    render(<LoginRequired>
-      <div>Protected Content</div>
-    </LoginRequired>
+    render(
+      <LoginRequired>
+        <div>Protected Content</div>
+      </LoginRequired>
     )
 
     // Expect
     // Loading screen is displayed
     const pleaseSignInEl = screen.getByTestId('please-sign-in')
     expect(pleaseSignInEl).toBeDefined()
-  });
+  })
 
   // isLoading = false, isAuthenticated = false
   it('Renders children when authenticated', async () => {
@@ -102,15 +104,15 @@ describe('LoginRequired', () => {
 
     // Act
     // Render login page
-    render(<LoginRequired>
-      <div>Protected Content</div>
-    </LoginRequired>
+    render(
+      <LoginRequired>
+        <div>Protected Content</div>
+      </LoginRequired>
     )
 
     // Expect
     // Protected content is displayed
-    const protectedContent = screen.getByText("Protected Content")
+    const protectedContent = screen.getByText('Protected Content')
     expect(protectedContent).toBeDefined()
-  });
-
+  })
 })
