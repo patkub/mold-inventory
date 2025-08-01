@@ -5,7 +5,7 @@ import { LoadingScreen } from './loading-screen'
 describe('LoadingScreen', () => {
   it('Renders correctly', () => {
     render(<LoadingScreen />)
-    const textElement = screen.getByText('Loading...')
-    expect(textElement).toBeDefined()
+    const loadingEl = screen.getByTestId('loading')
+    expect(loadingEl).toBeDefined()
   })
 })

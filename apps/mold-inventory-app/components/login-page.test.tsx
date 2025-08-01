@@ -43,7 +43,7 @@ describe('LoginPage', () => {
     render(<LoginPage />)
 
     // Click the "Sign In" button
-    const signInButton = screen.getByText('Sign In')
+    const signInButton = screen.getByTestId('sign-in-btn')
     await user.click(signInButton)
 
     // Expect
