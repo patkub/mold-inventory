@@ -86,7 +86,7 @@ moldsRoute.delete('/', zValidator('json', zDeleteMold), async (c: Context) => {
       },
     })
 
-    // return the new mold as json
+    // return mold deleted message
     return c.json({ message: 'Mold has been deleted' })
   } catch {
     throw new HTTPException(500, { message: 'Failed to delete mold' })
