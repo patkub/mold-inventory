@@ -12,7 +12,7 @@ import prisma from '../libs/__mocks__/prisma'
 
 describe('Molds', () => {
   beforeEach(() => {
-    // disable CORS for local testing
+    // disable CORS and CSRF for local testing
     env.CORS_ORIGIN = ['*']
 
     // disable auth for local testing

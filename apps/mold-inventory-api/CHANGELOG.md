@@ -1,5 +1,11 @@
 # mold-inventory-api
 
+## 1.8.0
+
+### Minor Changes
+
+- CSRF protection
+
 ## 1.7.1
 
 ### Patch Changes

@@ -5,6 +5,8 @@ import { Hono } from 'hono'
 import { HTTPException } from 'hono/http-exception'
 // CORS
 import { setupCORS } from './middleware/cors'
+// CSRF
+import { setupCSRF } from './middleware/csrf'
 // JWT Auth
 import { setupJWT } from './middleware/jwt'
 import { createScopesMiddleware } from './middleware/scopes'
@@ -20,6 +22,8 @@ const app = new Hono<{ Bindings: Bindings }>()
 
 // Setup CORS
 app.use('*', setupCORS)
+// Setup CSRF
+app.use('*', setupCSRF)
 
 // Return errors as JSON
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
