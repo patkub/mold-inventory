@@ -25,7 +25,7 @@
     "@hono/zod-validator": "^0.7.2",
     "@prisma/adapter-d1": "^6.13.0",
     "@prisma/client": "^6.13.0",
-    "hono": "^4.8.10",
+    "hono": "^4.8.12",
     "zod": "^4.0.13"
   },
   "devDependencies": {
