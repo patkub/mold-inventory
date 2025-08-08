@@ -52,8 +52,6 @@ app.post('/authorize/consent', confirmConsent)
 app.get('/callback', callback)
 
 export default new OAuthProvider({
-  // TODO: fix these types
-  // @ts-expect-error
   apiHandler: MoldsMCP.mount('/sse'),
   apiRoute: '/sse',
   authorizeEndpoint: '/authorize',
