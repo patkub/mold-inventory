@@ -1,14 +1,16 @@
 // libs/__mocks__/prisma.ts
-// 1
+
 import { PrismaClient } from '../../.generated/prisma/index.js'
 import { beforeEach } from 'vitest'
 import { mockDeep, mockReset } from 'vitest-mock-extended'
 
-// 2
+// Mock prisma client
+const prisma = mockDeep<PrismaClient>()
+
+// Reset before each test
 beforeEach(() => {
   mockReset(prisma)
 })
 
-// 3
-const prisma = mockDeep<PrismaClient>()
+// Export the mocked prisma client
 export default prisma

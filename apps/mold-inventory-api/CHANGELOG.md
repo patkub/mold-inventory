@@ -1,5 +1,11 @@
 # mold-inventory-api
 
+## 1.9.0
+
+### Minor Changes
+
+- Decouple mold routes from database interaction
+
 ## 1.8.0
 
 ### Minor Changes

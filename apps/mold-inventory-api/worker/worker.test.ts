@@ -29,9 +29,9 @@ describe('Molds', () => {
       }),
     }))
 
-    // when worker calls createPrismaClient, return the mocked prisma object
-    vi.mock('./prismaClient', () => ({
-      createPrismaClient: vi.fn(() => {
+    // when worker calls createPrismaMoldClient, return the mocked prisma object
+    vi.mock('./prisma/prismaClient', () => ({
+      createPrismaMoldClient: vi.fn(() => {
         return prisma
       }),
     }))

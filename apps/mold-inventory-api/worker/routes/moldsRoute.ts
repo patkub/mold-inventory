@@ -4,7 +4,12 @@ import { zValidator } from '@hono/zod-validator'
 // Mold objects for Zod validator
 import { zMold, zUpdateMold, zDeleteMold } from './zMolds.js'
 
-import { createPrismaClient } from '../prismaClient.js'
+import {
+  getMolds,
+  addMold,
+  updateMold,
+  deleteMold,
+} from '../prisma/prismaMolds.js'
 
 // Define /molds route
 const moldsRoute = new Hono().basePath('/molds')
@@ -12,11 +17,8 @@ const moldsRoute = new Hono().basePath('/molds')
 // Get all molds
 moldsRoute.get('/', async (c: Context) => {
   try {
-    // Prisma adapter
-    const prisma = createPrismaClient(c.env.MOLD_DB)
-
-    // get molds from database
-    const molds = await prisma.molds.findMany()
+    // get all molds
+    const molds = await getMolds(c)
 
     // return molds as json
     return c.json(molds)
@@ -28,16 +30,8 @@ moldsRoute.get('/', async (c: Context) => {
 // Create new mold
 moldsRoute.post('/', zValidator('json', zMold), async (c: Context) => {
   try {
-    // Prisma adapter
-    const prisma = createPrismaClient(c.env.MOLD_DB)
-
-    // request data
-    const data = await c.req.json()
-
-    // create new mold in database
-    const mold = await prisma.molds.create({
-      data: data,
-    })
+    // add the new mold from the request
+    const mold = await addMold(c)
 
     // return the new mold as json
     return c.json(mold)
@@ -49,19 +43,8 @@ moldsRoute.post('/', zValidator('json', zMold), async (c: Context) => {
 // Update mold
 moldsRoute.put('/', zValidator('json', zUpdateMold), async (c: Context) => {
   try {
-    // Prisma adapter
-    const prisma = createPrismaClient(c.env.MOLD_DB)
-
-    // request data
-    const data = await c.req.json()
-
-    // update mold in database
-    const updatedMold = await prisma.molds.update({
-      where: {
-        number: data.number,
-      },
-      data: data.mold,
-    })
+    // update requested mold in the database
+    const updatedMold = await updateMold(c)
 
     // return the updated mold as json
     return c.json(updatedMold)
@@ -73,18 +56,8 @@ moldsRoute.put('/', zValidator('json', zUpdateMold), async (c: Context) => {
 // Delete mold
 moldsRoute.delete('/', zValidator('json', zDeleteMold), async (c: Context) => {
   try {
-    // Prisma adapter
-    const prisma = createPrismaClient(c.env.MOLD_DB)
-
-    // request data
-    const data = await c.req.json()
-
-    // delete mold from database
-    await prisma.molds.delete({
-      where: {
-        number: data.number,
-      },
-    })
+    // delete requested mold from the database
+    await deleteMold(c)
 
     // return mold deleted message
     return c.json({ message: 'Mold has been deleted' })
