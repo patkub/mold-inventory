@@ -12,6 +12,6 @@
     "deploy-prod": "a0deploy import -c auth0-config-prod.json -i auth0-tenant"
   },
   "devDependencies": {
-    "auth0-deploy-cli": "^8.12.0"
+    "auth0-deploy-cli": "^8.13.0"
   }
 }
