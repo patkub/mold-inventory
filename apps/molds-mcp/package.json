@@ -13,10 +13,10 @@
     "deploy": "wrangler deploy --minify --env production"
   },
   "dependencies": {
-    "@cloudflare/workers-oauth-provider": "^0.0.5",
-    "@modelcontextprotocol/sdk": "1.17.1",
-    "agents": "^0.0.109",
-    "hono": "^4.8.3",
+    "@cloudflare/workers-oauth-provider": "^0.0.6",
+    "@modelcontextprotocol/sdk": "1.17.2",
+    "agents": "^0.0.111",
+    "hono": "^4.9.0",
     "jose": "^6.0.11",
     "just-pick": "^4.2.0",
     "oauth4webapi": "^3.5.3",
@@ -27,6 +27,6 @@
     "@types/node": "^22.17.0",
     "prettier": "^3.6.2",
     "typescript": "^5.9.2",
-    "wrangler": "^4.27.0"
+    "wrangler": "^4.28.1"
   }
 }

@@ -25,11 +25,11 @@
     "@hono/zod-validator": "^0.7.2",
     "@prisma/adapter-d1": "^6.13.0",
     "@prisma/client": "^6.13.0",
-    "hono": "^4.8.10",
+    "hono": "^4.9.0",
     "zod": "^4.0.13"
   },
   "devDependencies": {
-    "@cloudflare/vitest-pool-workers": "^0.8.59",
+    "@cloudflare/vitest-pool-workers": "^0.8.61",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.32.0",
     "eslint": "^9.32.0",
@@ -37,9 +37,9 @@
     "prettier": "^3.6.2",
     "prisma": "^6.13.0",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.38.0",
+    "typescript-eslint": "^8.39.0",
     "vitest": "~3.2.4",
     "vitest-mock-extended": "^3.1.0",
-    "wrangler": "^4.27.0"
+    "wrangler": "^4.28.1"
   }
 }
