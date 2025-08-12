@@ -123,11 +123,7 @@ describe('Molds', () => {
 
   it('Should delete an existing mold', async () => {
     const fakeMold = {
-      id: 1,
-      number: 'test mold',
-      description: 'test mold description',
-      cycle_time: 10,
-      status: 'Active',
+      number: 'test mold'
     }
 
     const moldDeleted = { message: 'Mold has been deleted' }
