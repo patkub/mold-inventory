@@ -1,5 +1,11 @@
 # mold-inventory-app
 
+## 1.9.0
+
+### Minor Changes
+
+- Update local mold provider
+
 ## 1.8.1
 
 ### Patch Changes

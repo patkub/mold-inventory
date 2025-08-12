@@ -3,15 +3,7 @@
 import type React from 'react'
 
 import { createContext, useContext, useState } from 'react'
-import type { Mold } from '@/types/mold'
-
-type MoldContextType = {
-  molds: Mold[]
-  addMold: (mold: Omit<Mold, 'id'>) => void
-  updateMold: (id: string, mold: Partial<Mold>) => void
-  deleteMold: (id: string) => void
-  getMold: (id: string) => Mold | undefined
-}
+import type { Mold, MoldContextType } from '@/types/mold'
 
 const MoldContext = createContext<MoldContextType | undefined>(undefined)
 
@@ -42,9 +34,13 @@ export function MoldProviderLocal({ children }: { children: React.ReactNode }) {
     return molds.find((mold) => mold.number === number)
   }
 
+  const getMolds = () => {
+    return molds
+  }
+
   return (
     <MoldContext.Provider
-      value={{ molds, addMold, updateMold, deleteMold, getMold }}
+      value={{ molds, getMolds, addMold, updateMold, deleteMold, getMold }}
     >
       {children}
     </MoldContext.Provider>

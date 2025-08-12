@@ -4,17 +4,8 @@ import type React from 'react'
 
 import { createContext, useContext, useState } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
-import type { Mold } from '@/types/mold'
+import type { Mold, MoldContextType } from '@/types/mold'
 import { useToast } from '@/components/toast-provider'
-
-type MoldContextType = {
-  getMolds: () => void
-  molds: Mold[]
-  addMold: (mold: Omit<Mold, 'id'>) => void
-  updateMold: (id: string, mold: Partial<Mold>) => void
-  deleteMold: (id: string) => void
-  getMold: (id: string) => Mold | undefined
-}
 
 type DeleteMoldResponse = {
   message: string
