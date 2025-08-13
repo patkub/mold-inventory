@@ -14,7 +14,7 @@ export function Auth0Provider({ children }: { children: ReactNode }) {
   const redirectUri =
     typeof window !== 'undefined' ? window.location.origin : ''
 
-  if (!domain || !clientId || !audience) {
+  if (!domain || !clientId || !audience || !scopes) {
     return <>{children}</>
   }
 
