@@ -80,7 +80,7 @@ describe('LoginPage', () => {
       handleRedirectCallback: vi.fn(),
       isLoading: false,
       error: {
-        error_description: 'Invalid state',
+        message: 'Invalid state',
       },
     })
 

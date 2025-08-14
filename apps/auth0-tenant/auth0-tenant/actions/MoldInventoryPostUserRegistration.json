@@ -1,0 +1,25 @@
+{
+  "name": "MoldInventoryPostUserRegistration",
+  "code": "./actions/MoldInventoryPostUserRegistration/code.js",
+  "runtime": "node22",
+  "status": "built",
+  "dependencies": [],
+  "secrets": [
+    {
+      "name": "DOMAIN"
+    },
+    {
+      "name": "CLIENT_ID"
+    },
+    {
+      "name": "CLIENT_SECRET"
+    }
+  ],
+  "supported_triggers": [
+    {
+      "id": "post-user-registration",
+      "version": "v2"
+    }
+  ],
+  "deployed": true
+}
