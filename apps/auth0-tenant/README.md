@@ -36,3 +36,11 @@ pnpm run deploy-prod
 Create users in Auth0 dashboard.
 - Assign permissions to users for the Mold Inventory API.
   - Available permissions: `create:molds`, `read:molds`, `update:molds`, and `delete:molds`
+
+### Unit Tests
+
+Run unit tests for Auht0 Actions.
+
+```
+pnpm test
+```
