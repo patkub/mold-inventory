@@ -3,7 +3,12 @@
   "code": "./actions/MoldInventoryPostUserRegistration/code.js",
   "runtime": "node22",
   "status": "built",
-  "dependencies": [],
+  "dependencies": [
+    {
+      "name": "auth0",
+      "version": "4.28.0"
+    }
+  ],
   "secrets": [
     {
       "name": "DOMAIN"
