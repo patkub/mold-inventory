@@ -36,3 +36,19 @@ pnpm run deploy-prod
 Create users in Auth0 dashboard.
 - Assign permissions to users for the Mold Inventory API.
   - Available permissions: `create:molds`, `read:molds`, `update:molds`, and `delete:molds`
+
+### Configure Actions
+
+Define secrets for MoldInventoryPostUserRegistration action.
+
+- `DOMAIN` - Auth0 domain
+- `CLIENT_ID` - Molds M2M Client ID
+- `CLIENT_SECRET` - Molds M2M Client Secret
+
+### Unit Tests
+
+Run unit tests for Auht0 Actions.
+
+```
+pnpm test
+```

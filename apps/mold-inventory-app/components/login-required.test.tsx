@@ -1,5 +1,5 @@
-import { it, describe, expect, vi, beforeEach } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { it, describe, expect, vi, beforeEach, afterEach } from 'vitest'
+import { render, screen, cleanup } from '@testing-library/react'
 import { LoginRequired } from './login-required'
 
 // mock auth0 library
@@ -14,8 +14,13 @@ const fakeUser = {
 
 describe('LoginRequired', () => {
   beforeEach(() => {
-    vi.clearAllMocks()
+    // mock auth0 library
     vi.mock('@auth0/auth0-react')
+  })
+
+  afterEach(() => {
+    vi.resetAllMocks()
+    cleanup()
   })
 
   it('Renders loading screen when waiting for Auth0', () => {

@@ -9,9 +9,13 @@
   "main": "index.js",
   "scripts": {
     "deploy-dev": "a0deploy import -c auth0-config-dev.json -i auth0-tenant",
-    "deploy-prod": "a0deploy import -c auth0-config-prod.json -i auth0-tenant"
+    "deploy-prod": "a0deploy import -c auth0-config-prod.json -i auth0-tenant",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "devDependencies": {
-    "auth0-deploy-cli": "^8.13.0"
+    "auth0-deploy-cli": "^8.13.0",
+    "vitest": "~3.2.4",
+    "vitest-mock-extended": "^3.1.0"
   }
 }
