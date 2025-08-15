@@ -89,6 +89,14 @@ Create users in Auth0 dashboard.
 - Assign permissions to users for the Mold Inventory API.
   - Available permissions: `create:molds`, `read:molds`, `update:molds`, and `delete:molds`
 
+#### Configure Actions
+
+Define secrets for MoldInventoryPostUserRegistration action.
+
+- `DOMAIN` - Auth0 domain
+- `CLIENT_ID` - Molds M2M Client ID
+- `CLIENT_SECRET` - Molds M2M Client Secret
+
 ### Run the API locally
 
 Create mold-inventory-app database in Cloudflare.
@@ -166,7 +174,13 @@ Create users in Auth0 dashboard.
 - Assign permissions to users for the Mold Inventory API.
   - Available permissions: `create:molds`, `read:molds`, `update:molds`, and `delete:molds`
 
-### Deploy the API to Cloudflare
+Define secrets for MoldInventoryPostUserRegistration action.
+
+- `DOMAIN` - Auth0 domain
+- `CLIENT_ID` - Molds M2M Client ID
+- `CLIENT_SECRET` - Molds M2M Client Secret
+
+### Deploy Production API to Cloudflare
 
 Create mold-inventory-app database in Cloudflare.
 
@@ -180,7 +194,7 @@ Deploy the API to Cloudflare.
 pnpm nx deploy mold-inventory-api
 ```
 
-### Deploy the App to Cloudflare
+### Deploy Production App to Cloudflare
 
 Configure environment variables for production in `apps/mold-inventory-app/wrangler.jsonc`.
 
@@ -203,6 +217,8 @@ pnpm changeset version
 
 - `pnpm nx deploy-dev auth0-tenant` - deploy development Auth0 tenant
 - `pnpm nx deploy-prod auth0-tenant` - deploy production Auth0 tenant
+- `pnpm nx test auth0-tenant` - vitest actions single run
+- `pnpm nx test:watch auth0-tenant` - vitest actions watch test suites for changes
 
 ### mold-inventory-api
 
