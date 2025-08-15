@@ -21,7 +21,7 @@ Refer to [`auth0-tenant`](../auth0-tenant/README.md) app.
 - Create the `OAUTH_KV` KV namespace: `pnpm run kv:create`
 - Update `./wrangler.jsonc` file with the KV ID
 
-## Development
+## Development and Staging
 
 Refer to `.dev.vars.example` and create a `.dev.vars` file in the root of the project with the following structure:
 
