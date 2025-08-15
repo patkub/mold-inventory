@@ -165,6 +165,15 @@ pnpm nx run-many -t test --all
 - `pnpm nx test mold-inventory-app` - vitest single run for app
 - `pnpm nx test:watch mold-inventory-app` - vitest watch test suites for changes for app
 
+## Staging
+
+### Deploy Staging Auth0 Tenant
+```bash
+pnpm nx deploy-staging auth0-tenant
+```
+
+Staging Auth0 tenant can be used as another testing environment.
+
 ## Production Deploy
 
 ### Deploy Production Auth0 Configuration
@@ -190,10 +199,11 @@ Define secrets for MoldInventoryPostUserRegistration action.
 
 ### Deploy Production API to Cloudflare
 
-Create mold-inventory-app database in Cloudflare.
+Create and seed mold-inventory-app database in Cloudflare.
 
 ```bash
 pnpm nx db:create mold-inventory-api
+pnpm nx db:migrate mold-inventory-api
 ```
 
 Deploy the API to Cloudflare.
@@ -256,6 +266,7 @@ pnpm changeset version
 ### mold-inventory-app
 
 - `pnpm nx dev mold-inventory-app` - starts Next.js in development mode with hot-code reloading, error reporting, and more
+- `pnpm nx dev:staging mold-inventory-app` - starts Next.js in development mode with staging Auth0 tenant
 - `pnpm nx build mold-inventory-app` - create optimized production build
 - `pnpm nx start mold-inventory-app` - start Next.js in production mode
 - `pnpm nx lint mold-inventory-app` - check code with eslint
@@ -270,7 +281,7 @@ pnpm changeset version
 - `pnpm nx cf-typegen mold-inventory-app` - update type definitions after adding new bindings to your Wrangler configuration
 - `pnpm nx cf:build mold-inventory-app` - build Next.js app for Cloudflare workerd runtime
 - `pnpm nx preview mold-inventory-app` - run locally in the Cloudflare workerd runtime, which is more accurate to production
-- `pnpm nx preview:staging mold-inventory-app` - run locally in the Cloudflare workerd runtime, which is more accurate to production, with Auth0 staging tenant
+- `pnpm nx preview:staging mold-inventory-app` - run locally in the Cloudflare workerd runtime with staging Auth0 tenant
 - `pnpm nx upload mold-inventory-app` - deploy preview version to Cloudflare
 - `pnpm nx deploy mold-inventory-app` - deploy production version to Cloudflare
 

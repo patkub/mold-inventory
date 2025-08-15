@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "node wrangler-to-env.js development && next dev --turbopack",
+    "dev:staging": "node wrangler-to-env.js staging && next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc --noEmit",
