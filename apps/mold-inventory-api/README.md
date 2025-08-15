@@ -28,10 +28,10 @@ pnpm run db:create
 
 Configure environments in `wrangler.jsonc`.
 
-Setup local Cloudflare D1 database for the first time.
+Set up local Cloudflare D1 database for the first time.
 
 ```bash
-# setup local Cloudflare D1 database
+# set up local Cloudflare D1 database
 pnpm run db:migrate:local
 pnpm run db:seed:local
 
@@ -83,8 +83,8 @@ pnpm run deploy
 ### Cloudflare Commands
 
 - `pnpm run db:create` - create mold-inventory-app database in Cloudflare
-- `pnpm run db:migrate` - setup mold-inventory-app database in Cloudflare
-- `pnpm run db:migrate:local` - setup mold-inventory-app database locally
+- `pnpm run db:migrate` - set up mold-inventory-app database in Cloudflare
+- `pnpm run db:migrate:local` - set up mold-inventory-app database locally
 - `pnpm run db:seed` - seed initial mold-inventory-app data in Cloudflare
 - `pnpm run db:seed:local` - seed initial mold-inventory-app data locally
 - `pnpm run prisma:generate` - generate prisma database schema

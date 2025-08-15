@@ -44,6 +44,35 @@
         "enabled": true
       }
     },
+    "staging": {
+      "ai": {
+        "binding": "AI"
+      },
+      "durable_objects": {
+        "bindings": [
+          {
+            "class_name": "MoldsMCP",
+            "name": "MCP_OBJECT"
+          }
+        ]
+      },
+      "kv_namespaces": [
+        {
+          "binding": "OAUTH_KV",
+          "id": "b6554826e0fa427085aeea48f02b7bea"
+        }
+      ],
+      "vars": {
+        "AUTH0_DOMAIN": "epicpatka-staging.us.auth0.com",
+        "AUTH0_CLIENT_ID": "BOV5FA1Han3HliN2o5lKmdvsq76uzUH8",
+        "AUTH0_AUDIENCE": "https://mold-inventory-app-production.epicpatka.workers.dev/api",
+        "AUTH0_SCOPE": "openid email profile offline_access read:molds",
+        "API_BASE_URL": "http://localhost:3001"
+      },
+      "observability": {
+        "enabled": false
+      }
+    },
     "dev": {
       "ai": {
         "binding": "AI"

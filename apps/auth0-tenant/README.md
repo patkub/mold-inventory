@@ -56,7 +56,7 @@ Define secrets for MoldInventoryPostUserRegistration action.
 
 ### Unit Tests
 
-Run unit tests for Auht0 Actions.
+Run unit tests for Auth0 Actions.
 
 ```
 pnpm test

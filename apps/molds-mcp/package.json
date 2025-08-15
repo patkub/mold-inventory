@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "wrangler dev --env dev",
-    "start": "wrangler dev --env dev",
+    "staging": "wrangler dev --env staging",
     "cf-typegen": "wrangler types",
     "type-check": "tsc --noEmit",
     "prettier": "prettier --check .",

@@ -64,7 +64,8 @@ This will open a popup where you can sign in after which you'll be able to use a
 
 ## Commands
 
-- `pnpm run dev` or `pnpm run start` - run Cloudflare Worker locally
+- `pnpm run dev` - run Cloudflare Worker locally using development Auth0 tenant
+- `pnpm run staging` - run Cloudflare Worker locally using staging Auth0 tenant
 - `pnpm run cf-typegen` - update type definitions after adding new bindings to your Wrangler configuration
 - `pnpm run type-check` - typescript lint
 - `pnpm run prettier` - check code format with prettier

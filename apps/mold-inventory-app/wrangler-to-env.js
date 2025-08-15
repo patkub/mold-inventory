@@ -3,7 +3,7 @@
 /**
  * Writes environmnet varibles from wrangler.jsonc to .env
  *
- * Usage ./wrangler-to-env.js [development|production]
+ * Usage ./wrangler-to-env.js [dev|staging|production]
  */
 
 const fs = require('node:fs')
@@ -11,13 +11,13 @@ const fs = require('node:fs')
 // Parse arguments
 
 if (process.argv.length === 2) {
-  console.error('Usage ./wrangler-to-env.js [development|staging|production]')
+  console.error('Usage ./wrangler-to-env.js [dev|staging|production]')
   process.exit(1)
 }
 
 const env = process.argv[2]
-if (!(env === 'development' || env === 'staging' || env === 'production')) {
-  console.error('Environment must be either development, staging or production')
+if (!(env === 'dev' || env === 'staging' || env === 'production')) {
+  console.error('Environment must be either dev, staging or production')
   process.exit(1)
 }
 

@@ -105,10 +105,10 @@ Create mold-inventory-app database in Cloudflare.
 pnpm nx db:create mold-inventory-api
 ```
 
-Setup local Cloudflare D1 database for the first time.
+Set up local Cloudflare D1 database for the first time.
 
 ```bash
-# setup local Cloudflare D1 database
+# set up local Cloudflare D1 database
 pnpm nx db:migrate:local mold-inventory-api
 pnpm nx db:seed:local mold-inventory-api
 
@@ -254,8 +254,8 @@ pnpm changeset version
 #### Cloudflare Commands
 
 - `pnpm nx db:create mold-inventory-api` - create mold-inventory-app database in Cloudflare
-- `pnpm nx db:migrate mold-inventory-api` - setup mold-inventory-app database in Cloudflare
-- `pnpm nx db:migrate:local mold-inventory-api` - setup mold-inventory-app database locally
+- `pnpm nx db:migrate mold-inventory-api` - set up mold-inventory-app database in Cloudflare
+- `pnpm nx db:migrate:local mold-inventory-api` - set up mold-inventory-app database locally
 - `pnpm nx db:seed mold-inventory-api` - seed initial mold-inventory-app data in Cloudflare
 - `pnpm nx db:seed:local mold-inventory-api` - seed initial mold-inventory-app data locally
 - `pnpm nx prisma:generate mold-inventory-api` - generate prisma database schema
@@ -287,7 +287,8 @@ pnpm changeset version
 
 ### molds-mcp
 
-- `pnpm nx dev molds-mcp` or `pnpm nx start molds-mcp` - run Cloudflare Worker locally
+- `pnpm nx dev molds-mcp` - run Cloudflare Worker locally using development Auth0 tenant
+- `pnpm nx staging molds-mcp` - run Cloudflare Worker locally using staging Auth0 tenant
 - `pnpm nx cf-typegen molds-mcp` - update type definitions after adding new bindings to your Wrangler configuration
 - `pnpm nx type-check molds-mcp` - typescript lint
 - `pnpm nx prettier mold-inventory-api` - check code format with prettier
