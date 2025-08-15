@@ -105,10 +105,10 @@ Create mold-inventory-app database in Cloudflare.
 pnpm nx db:create mold-inventory-api
 ```
 
-Setup local Cloudflare D1 database for the first time.
+Set up local Cloudflare D1 database for the first time.
 
 ```bash
-# setup local Cloudflare D1 database
+# set up local Cloudflare D1 database
 pnpm nx db:migrate:local mold-inventory-api
 pnpm nx db:seed:local mold-inventory-api
 
@@ -165,6 +165,15 @@ pnpm nx run-many -t test --all
 - `pnpm nx test mold-inventory-app` - vitest single run for app
 - `pnpm nx test:watch mold-inventory-app` - vitest watch test suites for changes for app
 
+## Staging
+
+### Deploy Staging Auth0 Tenant
+```bash
+pnpm nx deploy-staging auth0-tenant
+```
+
+Staging Auth0 tenant can be used as another testing environment.
+
 ## Production Deploy
 
 ### Deploy Production Auth0 Configuration
@@ -190,10 +199,11 @@ Define secrets for MoldInventoryPostUserRegistration action.
 
 ### Deploy Production API to Cloudflare
 
-Create mold-inventory-app database in Cloudflare.
+Create and seed mold-inventory-app database in Cloudflare.
 
 ```bash
 pnpm nx db:create mold-inventory-api
+pnpm nx db:migrate mold-inventory-api
 ```
 
 Deploy the API to Cloudflare.
@@ -224,6 +234,7 @@ pnpm changeset version
 ### auth0-tenant
 
 - `pnpm nx deploy-dev auth0-tenant` - deploy development Auth0 tenant
+- `pnpm nx deploy-staging auth0-tenant` - deploy staging Auth0 tenant
 - `pnpm nx deploy-prod auth0-tenant` - deploy production Auth0 tenant
 - `pnpm nx test auth0-tenant` - vitest actions single run
 - `pnpm nx test:watch auth0-tenant` - vitest actions watch test suites for changes
@@ -231,6 +242,7 @@ pnpm changeset version
 ### mold-inventory-api
 
 - `pnpm nx dev mold-inventory-api` - run Cloudflare Worker locally
+- `pnpm nx staging mold-inventory-api` - run Cloudflare Worker locally with Auth0 staging tenant
 - `pnpm nx type-check mold-inventory-api` - typescript type check
 - `pnpm nx lint mold-inventory-api` - check code with eslint
 - `pnpm nx lint:fix mold-inventory-api` - fix code with eslint
@@ -242,8 +254,8 @@ pnpm changeset version
 #### Cloudflare Commands
 
 - `pnpm nx db:create mold-inventory-api` - create mold-inventory-app database in Cloudflare
-- `pnpm nx db:migrate mold-inventory-api` - setup mold-inventory-app database in Cloudflare
-- `pnpm nx db:migrate:local mold-inventory-api` - setup mold-inventory-app database locally
+- `pnpm nx db:migrate mold-inventory-api` - set up mold-inventory-app database in Cloudflare
+- `pnpm nx db:migrate:local mold-inventory-api` - set up mold-inventory-app database locally
 - `pnpm nx db:seed mold-inventory-api` - seed initial mold-inventory-app data in Cloudflare
 - `pnpm nx db:seed:local mold-inventory-api` - seed initial mold-inventory-app data locally
 - `pnpm nx prisma:generate mold-inventory-api` - generate prisma database schema
@@ -254,6 +266,7 @@ pnpm changeset version
 ### mold-inventory-app
 
 - `pnpm nx dev mold-inventory-app` - starts Next.js in development mode with hot-code reloading, error reporting, and more
+- `pnpm nx dev:staging mold-inventory-app` - starts Next.js in development mode with staging Auth0 tenant
 - `pnpm nx build mold-inventory-app` - create optimized production build
 - `pnpm nx start mold-inventory-app` - start Next.js in production mode
 - `pnpm nx lint mold-inventory-app` - check code with eslint
@@ -268,12 +281,14 @@ pnpm changeset version
 - `pnpm nx cf-typegen mold-inventory-app` - update type definitions after adding new bindings to your Wrangler configuration
 - `pnpm nx cf:build mold-inventory-app` - build Next.js app for Cloudflare workerd runtime
 - `pnpm nx preview mold-inventory-app` - run locally in the Cloudflare workerd runtime, which is more accurate to production
+- `pnpm nx preview:staging mold-inventory-app` - run locally in the Cloudflare workerd runtime with staging Auth0 tenant
 - `pnpm nx upload mold-inventory-app` - deploy preview version to Cloudflare
 - `pnpm nx deploy mold-inventory-app` - deploy production version to Cloudflare
 
 ### molds-mcp
 
-- `pnpm nx dev molds-mcp` or `pnpm nx start molds-mcp` - run Cloudflare Worker locally
+- `pnpm nx dev molds-mcp` - run Cloudflare Worker locally using development Auth0 tenant
+- `pnpm nx staging molds-mcp` - run Cloudflare Worker locally using staging Auth0 tenant
 - `pnpm nx cf-typegen molds-mcp` - update type definitions after adding new bindings to your Wrangler configuration
 - `pnpm nx type-check molds-mcp` - typescript lint
 - `pnpm nx prettier mold-inventory-api` - check code format with prettier

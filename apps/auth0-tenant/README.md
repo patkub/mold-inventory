@@ -2,7 +2,7 @@
 
 ## Explanation
 
-This subproject is responsible for the Auth0 tenant configuration
+This subproject is responsible for the Auth0 tenant configuration.
 
 ## Setup
 
@@ -20,6 +20,15 @@ Deploy Auth0 configuration.
 ```bash
 # deploy development Auth0 configuration
 pnpm run deploy-dev
+```
+
+### Staging Auth0 Tenant
+
+Fill out auth0 config in `auth0-config-staging.json`.
+
+```bash
+# deploy staging Auth0 configuration
+pnpm run deploy-staging
 ```
 
 ### Production Auth0 Tenant
@@ -47,7 +56,7 @@ Define secrets for MoldInventoryPostUserRegistration action.
 
 ### Unit Tests
 
-Run unit tests for Auht0 Actions.
+Run unit tests for Auth0 Actions.
 
 ```
 pnpm test

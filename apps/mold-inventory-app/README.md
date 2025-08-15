@@ -67,6 +67,7 @@ pnpm run deploy
 ## Commands
 
 - `pnpm run dev` - starts Next.js in development mode with hot-code reloading, error reporting, and more
+- `pnpm run dev:staging` - starts Next.js in development mode with staging Auth0 tenant
 - `pnpm run build` - create optimized production build
 - `pnpm run start` - start Next.js in production mode
 - `pnpm run type-check` - typescript type check
@@ -80,5 +81,6 @@ pnpm run deploy
 - `pnpm run cf-typegen` - update type definitions after adding new bindings to your Wrangler configuration
 - `pnpm run cf:build` - build Next.js app for Cloudflare workerd runtime
 - `pnpm run preview` - run locally in the Cloudflare workerd runtime, which is more accurate to production
+- `pnpm run preview:staging` - run locally in the Cloudflare workerd runtime with Auth0 staging tenant
 - `pnpm run upload` - deploy preview version to Cloudflare
 - `pnpm run deploy` - deploy production version to Cloudflare

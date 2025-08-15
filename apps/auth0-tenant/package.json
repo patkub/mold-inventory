@@ -9,6 +9,7 @@
   "main": "index.js",
   "scripts": {
     "deploy-dev": "a0deploy import -c auth0-config-dev.json -i auth0-tenant",
+    "deploy-staging": "a0deploy import -c auth0-config-staging.json -i auth0-tenant",
     "deploy-prod": "a0deploy import -c auth0-config-prod.json -i auth0-tenant",
     "test": "vitest run --silent --coverage",
     "test:watch": "vitest --silent"
