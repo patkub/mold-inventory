@@ -22,6 +22,19 @@
         "enabled": true
       }
     },
+    "staging": {
+      "vars": {
+        "NEXT_PUBLIC_AUTH0_DOMAIN": "epicpatka-staging.us.auth0.com",
+        "NEXT_PUBLIC_AUTH0_CLIENT_ID": "dq3yyxJcuXjhV27XBNASMP6hfrOU4Zgl",
+        "NEXT_PUBLIC_AUTH0_REDIRECT_URI": "http://localhost:3000/",
+        "NEXT_PUBLIC_AUTH0_AUDIENCE": "mold-inventory-app-production.epicpatka.workers.dev/api",
+        "NEXT_PUBLIC_AUTH0_SCOPES": "openid profile read:current_user create:molds read:molds update:molds delete:molds",
+        "NEXT_PUBLIC_API_SERVER": "http://localhost:3001/"
+      },
+      "observability": {
+        "enabled": true
+      }
+    },
     "development": {
       "vars": {
         "NEXT_PUBLIC_AUTH0_DOMAIN": "dev-5gm1mr1z8nbmuhv7.us.auth0.com",

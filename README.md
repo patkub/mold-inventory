@@ -224,6 +224,7 @@ pnpm changeset version
 ### auth0-tenant
 
 - `pnpm nx deploy-dev auth0-tenant` - deploy development Auth0 tenant
+- `pnpm nx deploy-staging auth0-tenant` - deploy staging Auth0 tenant
 - `pnpm nx deploy-prod auth0-tenant` - deploy production Auth0 tenant
 - `pnpm nx test auth0-tenant` - vitest actions single run
 - `pnpm nx test:watch auth0-tenant` - vitest actions watch test suites for changes
@@ -231,6 +232,7 @@ pnpm changeset version
 ### mold-inventory-api
 
 - `pnpm nx dev mold-inventory-api` - run Cloudflare Worker locally
+- `pnpm nx staging mold-inventory-api` - run Cloudflare Worker locally with Auth0 staging tenant
 - `pnpm nx type-check mold-inventory-api` - typescript type check
 - `pnpm nx lint mold-inventory-api` - check code with eslint
 - `pnpm nx lint:fix mold-inventory-api` - fix code with eslint
@@ -268,6 +270,7 @@ pnpm changeset version
 - `pnpm nx cf-typegen mold-inventory-app` - update type definitions after adding new bindings to your Wrangler configuration
 - `pnpm nx cf:build mold-inventory-app` - build Next.js app for Cloudflare workerd runtime
 - `pnpm nx preview mold-inventory-app` - run locally in the Cloudflare workerd runtime, which is more accurate to production
+- `pnpm nx preview:staging mold-inventory-app` - run locally in the Cloudflare workerd runtime, which is more accurate to production, with Auth0 staging tenant
 - `pnpm nx upload mold-inventory-app` - deploy preview version to Cloudflare
 - `pnpm nx deploy mold-inventory-app` - deploy production version to Cloudflare
 

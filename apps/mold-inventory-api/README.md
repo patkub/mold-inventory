@@ -69,7 +69,8 @@ pnpm run deploy
 
 ## Commands
 
-- `pnpm run dev` - run Cloudflare Worker locally
+- `pnpm run dev` - run Cloudflare Worker locally with Auth0 development tenant
+- `pnpm run staging` - run Cloudflare Worker locally with Auth0 staging tenant
 - `pnpm run type-check` - typescript type check
 - `pnpm run lint` - check code with eslint
 - `pnpm run lint:fix` - fix code with eslint

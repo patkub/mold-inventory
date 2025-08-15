@@ -1,0 +1,14 @@
+{
+  "post-login": [
+    {
+      "action_name": "MoldInventoryPostLogin",
+      "display_name": "MoldInventoryPostLogin"
+    }
+  ],
+  "post-user-registration": [
+    {
+      "action_name": "MoldInventoryPostUserRegistration",
+      "display_name": "MoldInventoryPostUserRegistration"
+    }
+  ]
+}

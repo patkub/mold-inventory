@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "wrangler dev --env dev",
+    "staging": "wrangler dev --env staging",
     "type-check": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",

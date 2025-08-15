@@ -11,13 +11,13 @@ const fs = require('node:fs')
 // Parse arguments
 
 if (process.argv.length === 2) {
-  console.error('Usage ./wrangler-to-env.js [development|production]')
+  console.error('Usage ./wrangler-to-env.js [development|staging|production]')
   process.exit(1)
 }
 
 const env = process.argv[2]
-if (!(env === 'development' || env === 'production')) {
-  console.error('Environment must be either development or production')
+if (!(env === 'development' || env === 'staging' || env === 'production')) {
+  console.error('Environment must be either development, staging or production')
   process.exit(1)
 }
 

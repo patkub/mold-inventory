@@ -22,6 +22,22 @@
         "enabled": true
       }
     },
+    "staging": {
+      "d1_databases": [
+        {
+          "binding": "MOLD_DB",
+          "database_id": "3ae8c9bd-ea18-4d9f-af11-24b97ed4c05a",
+          "database_name": "mold-inventory-app"
+        }
+      ],
+      "vars": {
+        "CORS_ORIGIN": "*",
+        "AUTH0_DOMAIN": "epicpatka-staging.us.auth0.com"
+      },
+      "observability": {
+        "enabled": false
+      }
+    },
     "dev": {
       "d1_databases": [
         {
