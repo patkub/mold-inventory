@@ -12,6 +12,10 @@ UI generated with [v0.dev](https://v0.dev/)
 
 ![Screenshot of Dark Auth0 Login Screen](./dark/login-screen-auth0-dark.png)
 
+### Auth0 Sign Up
+
+![Screenshot of Dark Auth0 Signup Screen](./dark/signup-screen-auth0-dark.png)
+
 ### Home
 
 ![Screenshot of Dark Home Screen](./dark/home-screen-dark.png)
