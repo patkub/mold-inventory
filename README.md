@@ -152,6 +152,14 @@ Run unit tests for API and App
 pnpm nx run-many -t test -p mold-inventory-api mold-inventory-app
 ```
 
+Run unit tests for API, App, and Auth0 Actions
+
+```bash
+pnpm nx run-many -t test --all
+```
+
+- `pnpm nx test auth0-tenant` - vitest actions single run for Auth0 actions
+- `pnpm nx test:watch auth0-tenant` - vitest actions watch test suites for changes for Auth0 actions
 - `pnpm nx test mold-inventory-api` - vitest single run for API
 - `pnpm nx test:watch mold-inventory-api` - vitest watch test suites for changes for API
 - `pnpm nx test mold-inventory-app` - vitest single run for app

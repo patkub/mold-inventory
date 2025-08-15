@@ -30,7 +30,7 @@ describe('onExecutePostLogin', () => {
     event.stats.logins_count = 1;
 
     // Act
-    onExecutePostLogin(event, api)
+    await onExecutePostLogin(event, api)
 
     // Assert
     expect(api.accessToken.addScope).toHaveBeenCalledWith("read:molds")
@@ -41,7 +41,7 @@ describe('onExecutePostLogin', () => {
     event.stats.logins_count = 2;
 
     // Act
-    onExecutePostLogin(event, api)
+    await onExecutePostLogin(event, api)
 
     // Assert
     expect(api.accessToken.addScope).not.toHaveBeenCalledWith("read:molds")
