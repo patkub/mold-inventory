@@ -165,79 +165,13 @@ pnpm nx run-many -t test --all
 - `pnpm nx test mold-inventory-app` - vitest single run for app
 - `pnpm nx test:watch mold-inventory-app` - vitest watch test suites for changes for app
 
-## Staging
+## Staging Environment
 
-### Deploy Staging Auth0 Tenant
-
-Copy auth0 config from `apps/auth0-tenant/auth0-config.json.example` to `apps/auth0-tenant/auth0-config-staging.json` and fill out details using Machine to Machine client.
-
-```bash
-pnpm nx deploy-staging auth0-tenant
-```
-
-Staging Auth0 tenant can be used as another testing environment.
-
-### Run the API
-```bash
-pnpm nx staging mold-inventory-api
-```
-
-### Run the App
-```bash
-pnpm nx dev:staging mold-inventory-app
-```
-
-### Run the Molds MCP Server
-```bash
-pnpm nx staging molds-mcp
-```
-
+Reference [Staging Deploy](./docs/staging.md).
 
 ## Production Deploy
 
-### Deploy Production Auth0 Configuration
-
-Copy auth0 config from `apps/auth0-tenant/auth0-config.json.example` to `apps/auth0-tenant/auth0-config-prod.json` and fill out details using Machine to Machine client.
-
-Deploy production Auth0 configuration.
-
-```bash
-pnpm nx deploy-prod auth0-tenant
-```
-
-Create users in Auth0 dashboard.
-
-- Assign permissions to users for the Mold Inventory API.
-  - Available permissions: `create:molds`, `read:molds`, `update:molds`, and `delete:molds`
-
-Define secrets for MoldInventoryPostUserRegistration action.
-
-- `DOMAIN` - Auth0 domain
-- `CLIENT_ID` - Molds M2M Client ID
-- `CLIENT_SECRET` - Molds M2M Client Secret
-
-### Deploy Production API to Cloudflare
-
-Create and seed mold-inventory-app database in Cloudflare.
-
-```bash
-pnpm nx db:create mold-inventory-api
-pnpm nx db:migrate mold-inventory-api
-```
-
-Deploy the API to Cloudflare.
-
-```bash
-pnpm nx deploy mold-inventory-api
-```
-
-### Deploy Production App to Cloudflare
-
-Configure environment variables for production in `apps/mold-inventory-app/wrangler.jsonc`.
-
-```bash
-pnpm nx deploy mold-inventory-app
-```
+Reference [Production Deploy](./docs/production.md).
 
 ## Changesets
 

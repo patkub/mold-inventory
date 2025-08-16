@@ -50,7 +50,7 @@ To deploy the MCP Server to Cloudflare, you will first need to set the following
 wrangler -e production secret put AUTH0_CLIENT_SECRET
 ```
 
-Once the secrets are set, you can deploy the API with the following command:
+Once the secrets are set, you can deploy the MCP Server with the following command:
 
 ```bash
 pnpm run deploy
