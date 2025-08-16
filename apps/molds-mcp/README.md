@@ -46,7 +46,6 @@ To start the MCP server with the staging Auth0 tenant, update the `AUTH0_CLIENT_
 pnpm run staging
 ```
 
-
 With MCP Inspector you can connect to the MCP server, list the available tools and call them. Make sure to set the transport type to `sse` and the URL to `http://localhost:8788/sse`.
 
 ## Deploying the MCP Server to Cloudflare
