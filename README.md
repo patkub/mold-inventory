@@ -99,7 +99,7 @@ Define secrets for MoldInventoryPostUserRegistration action.
 
 ### Run the API locally
 
-Create mold-inventory-app database in Cloudflare.
+Create mold-inventory-api database in Cloudflare.
 
 ```bash
 pnpm nx db:create mold-inventory-api
