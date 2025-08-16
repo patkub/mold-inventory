@@ -34,11 +34,18 @@ Configure environment variables in `wrangler.jsonc`.
 
 ### Testing the MCP Server
 
-To start the MCP server, you can use the following command:
+To start the MCP server, with the development Auth0 tenant, you can use the following command:
 
 ```
 pnpm run dev
 ```
+
+To start the MCP server with the staging Auth0 tenant, update the `AUTH0_CLIENT_SECERET` in `.dev.vars` and use:
+
+```
+pnpm run staging
+```
+
 
 With MCP Inspector you can connect to the MCP server, list the available tools and call them. Make sure to set the transport type to `sse` and the URL to `http://localhost:8788/sse`.
 
