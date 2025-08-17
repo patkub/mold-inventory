@@ -1,5 +1,7 @@
 # Mold Inventory
 
+Mold inventory management application
+
 App: [https://mold-inventory-app-production.epicpatka.workers.dev/](https://mold-inventory-app-production.epicpatka.workers.dev/)
 
 MCP Server: [https://molds-mcp-production.epicpatka.workers.dev/sse](https://molds-mcp-production.epicpatka.workers.dev/sse)
