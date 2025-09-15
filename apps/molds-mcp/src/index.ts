@@ -14,7 +14,7 @@ export class MoldsMCP extends McpAgent<Env, Record<string, never>, UserProps> {
   async init() {
     // Useful for debugging. This will show the current user's claims and the Auth0 tokens.
     this.server.tool('whoami', "Get the current user's details", {}, async () => ({
-      content: [{ text: JSON.stringify(this.props.claims, null, 2), type: 'text' }],
+      content: [{ text: JSON.stringify(this.props?.claims, null, 2), type: 'text' }],
     }))
 
     // Call the Molds API on behalf of the current user.
@@ -23,7 +23,7 @@ export class MoldsMCP extends McpAgent<Env, Record<string, never>, UserProps> {
         const response = await fetch(`${this.env.API_BASE_URL}/api/molds`, {
           headers: {
             // The Auth0 Access Token is available in props.tokenSet and can be used to call the Upstream API (Molds API).
-            Authorization: `Bearer ${this.props.tokenSet.accessToken}`,
+            Authorization: `Bearer ${this.props?.tokenSet?.accessToken ?? ''}`,
           },
         })
 
