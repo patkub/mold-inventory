@@ -1,6 +1,6 @@
 {
   "name": "Mold Inventory API",
-  "identifier": "https://mold-inventory-app-production.epicpatka.workers.dev/api",
+  "identifier": "https://mold-inventory-api-production.epicpatka.workers.dev/api",
   "allow_offline_access": false,
   "skip_consent_for_verifiable_first_party_clients": true,
   "token_lifetime": 86400,
