@@ -1,5 +1,11 @@
 # auth0-tenant
 
+## 1.5.0
+
+### Minor Changes
+
+- Renamed API identifier to match new API endpoint
+
 ## 1.4.0
 
 ### Minor Changes

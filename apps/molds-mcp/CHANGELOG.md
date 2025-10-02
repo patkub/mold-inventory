@@ -1,5 +1,11 @@
 # molds-mcp
 
+## 0.3.0
+
+### Minor Changes
+
+- Renamed API identifier to match new API endpoint
+
 ## 0.2.0
 
 ### Minor Changes
