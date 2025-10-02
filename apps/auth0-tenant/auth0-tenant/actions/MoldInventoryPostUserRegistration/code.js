@@ -21,7 +21,7 @@ exports.onExecutePostUserRegistration = async (event, api) => {
       {
         permissions: [
           {
-            resource_server_identifier: "https://mold-inventory-app-production.epicpatka.workers.dev/api",
+            resource_server_identifier: "https://mold-inventory-api-production.epicpatka.workers.dev/api",
             permission_name: "read:molds"
           },
         ],

@@ -89,7 +89,7 @@ describe('onExecutePostUserRegistration', () => {
       {
         permissions: [
           {
-            resource_server_identifier: "https://mold-inventory-app-production.epicpatka.workers.dev/api",
+            resource_server_identifier: "https://mold-inventory-api-production.epicpatka.workers.dev/api",
             permission_name: "read:molds"
           },
         ],
@@ -112,7 +112,7 @@ describe('onExecutePostUserRegistration', () => {
       {
         permissions: [
           {
-            resource_server_identifier: "https://mold-inventory-app-production.epicpatka.workers.dev/api",
+            resource_server_identifier: "https://mold-inventory-api-production.epicpatka.workers.dev/api",
             permission_name: "read:molds"
           },
         ],

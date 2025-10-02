@@ -5,7 +5,7 @@ declare namespace Cloudflare {
 	interface Env {
 		AUTH0_DOMAIN: "epicpatka.us.auth0.com" | "epicpatka-staging.us.auth0.com" | "dev-5gm1mr1z8nbmuhv7.us.auth0.com";
 		AUTH0_CLIENT_ID: "1yzbqr2RKS7CudIB1hF3Nyyvl1clHSzX" | "BOV5FA1Han3HliN2o5lKmdvsq76uzUH8" | "jemEQWGeDikDp57xdFaB0tY1c3tAVVDd";
-		AUTH0_AUDIENCE: "https://mold-inventory-app-production.epicpatka.workers.dev/api";
+		AUTH0_AUDIENCE: "https://mold-inventory-api-production.epicpatka.workers.dev/api";
 		AUTH0_SCOPE: "openid email profile offline_access read:molds";
 		API_BASE_URL: "https://mold-inventory-api-production.epicpatka.workers.dev" | "http://localhost:3001";
 		AUTH0_CLIENT_SECRET: string;
