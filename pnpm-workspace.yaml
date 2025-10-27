@@ -1,7 +1,12 @@
 packages:
   - ./apps/*
 
+ignoredBuiltDependencies:
+  - rclone.js
+  - sharp
+
 onlyBuiltDependencies:
   - '@prisma/client'
   - '@prisma/engines'
   - prisma
+  - workerd
