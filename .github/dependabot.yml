@@ -20,7 +20,10 @@ updates:
         versions: [ ">=15.3.5" ]
       # MCP only works with Zod v3
       - dependency-name: "zod"
-        versions: [ ">=3" ]
+        versions: [ ">3" ]
+      # @cloudflare/vitest-pool-workers only works with Vitest v3
+      - dependency-name: "vitest"
+        versions: [ ">3" ]
     groups:
       dependencies:
         patterns:
