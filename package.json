@@ -7,7 +7,7 @@
   ],
   "devDependencies": {
     "@changesets/cli": "^2.29.7",
-    "nx": "^22.0.1"
+    "nx": "^22.0.2"
   },
   "packageManager": "pnpm@10.19.0"
 }
