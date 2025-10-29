@@ -4,11 +4,16 @@
 # https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 
 version: 2
-updates:
-  - package-ecosystem: "npm"
-    directory: "/" # Location of package manifests
+
+multi-ecosystem-groups:
+  dependencies:
     schedule:
       interval: "weekly"
+
+updates:
+  # npm (Node.js) dependencies
+  - package-ecosystem: "npm"
+    directory: "/" # Location of package manifests
     ignore:
       # Using Node.js 22 LTS
       - dependency-name: "@types/node"
@@ -24,7 +29,11 @@ updates:
       # @cloudflare/vitest-pool-workers only works with Vitest v3
       - dependency-name: "vitest"
         versions: [ ">3" ]
-    groups:
-      dependencies:
-        patterns:
-          - "*"
+    patterns: ["*"]
+    multi-ecosystem-group: "dependencies"
+
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    patterns: ["*"]
+    multi-ecosystem-group: "dependencies"
