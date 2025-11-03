@@ -15,8 +15,8 @@
     "test:watch": "vitest --silent"
   },
   "devDependencies": {
-    "@vitest/coverage-v8": "^4.0.5",
-    "auth0-deploy-cli": "^8.18.0",
+    "@vitest/coverage-v8": "^4.0.6",
+    "auth0-deploy-cli": "^8.19.0",
     "vitest": "~4.0.3",
     "vitest-mock-commonjs": "^1.0.2",
     "vitest-mock-extended": "^3.1.0"
