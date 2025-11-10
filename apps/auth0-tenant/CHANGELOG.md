@@ -1,5 +1,11 @@
 # auth0-tenant
 
+## 1.6.0
+
+### Minor Changes
+
+- Added official Auth0 Actions type definitions
+
 ## 1.5.0
 
 ### Minor Changes
