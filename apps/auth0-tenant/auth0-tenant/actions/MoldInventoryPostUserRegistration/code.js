@@ -1,3 +1,5 @@
+/** @import {Event, PostUserRegistrationAPI} from "@auth0/actions/post-user-registration/v2" */
+
 /**
 * Handler that will be called during the execution of a PostUserRegistration flow.
 *
