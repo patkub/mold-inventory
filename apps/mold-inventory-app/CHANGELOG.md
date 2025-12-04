@@ -1,5 +1,11 @@
 # mold-inventory-app
 
+## 1.11.0
+
+### Minor Changes
+
+- Update to patched Next.js 15.5.7
+
 ## 1.10.0
 
 ### Minor Changes
