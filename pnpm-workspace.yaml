@@ -8,5 +8,7 @@ ignoredBuiltDependencies:
 onlyBuiltDependencies:
   - '@prisma/client'
   - '@prisma/engines'
+  - core-js-pure
+  - keccak
   - prisma
   - workerd

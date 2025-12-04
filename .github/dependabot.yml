@@ -20,9 +20,9 @@ updates:
         versions: [ ">=22" ]
       # Pin Next.js to latest supported by Cloudflare Workers
       - dependency-name: "next"
-        versions: [ ">=15.3.5" ]
+        versions: [ ">=15.5.7" ]
       - dependency-name: "eslint-config-next"
-        versions: [ ">=15.3.5" ]
+        versions: [ ">=15.5.7" ]
       # MCP only works with Zod v3
       - dependency-name: "zod"
         versions: [ ">3" ]
