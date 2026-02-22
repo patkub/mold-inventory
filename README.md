@@ -47,7 +47,7 @@ This is a monorepo powered by [Nx](https://nx.dev/).
 [`molds-mcp`](./apps/molds-mcp/README.md): Cloudflare Worker Molds MCP server
 
 - [Auth0](https://auth0.com/) for login
-- Allows an LLM to recieve the list of molds on behalf of the user.
+- Allows an LLM to receive the list of molds on behalf of the user.
 - User must have `read:molds` permission for the Mold Inventory API.
 
 ## UI

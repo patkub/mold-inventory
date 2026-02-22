@@ -3,7 +3,7 @@
 This is a MCP server which will require the user to first authenticate. The MCP server will then be able to call the Mold Inventory API on behalf of the user.
 
 - [Auth0](https://auth0.com/) for login
-- Allows an LLM to recieve the list of molds on behalf of the user.
+- Allows an LLM to receive the list of molds on behalf of the user.
 - User must have `read:molds` permission for the Mold Inventory API.
 
 ### MCP Server AI Chat
