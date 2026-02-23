@@ -4,11 +4,9 @@
 generator client {
   provider = "prisma-client-js"
   output   = "../.generated/prisma"
-  previewFeatures = ["driverAdapters"]
 }
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
 }
 
 model molds {
