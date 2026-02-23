@@ -29,6 +29,11 @@ updates:
       # @cloudflare/vitest-pool-workers only works with Vitest v3
       - dependency-name: "vitest"
         versions: [ ">3" ]
+      # ESLint v9
+      - dependency-name: "eslint"
+        versions: [ ">9" ]
+      - dependency-name: "eslint-config-prettier"
+        versions: [ ">9" ]
     patterns: ["*"]
     multi-ecosystem-group: "dependencies"
 
