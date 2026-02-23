@@ -24,10 +24,10 @@ UI generated with [v0.dev](https://v0.dev/)
 
 ## Setup
 
-Install Node.js dependencies.
+Install Node.js 22 dependencies.
 
 ```bash
-# install Node.js dependencies
+# install Node.js 22 dependencies
 pnpm install
 ```
 

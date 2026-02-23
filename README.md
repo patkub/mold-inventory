@@ -70,7 +70,7 @@ UI generated with [v0.dev](https://v0.dev/)
 
 ### Install Dependencies
 
-Install Node.js dependencies.
+Install Node.js 22 dependencies.
 
 ```bash
 pnpm install
