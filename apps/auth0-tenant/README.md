@@ -6,7 +6,7 @@ This subproject is responsible for the Auth0 tenant configuration.
 
 ## Setup
 
-Install Node.js dependencies.
+Install Node.js 22 dependencies.
 ```bash
 # install Node.js dependencies
 pnpm install

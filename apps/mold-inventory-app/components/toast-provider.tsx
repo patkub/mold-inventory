@@ -12,6 +12,7 @@ interface ToastData {
 }
 
 interface ToastContextValue {
+  // eslint-disable-next-line no-unused-vars
   toast: (data: Omit<ToastData, 'id'>) => void
 }
 

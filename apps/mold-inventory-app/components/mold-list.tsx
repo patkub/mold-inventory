@@ -7,6 +7,7 @@ import { MoldStatusBadge } from '@/components/mold-status-badge'
 
 interface MoldListProps {
   molds: Mold[]
+  // eslint-disable-next-line no-unused-vars
   onSelect: (id: string) => void
   selectedMoldNumber: string | null
 }

@@ -20,15 +20,20 @@ updates:
         versions: [ ">=22" ]
       # Pin Next.js to latest supported by Cloudflare Workers
       - dependency-name: "next"
-        versions: [ ">=15.5.7" ]
+        versions: [ ">=16.1.6" ]
       - dependency-name: "eslint-config-next"
-        versions: [ ">=15.5.7" ]
+        versions: [ ">=16.1.6" ]
       # MCP only works with Zod v3
       - dependency-name: "zod"
         versions: [ ">3" ]
       # @cloudflare/vitest-pool-workers only works with Vitest v3
       - dependency-name: "vitest"
         versions: [ ">3" ]
+      # ESLint v9
+      - dependency-name: "eslint"
+        versions: [ ">9" ]
+      - dependency-name: "eslint-config-prettier"
+        versions: [ ">9" ]
     patterns: ["*"]
     multi-ecosystem-group: "dependencies"
 

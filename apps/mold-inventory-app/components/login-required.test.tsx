@@ -25,7 +25,6 @@ describe('LoginRequired', () => {
 
   it('Renders loading screen when waiting for Auth0', () => {
     // Prepare
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ;(auth0 as any).useAuth0 = vi.fn().mockReturnValue({
       isAuthenticated: false,
       isLoading: true,
@@ -58,7 +57,6 @@ describe('LoginRequired', () => {
   // isLoading = false, isAuthenticated = false
   it('Renders login page when not authenticated', async () => {
     // Prepare
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ;(auth0 as any).useAuth0 = vi.fn().mockReturnValue({
       isLoading: false,
       isAuthenticated: false,
@@ -91,7 +89,6 @@ describe('LoginRequired', () => {
   // isLoading = false, isAuthenticated = false
   it('Renders children when authenticated', async () => {
     // Prepare
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ;(auth0 as any).useAuth0 = vi.fn().mockReturnValue({
       isLoading: false,
       isAuthenticated: true,

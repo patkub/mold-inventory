@@ -18,7 +18,6 @@ export function Auth0Provider({ children }: { children: ReactNode }) {
     return <>{children}</>
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onRedirectCallback = (appState: any) => {
     router.push(appState?.returnTo || window.location.pathname)
   }

@@ -141,7 +141,8 @@ jobs:
         run: pnpm nx type-check mold-inventory-app
 
       - name: Lint
-        run: pnpm nx lint mold-inventory-app
+        working-directory: ./apps/mold-inventory-app
+        run: pnpm lint
 
       - name: Prettier
         run: pnpm nx prettier mold-inventory-app
