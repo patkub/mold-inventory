@@ -5,6 +5,7 @@ export interface Mold {
   status: 'Active' | 'Maintenance' | 'Retired'
 }
 
+/* eslint-disable no-unused-vars */
 export type MoldContextType = {
   getMolds: () => void
   molds: Mold[]
@@ -13,3 +14,4 @@ export type MoldContextType = {
   deleteMold: (id: string) => void
   getMold: (id: string) => Mold | undefined
 }
+/* eslint-enable no-unused-vars */

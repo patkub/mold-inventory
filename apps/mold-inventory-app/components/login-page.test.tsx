@@ -29,7 +29,6 @@ describe('LoginPage', () => {
 
     // Mock useAuth0
     const loginWithRedirect = vi.fn()
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ;(auth0 as any).useAuth0 = vi.fn().mockReturnValue({
       isAuthenticated: true,
       user: fakeUser,
@@ -67,7 +66,6 @@ describe('LoginPage', () => {
 
     // Mock useAuth0
     const loginWithRedirect = vi.fn()
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ;(auth0 as any).useAuth0 = vi.fn().mockReturnValue({
       isAuthenticated: true,
       user: fakeUser,
