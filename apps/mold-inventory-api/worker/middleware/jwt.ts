@@ -12,8 +12,8 @@ const setupJWT = createMiddleware(async (c, next) => {
     alg: ['RS256'],
     verification: {
       iss: `https://${c.env.AUTH0_DOMAIN}/`,
-      aud: 'https://mold-inventory-api-production.epicpatka.workers.dev/api'
-    }
+      aud: 'https://mold-inventory-api-production.epicpatka.workers.dev/api',
+    },
   })
   return middleware(c, next)
 })
