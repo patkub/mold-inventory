@@ -1,5 +1,11 @@
 # auth0-tenant
 
+## 1.7.0
+
+### Minor Changes
+
+- dependency updates
+
 ## 1.6.0
 
 ### Minor Changes

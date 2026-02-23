@@ -1,5 +1,11 @@
 # molds-mcp
 
+## 0.4.0
+
+### Minor Changes
+
+- dependency updates
+
 ## 0.3.0
 
 ### Minor Changes

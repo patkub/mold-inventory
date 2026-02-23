@@ -1,5 +1,11 @@
 # mold-inventory-api
 
+## 1.11.0
+
+### Minor Changes
+
+- dependency updates
+
 ## 1.10.0
 
 ### Minor Changes

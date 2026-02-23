@@ -1,5 +1,11 @@
 # mold-inventory-app
 
+## 1.12.0
+
+### Minor Changes
+
+- dependency updates
+
 ## 1.11.0
 
 ### Minor Changes
