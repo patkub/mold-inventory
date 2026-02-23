@@ -16,7 +16,7 @@ const eslintConfig = [
     '.wrangler/**',
     'node_modules/**',
     'next-env.d.ts',
-    'worker-configuration.d.ts'
+    'worker-configuration.d.ts',
   ]),
 ]
 
