@@ -20,6 +20,7 @@ A Cloudflare Worker that serves a [Hono](https://hono.dev/) CRUD API to manage m
 ## Setup
 
 Install Node.js 22 dependencies.
+
 ```bash
 # install Node.js dependencies
 pnpm install
