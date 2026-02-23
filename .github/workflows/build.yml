@@ -28,7 +28,7 @@ jobs:
       # Restore the cached .nx folder (if it exists)
       - name: Restore Nx cache
         id: nx-cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: .nx
           key: nx-cache-auth0-tenant-${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('**/nx.json') }}
@@ -66,7 +66,7 @@ jobs:
       # Restore the cached .nx folder (if it exists)
       - name: Restore Nx cache
         id: nx-cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: .nx
           key: nx-cache-api-${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('**/nx.json') }}
@@ -115,7 +115,7 @@ jobs:
       # Restore the cached .nx folder (if it exists)
       - name: Restore Nx cache
         id: nx-cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: .nx
           key: nx-cache-app-${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('**/nx.json') }}
@@ -124,7 +124,7 @@ jobs:
 
       # Next.js cache (if it exists)
       - name: Restore Next.js cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             apps/mold-inventory-app/.next/cache
@@ -180,7 +180,7 @@ jobs:
       # Restore the cached .nx folder (if it exists)
       - name: Restore Nx cache
         id: nx-cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: .nx
           key: nx-cache-mcp-${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('**/nx.json') }}
