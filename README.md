@@ -6,7 +6,7 @@ App: [https://mold-inventory-app-production.epicpatka.workers.dev/](https://mold
 
 MCP Server: [https://molds-mcp-production.epicpatka.workers.dev/sse](https://molds-mcp-production.epicpatka.workers.dev/sse)
 
-Developed a serverless mold inventory management system on Cloudflare Workers using Hono, Prisma ORM, Cloudflare D1, and Next.js, with authentication and authorization handled by Auth0. Integrated a Model Context Protocol (MCP) server that allows an LLM to securely access and retrieve mold inventory data on behalf of users with appropriate permissions.
+A mold inventory management system on Cloudflare Workers using Hono, Prisma ORM, Cloudflare D1, and Next.js, with authentication and authorization handled by Auth0. Includes a Model Context Protocol (MCP) server that allows an LLM to securely access and retrieve mold inventory data on behalf of users with appropriate permissions.
 
 ## Architecture
 
