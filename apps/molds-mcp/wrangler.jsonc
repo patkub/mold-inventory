@@ -92,8 +92,8 @@
         }
       ],
       "vars": {
-        "AUTH0_DOMAIN": "dev-5gm1mr1z8nbmuhv7.us.auth0.com",
-        "AUTH0_CLIENT_ID": "jemEQWGeDikDp57xdFaB0tY1c3tAVVDd",
+        "AUTH0_DOMAIN": "epicpatka-dev.us.auth0.com",
+        "AUTH0_CLIENT_ID": "Stox6x4BKLT7aV6nF6a2aXl6riivZbVm",
         "AUTH0_AUDIENCE": "https://mold-inventory-api-production.epicpatka.workers.dev/api",
         "AUTH0_SCOPE": "openid email profile offline_access read:molds",
         "API_BASE_URL": "http://localhost:3001"

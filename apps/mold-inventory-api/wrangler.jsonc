@@ -48,7 +48,7 @@
       ],
       "vars": {
         "CORS_ORIGIN": "*",
-        "AUTH0_DOMAIN": "dev-5gm1mr1z8nbmuhv7.us.auth0.com"
+        "AUTH0_DOMAIN": "epicpatka-dev.us.auth0.com"
       },
       "observability": {
         "enabled": false
