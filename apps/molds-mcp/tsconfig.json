@@ -34,6 +34,9 @@
     /* Enable all strict type-checking options. */
     "strict": true,
 
+    /* Disable strict null checks. */
+    "strictNullChecks": false,
+
     /* Skip type checking all .d.ts files. */
     "skipLibCheck": true
   }

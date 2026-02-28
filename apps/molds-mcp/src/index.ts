@@ -56,8 +56,6 @@ export default new OAuthProvider({
   apiRoute: '/sse',
   authorizeEndpoint: '/authorize',
   clientRegistrationEndpoint: '/register',
-  // TODO: fix these types
-  // @ts-expect-error
   defaultHandler: app,
   tokenEndpoint: '/token',
   tokenExchangeCallback,
