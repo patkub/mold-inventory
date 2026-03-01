@@ -1,0 +1,8 @@
+{
+  "client_id": "Molds M2M",
+  "audience": "https://epicpatka-dev.us.auth0.com/api/v2/",
+  "scope": [
+    "update:users"
+  ],
+  "subject_type": "client"
+}
