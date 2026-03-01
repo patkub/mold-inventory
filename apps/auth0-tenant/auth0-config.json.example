@@ -11,6 +11,7 @@
         "hooks"
     ],
     "AUTH0_KEYWORD_REPLACE_MAPPINGS": {
+        "AUTH0_DOMAIN": "{{DOMAIN}}",
         "MOLD_INVENTORY_APP_CALLBACKS": [
             "https://mold-inventory-app-production.epicpatka.workers.dev",
             "https://*-mold-inventory-app-production.epicpatka.workers.dev",

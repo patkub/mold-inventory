@@ -5,7 +5,6 @@
   "oidc_conformant": true,
   "cross_origin_authentication": false,
   "sso_disabled": false,
-  "cross_origin_auth": false,
   "refresh_token": {
     "expiration_type": "expiring",
     "leeway": 0,
