@@ -9,5 +9,5 @@
     "@changesets/cli": "^2.29.8",
     "nx": "^22.5.3"
   },
-  "packageManager": "pnpm@10.19.0"
+  "packageManager": "pnpm@10.30.3"
 }
