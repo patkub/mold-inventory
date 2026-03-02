@@ -34,6 +34,8 @@ updates:
         versions: [ ">9" ]
       - dependency-name: "eslint-config-prettier"
         versions: [ ">9" ]
+      - dependency-name: "@eslint/js"
+        versions: [ ">9" ]
     patterns: ["*"]
     multi-ecosystem-group: "dependencies"
 
