@@ -27,6 +27,8 @@ Refer to `.dev.vars.example` and create a `.dev.vars` file in the root of the pr
 
 ```
 AUTH0_CLIENT_SECRET=The Client Secret of the application in Auth0
+# cookie encryption key (ex. openssl rand -hex 32)
+AUTH0_CLIENT_SECRET=Cookie encryption key
 NODE_ENV=development
 ```
 
@@ -54,6 +56,8 @@ To deploy the MCP Server to Cloudflare, you will first need to set the following
 
 ```bash
 wrangler -e production secret put AUTH0_CLIENT_SECRET
+# cookie encryption key (ex. openssl rand -hex 32)
+wrangler -e production secret put COOKIE_ENCRYPTION_KEY
 ```
 
 Once the secrets are set, you can deploy the MCP Server with the following command:

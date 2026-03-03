@@ -1,2 +1,4 @@
 AUTH0_CLIENT_SECRET=
+# cookie encryption key (ex. openssl rand -hex 32)
+COOKIE_ENCRYPTION_KEY=
 NODE_ENV=development
