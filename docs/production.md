@@ -69,5 +69,5 @@ pnpm nx deploy molds-mcp
 
 ### Endpoints
 - App: https://mold-inventory-app-production.epicpatka.workers.dev/
-- Molds MCP server: https://molds-mcp-production.epicpatka.workers.dev/sse
+- Molds MCP server: https://molds-mcp-production.epicpatka.workers.dev/mcp
 - API: https://mold-inventory-api-production.epicpatka.workers.dev/api/molds
