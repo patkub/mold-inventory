@@ -5,7 +5,7 @@ import { Hono } from "hono";
 import { authorize, callback, confirmConsent, tokenExchangeCallback } from "./auth";
 import type { UserProps } from "./types";
 
-export class AuthenticatedMCP extends McpAgent<Env, Record<string, never>, UserProps> {
+export class MoldsMCP extends McpAgent<Env, Record<string, never>, UserProps> {
 	server = new McpServer({
 		name: "Molds MCP Server Auth0 OIDC",
 		version: "1.0.0",
