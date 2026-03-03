@@ -30,7 +30,7 @@
       "kv_namespaces": [
         {
           "binding": "OAUTH_KV",
-          "id": "b6554826e0fa427085aeea48f02b7bea"
+          "id": "212171ff08d84a0ea229a59f8524fc4d"
         }
       ],
       "vars": {
@@ -59,7 +59,7 @@
       "kv_namespaces": [
         {
           "binding": "OAUTH_KV",
-          "id": "b6554826e0fa427085aeea48f02b7bea"
+          "id": "212171ff08d84a0ea229a59f8524fc4d"
         }
       ],
       "vars": {
@@ -88,7 +88,7 @@
       "kv_namespaces": [
         {
           "binding": "OAUTH_KV",
-          "id": "b6554826e0fa427085aeea48f02b7bea"
+          "id": "212171ff08d84a0ea229a59f8524fc4d"
         }
       ],
       "vars": {

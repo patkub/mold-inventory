@@ -27,6 +27,8 @@ Refer to `.dev.vars.example` and create a `.dev.vars` file in the root of the pr
 
 ```
 AUTH0_CLIENT_SECRET=The Client Secret of the application in Auth0
+# cookie encryption key (ex. openssl rand -hex 32)
+AUTH0_CLIENT_SECRET=Cookie encryption key
 NODE_ENV=development
 ```
 
@@ -46,7 +48,7 @@ To start the MCP server with the staging Auth0 tenant, update the `AUTH0_CLIENT_
 pnpm run staging
 ```
 
-With MCP Inspector you can connect to the MCP server, list the available tools and call them. Make sure to set the transport type to `sse` and the URL to `http://localhost:8788/sse`.
+With MCP Inspector you can connect to the MCP server, list the available tools and call them. Make sure to set the transport type to `sse` and the URL to `http://localhost:8788/mcp`.
 
 ## Deploying the MCP Server to Cloudflare
 
@@ -54,6 +56,8 @@ To deploy the MCP Server to Cloudflare, you will first need to set the following
 
 ```bash
 wrangler -e production secret put AUTH0_CLIENT_SECRET
+# cookie encryption key (ex. openssl rand -hex 32)
+wrangler -e production secret put COOKIE_ENCRYPTION_KEY
 ```
 
 Once the secrets are set, you can deploy the MCP Server with the following command:
@@ -64,7 +68,7 @@ pnpm run deploy
 
 To test this you can now use the Workers AI LLM Playground. Navigate to [https://playground.ai.cloudflare.com/](https://playground.ai.cloudflare.com/) and connect to the molds MCP server on the bottom left using the following URL:
 
-https://molds-mcp-production.epicpatka.workers.dev/sse
+https://molds-mcp-production.epicpatka.workers.dev/mcp
 
 This will open a popup where you can sign in after which you'll be able to use all of the tools.
 
