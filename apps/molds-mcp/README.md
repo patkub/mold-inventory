@@ -48,7 +48,7 @@ To start the MCP server with the staging Auth0 tenant, update the `AUTH0_CLIENT_
 pnpm run staging
 ```
 
-With MCP Inspector you can connect to the MCP server, list the available tools and call them. Make sure to set the transport type to `sse` and the URL to `http://localhost:8788/sse`.
+With MCP Inspector you can connect to the MCP server, list the available tools and call them. Make sure to set the transport type to `sse` and the URL to `http://localhost:8788/mcp`.
 
 ## Deploying the MCP Server to Cloudflare
 
@@ -68,7 +68,7 @@ pnpm run deploy
 
 To test this you can now use the Workers AI LLM Playground. Navigate to [https://playground.ai.cloudflare.com/](https://playground.ai.cloudflare.com/) and connect to the molds MCP server on the bottom left using the following URL:
 
-https://molds-mcp-production.epicpatka.workers.dev/sse
+https://molds-mcp-production.epicpatka.workers.dev/mcp
 
 This will open a popup where you can sign in after which you'll be able to use all of the tools.
 
