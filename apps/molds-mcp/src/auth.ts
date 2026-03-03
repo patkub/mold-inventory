@@ -148,9 +148,9 @@ export async function authorize(c: Context<{ Bindings: Env & { OAUTH_PROVIDER: O
 		client,
 		csrfToken,
 		server: {
-			description: "This is an Auth0 OIDC Proxy Demo MCP Server.",
+			description: "This is an Molds MCP Server.",
 			logo: undefined,
-			name: "Auth0 OIDC Proxy Demo",
+			name: "Molds MCP Server",
 		},
 		setCookie: csrfCookie,
 		state: { oauthReqInfo: mcpClientAuthRequest, auth0Data },
