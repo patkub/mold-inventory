@@ -9,5 +9,3 @@ Screenshots interacting with AI.
 ![AI Chat 1](./ai-chat-1.png)
 
 ![AI Chat 2](./ai-chat-2.png)
-
-![AI Chat 3](./ai-chat-3.png)
