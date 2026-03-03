@@ -97,7 +97,7 @@ export async function authorize(c: Context<{ Bindings: Env & { OAUTH_PROVIDER: O
 			...mcpClientAuthRequest,
 			auth0Data,
 		};
-		const { stateToken } = await createOAuthState(extendedRequest, c.env.MOLDS_MCP_OAUTH_KV);
+		const { stateToken } = await createOAuthState(extendedRequest, c.env.OAUTH_KV);
 		const { setCookie: sessionBindingCookie } = await bindStateToSession(stateToken);
 
 		// Redirect directly to Auth0
@@ -202,7 +202,7 @@ export async function confirmConsent(
 			...state.oauthReqInfo,
 			auth0Data: state.auth0Data,
 		};
-		const { stateToken } = await createOAuthState(extendedRequest, c.env.MOLDS_MCP_OAUTH_KV);
+		const { stateToken } = await createOAuthState(extendedRequest, c.env.OAUTH_KV);
 		const { setCookie: sessionBindingCookie } = await bindStateToSession(stateToken);
 
 		// Get Auth0 configuration
@@ -266,7 +266,7 @@ export async function callback(c: Context<{ Bindings: Env & { OAUTH_PROVIDER: OA
 	let clearSessionCookie: string;
 
 	try {
-		const result = await validateOAuthState(c.req.raw, c.env.MOLDS_MCP_OAUTH_KV);
+		const result = await validateOAuthState(c.req.raw, c.env.OAUTH_KV);
 		storedData = result.oauthReqInfo as ExtendedAuthRequest;
 		clearSessionCookie = result.clearCookie;
 	} catch (error: any) {

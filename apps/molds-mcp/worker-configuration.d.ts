@@ -7,7 +7,7 @@ declare namespace Cloudflare {
 		durableNamespaces: "MoldsMCP";
 	}
 	interface ProductionEnv {
-		MOLDS_MCP_OAUTH_KV: KVNamespace;
+		OAUTH_KV: KVNamespace;
 		AI: Ai;
 		AUTH0_DOMAIN: "epicpatka.us.auth0.com";
 		AUTH0_CLIENT_ID: "1yzbqr2RKS7CudIB1hF3Nyyvl1clHSzX";
@@ -20,7 +20,7 @@ declare namespace Cloudflare {
 		MCP_OBJECT: DurableObjectNamespace<import("./src/index").MoldsMCP>;
 	}
 	interface StagingEnv {
-		MOLDS_MCP_OAUTH_KV: KVNamespace;
+		OAUTH_KV: KVNamespace;
 		AI: Ai;
 		AUTH0_DOMAIN: "epicpatka-staging.us.auth0.com";
 		AUTH0_CLIENT_ID: "BOV5FA1Han3HliN2o5lKmdvsq76uzUH8";
@@ -33,7 +33,7 @@ declare namespace Cloudflare {
 		MCP_OBJECT: DurableObjectNamespace<import("./src/index").MoldsMCP>;
 	}
 	interface DevEnv {
-		MOLDS_MCP_OAUTH_KV: KVNamespace;
+		OAUTH_KV: KVNamespace;
 		AI: Ai;
 		AUTH0_DOMAIN: "epicpatka-dev.us.auth0.com";
 		AUTH0_CLIENT_ID: "Stox6x4BKLT7aV6nF6a2aXl6riivZbVm";
@@ -49,7 +49,7 @@ declare namespace Cloudflare {
 		AUTH0_CLIENT_SECRET: string;
 		COOKIE_ENCRYPTION_KEY: string;
 		NODE_ENV: string;
-		MOLDS_MCP_OAUTH_KV?: KVNamespace;
+		OAUTH_KV?: KVNamespace;
 		AI?: Ai;
 		AUTH0_DOMAIN?: "epicpatka.us.auth0.com" | "epicpatka-staging.us.auth0.com" | "epicpatka-dev.us.auth0.com";
 		AUTH0_CLIENT_ID?: "1yzbqr2RKS7CudIB1hF3Nyyvl1clHSzX" | "BOV5FA1Han3HliN2o5lKmdvsq76uzUH8" | "Stox6x4BKLT7aV6nF6a2aXl6riivZbVm";

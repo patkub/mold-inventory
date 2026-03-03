@@ -29,7 +29,7 @@
       },
       "kv_namespaces": [
         {
-          "binding": "MOLDS_MCP_OAUTH_KV",
+          "binding": "OAUTH_KV",
           "id": "212171ff08d84a0ea229a59f8524fc4d"
         }
       ],
@@ -58,7 +58,7 @@
       },
       "kv_namespaces": [
         {
-          "binding": "MOLDS_MCP_OAUTH_KV",
+          "binding": "OAUTH_KV",
           "id": "212171ff08d84a0ea229a59f8524fc4d"
         }
       ],
@@ -87,7 +87,7 @@
       },
       "kv_namespaces": [
         {
-          "binding": "MOLDS_MCP_OAUTH_KV",
+          "binding": "OAUTH_KV",
           "id": "212171ff08d84a0ea229a59f8524fc4d"
         }
       ],
