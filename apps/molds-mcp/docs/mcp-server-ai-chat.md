@@ -2,10 +2,12 @@
 
 Screenshots interacting with AI.
 
-![AI Authorization Request](./ai-authorization-request.png)
-
 ![AI Auth0 Login](./ai-auth0-login.png)
+
+![AI Authorization Request](./ai-authorization-request.png)
 
 ![AI Chat 1](./ai-chat-1.png)
 
 ![AI Chat 2](./ai-chat-2.png)
+
+![AI Chat 3](./ai-chat-3.png)
