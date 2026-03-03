@@ -9,7 +9,7 @@
     "type-check": "tsc --noEmit",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
-    "kv:create": "wrangler kv namespace create OAUTH_KV",
+    "kv:create": "wrangler kv namespace create MOLDS_MCP_OAUTH_KV",
     "deploy": "wrangler deploy --minify --env production"
   },
   "dependencies": {

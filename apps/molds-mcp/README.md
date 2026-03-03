@@ -16,9 +16,9 @@ See [MCP Server AI Chat](./docs/mcp-server-ai-chat.md) for screenshots interacti
 
 Refer to [`auth0-tenant`](../auth0-tenant/README.md) app.
 
-### Set up OAUTH_KV namespace
+### Set up MOLDS_MCP_OAUTH_KV namespace
 
-- Create the `OAUTH_KV` KV namespace: `pnpm run kv:create`
+- Create the `MOLDS_MCP_OAUTH_KV` KV namespace: `pnpm run kv:create`
 - Update `./wrangler.jsonc` file with the KV ID
 
 ## Development and Staging
@@ -80,7 +80,7 @@ This will open a popup where you can sign in after which you'll be able to use a
 - `pnpm run type-check` - typescript lint
 - `pnpm run prettier` - check code format with prettier
 - `pnpm run prettier:fix` - fix code format with prettier
-- `pnpm run kv:create` - Set up OAUTH_KV namespace
+- `pnpm run kv:create` - Set up MOLDS_MCP_OAUTH_KV namespace
 - `pnpm run deploy` - deploy production version to Cloudflare
 
 ## Troubleshooting
