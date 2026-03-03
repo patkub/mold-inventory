@@ -52,7 +52,7 @@ app.post("/authorize", confirmConsent);
 app.get("/callback", callback);
 
 export default new OAuthProvider({
-	apiHandler: AuthenticatedMCP.serve("/mcp"),
+	apiHandler: MoldsMCP.serve("/mcp"),
 	apiRoute: "/mcp",
 	authorizeEndpoint: "/authorize",
 	clientRegistrationEndpoint: "/register",
