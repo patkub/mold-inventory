@@ -148,7 +148,7 @@ export async function authorize(c: Context<{ Bindings: Env & { OAUTH_PROVIDER: O
 		client,
 		csrfToken,
 		server: {
-			description: "This is an Molds MCP Server.",
+			description: "This is a Molds MCP Server.",
 			logo: undefined,
 			name: "Molds MCP Server",
 		},
