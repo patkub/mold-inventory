@@ -6,6 +6,7 @@ import { authorize, callback, confirmConsent, tokenExchangeCallback } from "./au
 import type { UserProps } from "./types";
 
 export class MoldsMCP extends McpAgent<Env, Record<string, never>, UserProps> {
+	// @ts-ignore
 	server = new McpServer({
 		name: "Molds MCP Server Auth0 OIDC",
 		version: "1.0.0",
