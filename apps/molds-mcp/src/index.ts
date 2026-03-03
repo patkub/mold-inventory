@@ -20,7 +20,7 @@ export class MoldsMCP extends McpAgent<Env, Record<string, never>, UserProps> {
 		// Call the Molds API on behalf of the current user.
 		this.server.tool("list-molds", "List molds", {}, async () => {
 			try {
-				const response = await fetch(`${this.env.API_BASE_URL}/api/todos`, {
+				const response = await fetch(`${this.env.API_BASE_URL}/api/molds`, {
 					headers: {
 						// The Auth0 Access Token is available in props.tokenSet and can be used to call the Upstream API (Molds API).
 						Authorization: `Bearer ${this.props!.tokenSet.accessToken}`,
