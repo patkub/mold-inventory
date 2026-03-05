@@ -36,7 +36,7 @@
     "@radix-ui/react-toast": "^1.2.15",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.576.0",
+    "lucide-react": "^0.577.0",
     "next": "16.1.6",
     "next-themes": "^0.4.6",
     "react": "^19.2.4",
@@ -68,6 +68,6 @@
     "vite-tsconfig-paths": "^6.1.1",
     "vitest": "~4.0.18",
     "vitest-mock-extended": "^3.1.0",
-    "wrangler": "^4.69.0"
+    "wrangler": "^4.70.0"
   }
 }
