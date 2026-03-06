@@ -10,5 +10,6 @@ onlyBuiltDependencies:
   - '@prisma/engines'
   - core-js-pure
   - keccak
+  - nx
   - prisma
   - workerd
