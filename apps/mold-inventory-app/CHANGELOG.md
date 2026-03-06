@@ -1,5 +1,11 @@
 # mold-inventory-app
 
+## 1.13.0
+
+### Minor Changes
+
+- Send CF-Access-Token to API behind Cloudflare Access
+
 ## 1.12.0
 
 ### Minor Changes
