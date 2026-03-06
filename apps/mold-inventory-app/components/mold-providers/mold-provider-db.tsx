@@ -25,11 +25,32 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
 
   const NEXT_PUBLIC_API_SERVER = process.env.NEXT_PUBLIC_API_SERVER || ''
 
+  /**
+   * Read cookie
+   * @param cname cookie name
+   * @returns {string} cookie value
+   */
+  function getCookie(cname: string): string {
+    let name = cname + '='
+    let ca = document.cookie.split(';')
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i]
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1)
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length)
+      }
+    }
+    return ''
+  }
+
   // Add Auth0 access token to request
   const attachAuth0AccessToken = async (request: Request) => {
     const AUTH0_DOMAIN = process.env.NEXT_PUBLIC_AUTH0_DOMAIN || ''
     const AUTH0_AUDIENCE = process.env.NEXT_PUBLIC_AUTH0_AUDIENCE || ''
 
+    // Get Auth0 Access Token
     const accessToken = await getAccessTokenSilently({
       authorizationParams: {
         audience: `https://${AUTH0_AUDIENCE}`,
@@ -37,7 +58,13 @@ export function MoldProviderDB({ children }: { children: React.ReactNode }) {
       },
     })
 
+    // Get Cloudflare authorization cookie
+    const cfToken = getCookie('CF_Authorization')
+
+    // Attach access tokens
     request.headers.append('Authorization', `Bearer ${accessToken}`)
+    request.headers.append('CF-Access-Token', cfToken)
+
     return request
   }
 
