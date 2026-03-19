@@ -15,9 +15,9 @@
   "dependencies": {
     "@cloudflare/workers-oauth-provider": "^0.3.0",
     "@modelcontextprotocol/sdk": "1.27.1",
-    "agents": "^0.7.6",
-    "hono": "^4.12.7",
-    "jose": "^6.2.1",
+    "agents": "^0.7.9",
+    "hono": "^4.12.8",
+    "jose": "^6.2.2",
     "just-pick": "^4.2.0",
     "oauth4webapi": "^3.8.5",
     "workers-mcp": "^0.0.13"
@@ -26,7 +26,7 @@
     "@types/node": "^22.17.0",
     "prettier": "^3.8.1",
     "typescript": "^5.9.3",
-    "wrangler": "^4.72.0",
+    "wrangler": "^4.75.0",
     "zod": "^3.25.76"
   }
 }
