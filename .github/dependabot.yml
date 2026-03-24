@@ -26,9 +26,6 @@ updates:
       # MCP only works with Zod v3
       - dependency-name: "zod"
         versions: [ ">3" ]
-      # @cloudflare/vitest-pool-workers only works with Vitest v3
-      - dependency-name: "vitest"
-        versions: [ ">3" ]
       # ESLint v9
       - dependency-name: "eslint"
         versions: [ ">9" ]
