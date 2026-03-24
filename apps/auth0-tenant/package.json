@@ -15,10 +15,10 @@
     "test:watch": "vitest --silent"
   },
   "devDependencies": {
-    "@auth0/actions": "^0.17.0",
-    "@vitest/coverage-v8": "^4.0.18",
-    "auth0-deploy-cli": "^8.29.1",
-    "vitest": "~4.0.18",
+    "@auth0/actions": "^0.18.0",
+    "@vitest/coverage-v8": "~4.1.1",
+    "auth0-deploy-cli": "^8.29.2",
+    "vitest": "~4.1.1",
     "vitest-mock-commonjs": "^1.0.2",
     "vitest-mock-extended": "^3.1.0"
   }

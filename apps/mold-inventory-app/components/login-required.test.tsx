@@ -1,9 +1,10 @@
-import { it, describe, expect, vi, beforeEach, afterEach } from 'vitest'
+import { it, describe, expect, vi, afterEach } from 'vitest'
 import { render, screen, cleanup } from '@testing-library/react'
 import { LoginRequired } from './login-required'
 
 // mock auth0 library
 import * as auth0 from '@auth0/auth0-react'
+vi.mock('@auth0/auth0-react')
 
 // fake user
 const fakeUser = {
@@ -13,11 +14,6 @@ const fakeUser = {
 }
 
 describe('LoginRequired', () => {
-  beforeEach(() => {
-    // mock auth0 library
-    vi.mock('@auth0/auth0-react')
-  })
-
   afterEach(() => {
     vi.resetAllMocks()
     cleanup()
