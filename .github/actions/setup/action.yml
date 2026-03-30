@@ -1,5 +1,5 @@
 name: Setup
-description: Checks out code, installs pnpm, sets up Node.js, restores Nx cache, and installs dependencies
+description: Installs pnpm, sets up Node.js, restores Nx cache, and installs dependencies
 
 inputs:
   node-version:
