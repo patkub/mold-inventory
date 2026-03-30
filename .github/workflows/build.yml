@@ -77,6 +77,15 @@ jobs:
           node-version: ${{ matrix.node-version }}
           nx-cache-key: nx-cache-${{ github.job }}-${{ runner.os }}-${{ matrix.node-version }}
 
+      - name: Restore Next.js build cache
+        uses: actions/cache@v5
+        with:
+          path: |
+            ./apps/mold-inventory-app/.next
+          key: nextjs-cache-${{ github.job }}-${{ runner.os }}-${{ matrix.node-version }}
+          restore-keys: |
+            nextjs-cache-${{ github.job }}-${{ runner.os }}-${{ matrix.node-version }}
+
       - name: Type Check
         run: pnpm nx type-check mold-inventory-app
 
@@ -110,6 +119,16 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           nx-cache-key: nx-cache-${{ github.job }}-${{ runner.os }}-${{ matrix.node-version }}
+
+      - name: Restore Next.js build cache
+        uses: actions/cache@v5
+        with:
+          path: |
+            ./apps/mold-inventory-app/.next
+            ./apps/mold-inventory-app/.open-next
+          key: nextjs-cache-${{ github.job }}-${{ runner.os }}-${{ matrix.node-version }}
+          restore-keys: |
+            nextjs-cache-${{ github.job }}-${{ runner.os }}-${{ matrix.node-version }}
 
       - name: Type Check
         run: pnpm nx type-check mold-inventory-app
