@@ -13,6 +13,9 @@ jobs:
         node-version: [22.x]
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
       - name: Setup workspace
         uses: ./.github/actions/setup
         with:
@@ -32,6 +35,9 @@ jobs:
         node-version: [22.x]
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
       - name: Setup workspace
         uses: ./.github/actions/setup
         with:
@@ -62,6 +68,9 @@ jobs:
         node-version: [22.x]
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
       - name: Setup workspace
         uses: ./.github/actions/setup
         with:
@@ -93,6 +102,9 @@ jobs:
         node-version: [22.x]
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
       - name: Setup workspace
         uses: ./.github/actions/setup
         with:
@@ -124,6 +136,9 @@ jobs:
         node-version: [22.x]
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
       - name: Setup workspace
         uses: ./.github/actions/setup
         with:
