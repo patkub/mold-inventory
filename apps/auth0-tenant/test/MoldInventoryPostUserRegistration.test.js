@@ -3,51 +3,48 @@ import { mockForNodeRequire } from "vitest-mock-commonjs"
 
 import { onExecutePostUserRegistration } from '../auth0-tenant/actions/MoldInventoryPostUserRegistration/code.js'
 
+const mocks = vi.hoisted(() => {
+  const managementClientPass = {
+    users: {
+      assignPermissions: vi.fn(async (user, permissions) => new Promise((resolve) => resolve()))
+    }
+  }
+
+  class ManagementClientPass {
+    constructor() {
+      this.users = managementClientPass.users
+    }
+  }
+
+  const managementClientFail = {
+    users: {
+      assignPermissions: vi.fn(async (user, permissions) => new Promise((resolve, reject) => reject(new Error('Error assigning permissions'))))
+    }
+  }
+
+  class ManagementClientFail {
+    constructor() {
+      this.users = managementClientFail.users
+    }
+  }
+
+  const mocks = {
+    managementClientPass: {
+      ManagementClient: ManagementClientPass,
+      managementClient: managementClientPass
+    },
+    managementClientFail: {
+      ManagementClient: ManagementClientFail,
+      managementClient: managementClientFail
+    }
+  }
+
+  return mocks
+})
+
 describe('onExecutePostUserRegistration', () => {
 
   let event, api;
-
-  beforeAll(() => {
-    const mocks = vi.hoisted(() => {
-      const managementClientPass = {
-        users: {
-          assignPermissions: vi.fn(async (user, permissions) => new Promise((resolve) => resolve()))
-        }
-      }
-
-      class ManagementClientPass {
-        constructor() {
-          this.users = managementClientPass.users
-        }
-      }
-
-      const managementClientFail = {
-        users: {
-          assignPermissions: vi.fn(async (user, permissions) => new Promise((resolve, reject) => reject(new Error('Error assigning permissions'))))
-        }
-      }
-
-      class ManagementClientFail {
-        constructor() {
-          this.users = managementClientFail.users
-        }
-      }
-
-      const mocks = {
-        managementClientPass: {
-          ManagementClient: ManagementClientPass,
-          managementClient: managementClientPass
-        },
-        managementClientFail: {
-          ManagementClient: ManagementClientFail,
-          managementClient: managementClientFail
-        }
-      }
-
-      return mocks
-    })
-  })
-
 
   beforeEach(() => {
     // Mock Auth0 Event and API objects
