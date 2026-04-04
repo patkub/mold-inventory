@@ -32,9 +32,6 @@ updates:
       # @cloudflare/vitest-pool-workers only works with Vitest v3
       - dependency-name: "vitest"
         versions: [ ">3" ]
-      # Vite plugin for React projects
-      - dependency-name: "@vitejs/plugin-react"
-        versions: [ ">5" ]
     patterns: ["*"]
     multi-ecosystem-group: "dependencies"
 

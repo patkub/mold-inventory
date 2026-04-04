@@ -1,5 +1,4 @@
 import { defineConfig, defineProject } from 'vitest/config'
-import tsconfigPaths from 'vite-tsconfig-paths'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
@@ -7,7 +6,10 @@ export default defineConfig({
     // "test.workspace" is now "test.projects"
     projects: [
       defineProject({
-        plugins: [tsconfigPaths(), react()],
+        plugins: [react()],
+        resolve: {
+          tsconfigPaths: true,
+        },
         test: {
           name: 'Components',
           environment: 'jsdom',
