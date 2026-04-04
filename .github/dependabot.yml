@@ -29,9 +29,6 @@ updates:
       # MCP
       - dependency-name: "agents"
         versions: [ ">0.7" ]
-      # @cloudflare/vitest-pool-workers only works with Vitest v3
-      - dependency-name: "vitest"
-        versions: [ ">3" ]
     patterns: ["*"]
     multi-ecosystem-group: "dependencies"
 
