@@ -23,12 +23,6 @@ updates:
         versions: [ ">=16.2.2" ]
       - dependency-name: "@next/eslint-plugin-next"
         versions: [ ">=16.2.2" ]
-      # MCP only works with Zod v3
-      - dependency-name: "zod"
-        versions: [ ">3" ]
-      # MCP
-      - dependency-name: "agents"
-        versions: [ ">0.7" ]
     patterns: ["*"]
     multi-ecosystem-group: "dependencies"
 

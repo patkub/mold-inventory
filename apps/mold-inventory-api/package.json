@@ -24,24 +24,24 @@
   },
   "dependencies": {
     "@hono/zod-validator": "^0.7.6",
-    "@prisma/adapter-d1": "^7.5.0",
-    "@prisma/client": "^7.5.0",
-    "@prisma/client-runtime-utils": "^7.5.0",
-    "hono": "^4.12.9",
+    "@prisma/adapter-d1": "^7.6.0",
+    "@prisma/client": "^7.6.0",
+    "@prisma/client-runtime-utils": "^7.6.0",
+    "hono": "^4.12.10",
     "zod": "^4.3.6"
   },
   "devDependencies": {
     "@cloudflare/vitest-pool-workers": "^0.14.1",
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^10.0.1",
-    "eslint": "^10.0.1",
+    "eslint": "^10.2.0",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.8.1",
-    "prisma": "^7.5.0",
+    "prisma": "^7.6.0",
     "typescript": "^6.0.2",
-    "typescript-eslint": "^8.57.2",
+    "typescript-eslint": "^8.58.0",
     "vitest": "^4.1.2",
     "vitest-mock-extended": "^3.1.1",
-    "wrangler": "^4.77.0"
+    "wrangler": "^4.80.0"
   }
 }
