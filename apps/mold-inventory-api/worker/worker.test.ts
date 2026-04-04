@@ -36,8 +36,6 @@ describe('Molds', () => {
     // disable CORS and CSRF for local testing
     env.CORS_ORIGIN = ['*']
 
-    
-
     // reset prisma mocks
     mockReset(prisma)
   })
